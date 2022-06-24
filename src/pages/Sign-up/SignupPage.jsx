@@ -47,13 +47,16 @@ const SignupPage = () => {
     setPhone(e.target.value);
   };
 
-  const handleSubmit = ()=> {
-    dispatch(registerUser({login,firstName,lastName,password,phone,role}))
-    setPassword('')
-    setPhone('')
-    setFirstName('')
-    setLastName('')
-  }
+  const handleSubmit = () => {
+    dispatch(
+      registerUser({ login, firstName, lastName, password, phone, role })
+    );
+    setPassword("");
+    setPhone("");
+    setFirstName("");
+    setLastName("");
+    setLogin("");
+  };
 
   return (
     <div>
@@ -111,7 +114,9 @@ const SignupPage = () => {
         </div>
       </div>
       <div>
-        <button disabled={signinUp} onClick={handleSubmit}>Зарегистрироваться</button>
+        <button disabled={signinUp} onClick={handleSubmit}>
+          Зарегистрироваться
+        </button>
       </div>
     </div>
   );

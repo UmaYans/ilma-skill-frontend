@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { registerUser } from "../../redux-toolkit/features/usersSlice";
 
 const SignupPage = () => {
@@ -10,6 +11,7 @@ const SignupPage = () => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
@@ -31,6 +33,10 @@ const SignupPage = () => {
     setFirstName(e.target.value);
   };
 
+  const handleChangeAge = (e) => {
+    setAge(e.target.value);
+  };
+
   const handleChangeLastName = (e) => {
     setLastName(e.target.value);
   };
@@ -49,13 +55,14 @@ const SignupPage = () => {
 
   const handleSubmit = () => {
     dispatch(
-      registerUser({ login, firstName, lastName, password, phone, role })
+      registerUser({ login, firstName, age, lastName, password, phone, role })
     );
     setPassword("");
     setPhone("");
     setFirstName("");
     setLastName("");
     setLogin("");
+    setAge("");
   };
 
   return (
@@ -79,6 +86,15 @@ const SignupPage = () => {
             type="text"
             placeholder="Введите фамилию..."
             onChange={handleChangeLastName}
+          />
+        </div>
+        Возраст
+        <div>
+          <input
+            type="number"
+            value={age}
+            placeholder="Укажите возраст"
+            onChange={handleChangeAge}
           />
         </div>
         Номер телефона
@@ -117,6 +133,9 @@ const SignupPage = () => {
         <button disabled={signinUp} onClick={handleSubmit}>
           Зарегистрироваться
         </button>
+        <p>
+          Уже есть аккаунт? <Link to="../sign-in">Войти</Link>
+        </p>
       </div>
     </div>
   );

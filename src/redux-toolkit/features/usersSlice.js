@@ -11,7 +11,10 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
   "add/user",
-  async ({ firstName, lastName, login, password, phone, role }, thunkAPI) => {
+  async (
+    { firstName, lastName, login, age, password, phone, role },
+    thunkAPI
+  ) => {
     try {
       const res = await fetch("/users", {
         method: "POST",
@@ -22,6 +25,7 @@ export const registerUser = createAsyncThunk(
           firstName,
           lastName,
           login,
+          age,
           password,
           phone,
           role,
@@ -63,6 +67,30 @@ export const auth = createAsyncThunk(
   }
 );
 
+export const getUserById = createAsyncThunk(
+  "get/userById",
+  async (_id, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const res = await fetch(`/user`, {
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
+      const user = await res.json();
+      if (user.error) {
+        return thunkAPI.rejectWithValue({ error: user.error });
+      } else {
+        return thunkAPI.fulfillWithValue(user);
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue({
+        error,
+      });
+    }
+  }
+);
+
 const usersSlice = createSlice({
   name: "users",
   initialState,
@@ -86,6 +114,19 @@ const usersSlice = createSlice({
       })
       .addCase(auth.rejected, (state, action) => {
         state.error = action.payload.error;
+      });
+    builder
+      .addCase(getUserById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(getUserById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = true;
+      })
+      .addCase(getUserById.pending, (state, action) => {
+        state.loading = true;
+        state.error = false;
       });
   },
 });

@@ -7,6 +7,7 @@ const initialState = {
   users: {},
   token: localStorage.getItem("token"),
   loading: false,
+  userAvatar: {},
 };
 
 export const registerUser = createAsyncThunk(
@@ -67,26 +68,48 @@ export const auth = createAsyncThunk(
   }
 );
 
-export const getUserById = createAsyncThunk(
-  "get/userById",
-  async (_id, thunkAPI) => {
-    const state = thunkAPI.getState();
+export const getUser = createAsyncThunk("get/user", async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+
+  try {
+    const res = await fetch("/user", {
+      headers: {
+        Authorization: `Bearer ${state.user.token}`,
+      },
+    });
+    const user = await res.json();
+    if (user.error) {
+      return thunkAPI.rejectWithValue({ error: user.error });
+    } else {
+      return thunkAPI.fulfillWithValue(user);
+    }
+  } catch (error) {
+    return thunkAPI.rejectWithValue({
+      error,
+    });
+  }
+});
+
+
+export const pathAvatar = createAsyncThunk(
+  "path/avatar",
+  async ({ file, id }, thunkAPI) => {
     try {
-      const res = await fetch(`/user`, {
-        headers: {
-          Authorization: `Bearer ${state.user.token}`,
-        },
+      const formData = new FormData();
+      formData.append("avatar", file);
+
+      const res = await fetch(`/avatar/${id}`, {
+        method: "PATCH",
+        body: formData,
       });
-      const user = await res.json();
-      if (user.error) {
-        return thunkAPI.rejectWithValue({ error: user.error });
+      const data = await res.json();
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
       } else {
-        return thunkAPI.fulfillWithValue(user);
+        return thunkAPI.rejectWithValue(data);
       }
     } catch (error) {
-      return thunkAPI.rejectWithValue({
-        error,
-      });
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -115,18 +138,22 @@ const usersSlice = createSlice({
       .addCase(auth.rejected, (state, action) => {
         state.error = action.payload.error;
       });
-    builder
-      .addCase(getUserById.fulfilled, (state, action) => {
+      builder
+      .addCase(pathAvatar.fulfilled, (state, action) => {
+        state.userAvatar = action.payload
+      });
+      builder
+      .addCase(getUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = false;
+        state.users = action.payload;
+        state.error = null;
       })
-      .addCase(getUserById.rejected, (state, action) => {
-        state.loading = false;
-        state.error = true;
-      })
-      .addCase(getUserById.pending, (state, action) => {
+      .addCase(getUser.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
+      })
+      .addCase(getUser.rejected, (state, action) => {
+        state.loading = false;
       });
   },
 });

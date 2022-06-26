@@ -24,7 +24,7 @@ export const getServiceById = createAsyncThunk(
   "get/serviceById",
   async (id, thunkAPI) => {
     try {
-      const res = await fetch(`/service/${id}`);
+      const res = await fetch(`/service/one/${id}`);
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {

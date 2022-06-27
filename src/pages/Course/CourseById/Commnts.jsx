@@ -27,7 +27,7 @@ const Commnts = ({ user, token, id }) => {
           onChange={(e) => setText(e.target.value)}
           placeholder="Оставьте комментарий..."
         />
-        <input type="submit" value="Добавить" disabled={!text} onClick={() => addCom()} />
+        <input type="submit" value="Добавить" disabled={!text} onClick={addCom()} />
       </form>
       <div>
         {comments.map(comment => {

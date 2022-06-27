@@ -5,15 +5,11 @@ import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 import { getUser } from "../../../redux-toolkit/features/usersSlice";
 import Commnts from "./Commnts";
 
-
 import VideoChat from "./VideoChat";
 
 const CourseById = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-
-
-
 
   const servic = useSelector((state) => state.serv.servic);
   const user = useSelector((state) => state.user.users);
@@ -24,17 +20,13 @@ const CourseById = () => {
     dispatch(getUser());
   }, [dispatch, id]);
 
-
-
   return (
     <div>
       <div>{servic.name}</div>
       <div>
-        <VideoChat user={user} token={token}/>
+        <VideoChat user={user} token={token} />
       </div>
-      <div>
-        <Commnts user={user} token={token} id={id}/>
-      </div>
+      <div> <Commnts user={user} token={token} id={id}/> </div>
     </div>
   );
 };

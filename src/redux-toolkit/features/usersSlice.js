@@ -11,7 +11,10 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
   "add/user",
-  async ({ firstName, lastName, login, password, phone, role }, thunkAPI) => {
+  async (
+    { firstName, lastName, login, age, password, phone, role },
+    thunkAPI
+  ) => {
     try {
       const res = await fetch("/users", {
         method: "POST",
@@ -22,6 +25,7 @@ export const registerUser = createAsyncThunk(
           firstName,
           lastName,
           login,
+          age,
           password,
           phone,
           role,
@@ -147,9 +151,11 @@ const usersSlice = createSlice({
       .addCase(getUser.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload;
+        state.error = null;
       })
       .addCase(getUser.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(getUser.rejected, (state, action) => {
         state.loading = false;

@@ -4,8 +4,9 @@
   text-align: center;
 }
 .backGround {
-  background: url("https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg")
-    no-repeat center center fixed;
+  /* background: url("https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg")
+    no-repeat center center fixed; */
+    background-color:gray;
   background-size: cover;
   background-repeat: repeat;
   height: 100%;

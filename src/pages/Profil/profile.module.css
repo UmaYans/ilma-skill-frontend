@@ -1,4 +1,67 @@
+.main {
+    background: rgba(23, 24, 54, 1);
+    color: white;
+}
 .img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    border-radius: 13px;
+    margin: 50px 20px 30px;
+}
+.input {
+    display: none;
+    border-radius: 40px;
+} 
+.iconKa {
+    width: 30px;
+    height: 30px;
+}
+.conainer {
+    display: flex;
+    margin: 0 190px;
+}
+.userLastname {
+    font-size: 19px;
+    color: aqua;
+    margin-bottom: 12px;
+}
+.horiz{
+    border: solid 0.1px;
+    width: 1200px;
+}
+.cont2 {
+    margin: 0  195px;
+}
+.pathPhot {
+    cursor: pointer;
+}
+.email {
+    margin-left: 15px;
+}
+.phone{
+ margin-left: 15px;
+}
+.info{ 
+    margin-top: 60px;
+    margin-left: 50px;
+    flex-wrap: wrap;
+}
+.userName {
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+.age {
+    font-size: 19px;
+}
+.sidebar {
+    margin-left: 197px;
+}
+.title {
+    margin-left: 30px;
+    font-size: 22px;
+}
+.horiz2 {
+    border: solid 0.1px;
+    width: 140px;
+    margin-right: 1500px;
 }

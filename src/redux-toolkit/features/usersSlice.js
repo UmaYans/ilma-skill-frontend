@@ -7,7 +7,6 @@ const initialState = {
   users: {},
   token: localStorage.getItem("token"),
   loading: false,
-  userAvatar: {},
 };
 
 export const registerUser = createAsyncThunk(
@@ -90,26 +89,33 @@ export const getUser = createAsyncThunk("get/user", async (_, thunkAPI) => {
   }
 });
 
-
 export const pathAvatar = createAsyncThunk(
-  "path/avatar",
-  async ({ file, id }, thunkAPI) => {
+  "path/pathAvatar",
+  async ({ file }, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+
       const formData = new FormData();
       formData.append("avatar", file);
 
-      const res = await fetch(`/avatar/${id}`, {
+      const res = await fetch("http://localhost:4100/avatar", {
         method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+        },
         body: formData,
       });
       const data = await res.json();
+
       if (data.error) {
-        return thunkAPI.rejectWithValue(data.error);
+        return thunkAPI.rejectWithValue({ error: data.error });
       } else {
-        return thunkAPI.rejectWithValue(data);
+        return thunkAPI.fulfillWithValue(data);
       }
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue({
+        error,
+      });
     }
   }
 );
@@ -138,11 +144,10 @@ const usersSlice = createSlice({
       .addCase(auth.rejected, (state, action) => {
         state.error = action.payload.error;
       });
-      builder
-      .addCase(pathAvatar.fulfilled, (state, action) => {
-        state.userAvatar = action.payload
-      });
-      builder
+    builder.addCase(pathAvatar.fulfilled, (state, action) => {
+      state.users = action.payload;
+    });
+    builder
       .addCase(getUser.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload;

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { pathAvatar, getUser } from "../../redux-toolkit/features/usersSlice";
 import style from "./profile.module.css";
-import { BsCardImage } from "react-icons/bs";
 
 const Profil = (id, user) => {
   const image = useSelector((state) => state.user.users);

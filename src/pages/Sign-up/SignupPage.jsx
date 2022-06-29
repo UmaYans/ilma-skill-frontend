@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerUser } from "../../redux-toolkit/features/usersSlice";
+import style from "./Signup.module.css";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+
+import img from "./img.svg";
 
 const SignupPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +23,8 @@ const SignupPage = () => {
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState("User");
   const [check, setCheck] = useState(false);
+
+  const [state, setState] = useState(false);
 
   //Валидация форм
   //Валидация форм
@@ -144,91 +152,161 @@ const SignupPage = () => {
     }
   };
 
+  const toggleBtn = () => {
+    setState((prevState) => !prevState);
+  };
+
   return (
-    <div>
-      {error}
-      <h1>Регистрация</h1>
-      <form action="" onChange={handlePrev}>
+    <div className={style.body}>
+      <div className={style.img}>
         <div>
-          Имя
-          <div className="inp1">
-            {nameDirty && nameError && <div>{nameError}</div>}
-            <input
-              name="text"
-              onBlur={handleBlur}
-              value={firstName}
-              type="text"
-              placeholder="Введите имя..."
-              onChange={hadleChangeName}
-            />
-          </div>
-          Фамилия
-          <div className="inp2">
-            {lastNameDirty && lastNameError && <div>{lastNameError}</div>}
-            <input
-              name="lastName"
-              onBlur={handleBlur}
-              value={lastName}
-              type="text"
-              placeholder="Введите фамилию..."
-              onChange={handleChangeLastName}
-            />
-          </div>
-          Возраст
-          <div>
-            <input
-              type="number"
-              value={age}
-              placeholder="Укажите возраст"
-              onChange={handleChangeAge}
-            />
-          </div>
-          Номер телефона
-          <div>
-            <input
-              type="text"
-              value={phone}
-              placeholder="Введите номер телефона"
-              onChange={handleChangePhone}
-            />
-          </div>
-          Логин
-          <div>
-            {loginDirty && emailError && <div>{emailError}</div>}
-            <input
-              name="email"
-              value={login}
-              onBlur={handleBlur}
-              type="text"
-              placeholder="Введите логин.."
-              onChange={handleChangeLogin}
-            />
-          </div>
-          Пароль
-          <div>
-            {passwordDirty && passwordError && <div>{passwordError}</div>}
-            <input
-              name="password"
-              onBlur={handleBlur}
-              value={password}
-              type="password"
-              placeholder="Введите пароль..."
-              onChange={handleChangePassword}
-            />
-          </div>
-          <div>
-            <input type="checkbox" value={check} onChange={handleRole} /> I`m
-            Teacher
-          </div>
+          <h1>Добро пожаловать на платформу онлайн-обучения SIDIK</h1>
         </div>
-      </form>
-      <div>
-        <button disabled={signinUp} onClick={handleSubmit}>
-          Зарегистрироваться
-        </button>
-        <p>
-          Уже есть аккаунт? <Link to="../sign-in">Войти</Link>
-        </p>
+        <div>
+          <img src={img} alt="#" />
+        </div>
+      </div>
+      <div className={style.content}>
+        {" "}
+        {error}
+        <h1>Регистрация</h1>
+        <form action="" onSubmit={handlePrev}>
+          <div className={style.div}>
+            <p>Имя</p>
+            <div className="inp1">
+              <div className={style.error}>
+                {nameDirty && nameError && <div>{nameError}</div>}
+              </div>
+              <img
+                src="https://www.svgrepo.com/show/368760/id.svg"
+                alt="phot"
+                className={style.nameImg}
+              />
+              <input
+                className={style.input}
+                name="text"
+                onBlur={handleBlur}
+                value={firstName}
+                type="text"
+                placeholder="Введите имя..."
+                onChange={hadleChangeName}
+              />
+            </div>
+            <p>Фамилия</p>
+            <div className="inp2">
+              <div className={style.error}>
+                {lastNameDirty && lastNameError && <div>{lastNameError}</div>}
+              </div>
+              <img
+                src="https://www.svgrepo.com/show/368760/id.svg"
+                alt="phot"
+                className={style.nameImg}
+              />
+              <input
+                className={style.input}
+                name="lastName"
+                onBlur={handleBlur}
+                value={lastName}
+                type="text"
+                placeholder="Введите фамилию..."
+                onChange={handleChangeLastName}
+              />
+            </div>
+            <p>Возраст</p>
+            <div>
+              <img
+                src="https://www.svgrepo.com/show/22720/image.svg"
+                alt="phot"
+                className={style.nameImg}
+              />
+              <input
+                className={style.input}
+                type="number"
+                value={age}
+                placeholder="Укажите возраст"
+                onChange={handleChangeAge}
+              />
+            </div>
+            <p> Номер телефона</p>
+            <div>
+              <img
+                src="            https://www.svgrepo.com/show/39091/telephone.svg                "
+                alt="phot"
+                className={style.nameImg}
+              />
+              {/* <input
+                className={style.input}
+                type="text"
+                value={phone}
+                placeholder="Введите номер телефона"
+                onChange={handleChangePhone}
+              /> */}
+              <InputMask
+                mask="+7(999)-999-99-99"
+                className={style.input}
+                type="text"
+                placeholder="+7 (123)-456-78-90"
+                value={phone}
+                onChange={(e) => handleChangePhone(e)}
+              ></InputMask>
+            </div>
+            <p> Логин</p>
+            <div>
+              <div className={style.error}>
+                {loginDirty && emailError && <div>{emailError}</div>}
+              </div>
+              <img
+                src="https://www.svgrepo.com/show/302497/profile.svg"
+                className={style.imgIcon}
+                alt="phot"
+              />
+              <input
+                className={style.input}
+                name="email"
+                value={login}
+                onBlur={handleBlur}
+                type="text"
+                placeholder="Введите логин.."
+                onChange={handleChangeLogin}
+              />
+            </div>
+            <p> Пароль</p>
+            <div className={style.div_wrapper}>
+              <div className={style.error}>
+                {passwordDirty && passwordError && <div>{passwordError}</div>}
+              </div>
+              {/* <img
+                src="https://www.svgrepo.com/show/84319/password.svg"
+                alt="phot"
+                className={style.passwordImg}
+              /> */}
+              <button onClick={toggleBtn} className={style.imgEye}>
+                {state ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+              </button>
+              <input
+                className={style.input}
+                name="password"
+                onBlur={handleBlur}
+                value={password}
+                type={!state ? "password" : "text"}
+                placeholder="Введите пароль..."
+                onChange={(e) => handleChangePassword(e)}
+              />
+            </div>
+            <div className={style.role}>
+              <input type="checkbox" value={check} onChange={handleRole} /> I`m
+              Teacher
+            </div>
+          </div>
+        </form>
+        <div className={style.reg}>
+          <button disabled={signinUp} onClick={handleSubmit}>
+            Зарегистрироваться
+          </button>
+          <p>
+            Уже есть аккаунт? <Link to="../sign-in">Войти</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

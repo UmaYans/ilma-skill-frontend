@@ -14,6 +14,7 @@ const Course = () => {
   const { catId } = useParams();
 
   const [filtered, setFiltered] = useState([]);
+  console.log('Ассаламу 1алейкум')
 
   const dispatch = useDispatch();
 

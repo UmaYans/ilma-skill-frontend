@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { auth } from "../../redux-toolkit/features/usersSlice";
 import style from "./SigninPage.module.css";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
+import img from "./img.svg";
 const SigninPage = () => {
   const dispatch = useDispatch();
 
@@ -12,9 +14,11 @@ const SigninPage = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
+  const [state, setState] = useState(false);
+
   //Валидация форм
-  const [loginDirty, setLoginDirty] = useState(true);
-  const [passwordDirty, setPasswordDirty] = useState(true);
+  const [loginDirty, setLoginDirty] = useState(false);
+  const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailError, setEmailError] = useState(
     "Поле ввода не может быть пустым"
   );
@@ -73,81 +77,100 @@ const SigninPage = () => {
 
   const handleBlur = (e) => {
     switch (e.target.name) {
+      case "login":
+        setLoginDirty(true);
+        break;
+      case "password":
+        setPasswordDirty(true);
+        break;
       default:
         return false;
     }
   };
 
+  const toggleBtn = () => {
+    setState((prevState) => !prevState);
+  };
+
   return (
     <div className={style.main}>
-      <div className={style.backGround}>
-        <div className="container">
-          <form action="" onSubmit={handleSubmit} className={style.content}>
-            <div>
-              {" "}
-              <div className={style.title}>Авторизация</div>
-            </div>
-            <div>{error}</div>
-            <div className={style.userLog}>Логин</div>
-            <div>
-              {loginDirty && emailError && <div>{emailError}</div>}
-              <img
-                src="https://www.svgrepo.com/show/302497/profile.svg"
-                className={style.imgIcon}
-                alt="phot"
-              />
-              <input
-                name="login"
-                onBlur={(e) => handleBlur(e)}
-                type="text"
-                onChange={(e) => handleChangeLogin(e)}
-                placeholder="Enter login..."
-                value={login}
-                className={style.input1}
-              />
-            </div>
-            <div className={style.userProf}>Пароль</div>
-            <div>
-              {passwordDirty && passwordError && <div>{passwordError}</div>}
-              <img
-                src="https://www.svgrepo.com/show/380010/eye-password-show.svg"
-                alt="phot"
-                className={style.imgEye}
-              />
-              <input
-                onBlur={(e) => handleBlur(e)}
-                name="password"
-                type="password"
-                onChange={(e) => handleChangePassword(e)}
-                placeholder="Enter password"
-                value={password}
-                className={style.input1}
-              />
-            </div>
-            <div>
-              <button
-                disabled={loginDirty || passwordDirty || !login || !password}
-                className={style.button}
-                onClick={handleAuth}
-              >
-                Войти
-              </button>
-            </div>
-            <div>
-              <p>
-                Нет аккаунта?{" "}
-                <Link className={style.auth} to="/sign-up">
-                  Зарегистрируйтесь!
+      <div className={style.img}>
+        <div>
+          <h1>Добро пожаловать на платформу онлайн-обучения SIDIK</h1>
+        </div>
+        <div>
+          <img src={img} alt="#" />
+        </div>
+      </div>
+      <div className={style.second}>
+        <div className={style.backGround}>
+          <div className="container">
+            <form action="" onSubmit={handleSubmit} className={style.content}>
+              <div className={style.auth}>
+                {" "}
+                <div className={style.title}>Авторизация</div>
+              </div>
+              <div>{error}</div>
+              <div className={style.userLog}>Логин</div>
+              <div>
+                <div className={style.error}>
+                  {loginDirty && emailError && <div>{emailError}</div>}
+                </div>
+                <img
+                  src="https://www.svgrepo.com/show/302497/profile.svg"
+                  className={style.imgIcon}
+                  alt="phot"
+                />
+                <input
+                  name="login"
+                  onBlur={(e) => handleBlur(e)}
+                  type="text"
+                  onChange={(e) => handleChangeLogin(e)}
+                  placeholder="Enter login..."
+                  value={login}
+                  className={style.input1}
+                />
+              </div>
+              <div className={style.userProf}>Пароль</div>
+              <div>
+                <div className={style.error}>
+                  {passwordDirty && passwordError && <div>{passwordError}</div>}
+                </div>
+
+                <button onClick={toggleBtn} className={style.imgEye}>
+                  {state ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </button>
+                <input
+                  onBlur={(e) => handleBlur(e)}
+                  name="password"
+                  type={state ? "text" : "password"}
+                  onChange={(e) => handleChangePassword(e)}
+                  placeholder="Enter password"
+                  value={password}
+                  className={style.input1}
+                />
+              </div>
+              <div>
+                <button className={style.button} onClick={handleAuth}>
+                  Войти
+                </button>
+              </div>
+              <div className={style.noA}>
+                <p>
+                  Нет аккаунта?{" "}
+                  <Link className={style.registr} to="/sign-up">
+                    Зарегистрируйтесь!
+                  </Link>
+                </p>
+              </div>
+              <div className={style.gestMain}>
+                Войти как{" "}
+                <Link className={style.gest} to="/">
+                  Гость.
                 </Link>
-              </p>
-            </div>
-            <div className={style.gestMain}>
-              Войти как{" "}
-              <Link className={style.gest} to="/">
-                гость
-              </Link>
-            </div>
-          </form>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

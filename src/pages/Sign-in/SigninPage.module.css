@@ -1,38 +1,37 @@
 .main {
-  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  min-height: 800px;
+  width: 1000px;
   margin: auto;
-  text-align: center;
+  margin-top: 50px;
+  left: 190px;
+  top: 140px;
+  border-radius: 15px;
+  background: #171836;
 }
-.backGround {
-  /* background: url("https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg")
-    no-repeat center center fixed; */
-    background-color:gray;
-  background-size: cover;
-  background-repeat: repeat;
-  height: 100%;
-  width: 100%;
-  padding-top: 60px;
-}
+
 .title {
+  color:  white;
   font-size: 30px;
   padding: 25px;
   font-style: italic;
 }
 .content {
   width: 600px;
-  background: #fff;
   border-radius: 10px;
   overflow: hidden;
   margin: auto;
 }
 .userLog {
-  font-size: 15px;
-  color: #333;
+  font-size: 22px;
+  color: white;
   padding-right: 355px;
   padding-top: 20px;
 }
 
 .input1 {
+  text-align: center;
   background-color: #fff;
   font-size: 20px;
   color: #333;
@@ -42,92 +41,105 @@
   border-top: none;
   border-left: none;
   border-right: none;
+  border-radius: 10px;
   padding: 0 7px 0 43px;
 }
 
 .userProf {
-    font-size: 15px;
-    color: #333;
-    padding-right: 350px;
-    padding-top: 40px;
-  }
+  font-size: 22px;
+  color: white;
+  padding-right: 350px;
+  padding-top: 40px;
+}
 .button {
-    margin-top: 60px;
-    margin-bottom: 30px;
-    text-decoration: none;
-    border: none;
-    font-size: 15px;
-    font-family: inherit;
-    color: #fff;
-    width: 28em;
-    height: 3em;
-    line-height: 2em;
-    text-align: center;
-    background: linear-gradient(90deg,#03a9f4,#f441a5,#03a9f4);
-    background-size: 300%;
-    border-radius: 30px;
-    z-index: 1;
-   }
-   
-.button:hover {
-    animation: ani 8s linear infinite;
-    border: none;
-   }
-   
-   @keyframes ani {
-    0% {
-     background-position: 0%;
-    }
-   
-    100% {
-     background-position: 400%;
-    }
-   }
-   
-.button:before {
-    content: '';
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    z-index: -1;
-    background: linear-gradient(90deg,#03a9f4,#f441a5,#03a9f4);
-    background-size: 400%;
-    border-radius: 35px;
-    transition: 1s;
-   }
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  border: none;
+  font-size: 15px;
+  font-family: inherit;
+  color: black;
+  font-size: 15px;
+  width: 28em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+}
+
 .forgotPass {
-    position: absolute;
-    padding-left: 380px;
-    padding-top: 3px;
+  position: absolute;
+  padding-left: 380px;
+  padding-top: 3px;
 }
 .auth {
-    text-decoration: none;
-    color:#03a9f4;
-    padding-top: 20px;
+  text-decoration: none;
+  color: #03a9f4;
+  padding-top: 20px;
 }
 .gest {
-    text-decoration: none;
-    color: #f441a5;
+  text-decoration: none;
+  color: #f441a5;
 }
-.gestMain{ 
-    padding-top: 10px;
-    padding-bottom: 30px;
+.gestMain {
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 .imgIcon {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin-left: 5px;
-    margin-top: 15px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 15px;
 }
+
 .imgEye {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin-left: 5px;
-    margin-top: 15px; 
+  background-color: white;
+  border: none;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 15px;
 }
 .button:disabled {
   background: gray;
+}
+
+.img h1 {
+  color: white;
+}
+
+.img {
+  align-items: center;
+  margin: auto 40px;
+  width: 35%;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+}
+.registr {
+  font-size: 18px;
+  text-decoration: none;
+  color: #f441a5;
+}
+
+.error {
+  text-align: center;
+  color: red;
+  margin-bottom: 5px;
+}
+.noA {
+  text-align: center;
+  color: white;
+}
+.second {
+  text-align: center;
+  align-items: center;
 }

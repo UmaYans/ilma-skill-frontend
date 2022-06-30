@@ -14,27 +14,26 @@ const Course = () => {
   const { catId } = useParams();
 
   const [filtered, setFiltered] = useState([]);
-  console.log('Ассаламу 1алейкум')
 
   const dispatch = useDispatch();
 
   const services = useSelector((state) => state.serv.services);
   const categories = useSelector((state) => state.cat.categories);
+
   useEffect(() => {
     dispatch(getService());
     dispatch(getCategories());
-    dispatch(getServiceById(catId));
+    // dispatch(getServiceById(catId));
   }, [dispatch]);
 
   function catService(id) {
-    return services.map((servic) => {
-      if (servic.catId === id) {
+    return services.map(servic => {
+      if (servic.catId?._id === id) {
         return <CardCourse key={servic._id} servic={servic} />;
       }
     });
   }
 
-  
   return (
     <div>
       <CartMap />
@@ -42,25 +41,22 @@ const Course = () => {
         {!catId
           ? categories.map((cat, index) => {
               return (
-                <>
+                <div key={cat._id}>
                   {/* {index === 3 && <div>Тут может быть ваша реклама</div>} */}
-                  <div className={style.categories_name} key={cat._id}>
-                    {cat.name}
-                  </div>
+                  <div className={style.categories_name}>{cat.name}</div>
                   <div className={style.catService}> {catService(cat._id)}</div>
-                </>
+                </div>
               );
             })
           : categories.map((cat) => {
               if (cat._id === catId) {
                 return (
-                  <>
+                  <div key={cat._id}>
                     <div>{cat.name}</div>
                     <div className={style.catService}>
-                      {" "}
                       {catService(cat._id)}
                     </div>
-                  </>
+                  </div>
                 );
               }
             })}

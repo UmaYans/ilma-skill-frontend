@@ -14,7 +14,6 @@ function CartMap() {
 
   const handleCategory = (id) => {
     setFiltered(categories.filter((categ) => categ._catId === id));
-    console.log(categories);
   };
 
   return (

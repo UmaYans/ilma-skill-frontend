@@ -20,7 +20,7 @@ const Footer = () => {
         <div className={style.block3}>
           <div className={style.title2}>IlmaSkill</div>
           <div className={style.text1}>
-            Any feedback or questions?Contact us on our social media
+            any feedback or questions?Contact us on our social media
           </div>
           <div className={style.iconsBlock}>
             <img src="https://www.svgrepo.com/show/325307/instagram.svg" className={style.inst} alt="phot" />

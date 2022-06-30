@@ -20,7 +20,6 @@ const VideoChat = ({ user, token }) => {
       }
     });  })
 
-    console.log(rooms);
     
   const renderSwitch = () => {
     if (user.role !== "Teacher" && rooms.length === 0) {

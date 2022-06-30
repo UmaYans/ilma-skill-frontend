@@ -120,6 +120,46 @@ export const pathAvatar = createAsyncThunk(
   }
 );
 
+export const saveCorse = createAsyncThunk(
+  "save/courses",
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const res = await fetch(`/saveCourses/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
+      const data = await res.json();
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const deleteCorse = createAsyncThunk(
+  "delete/courses",
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const res = await fetch(`/deleteCourses/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
+      const data = await res.json();
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const usersSlice = createSlice({
   name: "users",
   initialState,
@@ -160,6 +200,15 @@ const usersSlice = createSlice({
       .addCase(getUser.rejected, (state, action) => {
         state.loading = false;
       });
+    builder.addCase(saveCorse.fulfilled, (state, action) => {
+      console.log(action);
+
+      state.users = action.payload;
+    });
+    builder.addCase(deleteCorse.fulfilled, (state, action) => {
+      console.log(action);
+      state.users = action.payload;
+    });
   },
 });
 

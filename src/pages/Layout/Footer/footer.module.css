@@ -1,0 +1,33 @@
+.main{
+    display: flex;
+    background: #171836;
+    height: 348px;
+}
+.cont {
+    justify-content: space-around;
+    margin-top: 20px;
+    display: flex;
+    width: 1200px;
+    margin-left: 175px;
+    background: greenyellow;
+}
+.block1 {
+    background-color: aqua;
+    width: 200px;
+    margin-top: 30px;
+}
+.block2 {
+    background-color: blueviolet;
+    margin-top: 30px;
+}
+.block3 {
+    background-color: bisque;
+    margin-top: 30px;
+}
+.menu {
+    color: white;
+    font-size: 20px;
+}
+.glavnay {
+    color: rgba(255, 255, 255, 0.7);
+}

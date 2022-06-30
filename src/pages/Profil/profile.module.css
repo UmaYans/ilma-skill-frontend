@@ -6,7 +6,7 @@
     width: 120px;
     height: 120px;
     border-radius: 13px;
-    margin: 50px 20px 30px;
+    margin: 35px 20px 30px;
 }
 .input {
     display: none;
@@ -18,7 +18,8 @@
 }
 .conainer {
     display: flex;
-    margin: 0 190px;
+    width: 1150px;
+    margin: auto;
 }
 .userLastname {
     font-size: 19px;
@@ -26,8 +27,8 @@
     margin-bottom: 12px;
 }
 .horiz{
+    text-align: center;
     border: solid 0.1px;
-    width: 1200px;
 }
 .cont2 {
     margin: 0  195px;
@@ -42,7 +43,7 @@
  margin-left: 15px;
 }
 .info{ 
-    margin-top: 60px;
+    margin-top: 38px;
     margin-left: 50px;
     flex-wrap: wrap;
 }

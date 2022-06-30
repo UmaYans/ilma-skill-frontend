@@ -2,12 +2,19 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { pathAvatar, getUser } from "../../redux-toolkit/features/usersSlice";
 import style from "./profile.module.css";
+import { Link } from "react-router-dom";
 
 const Profil = (id, user) => {
   const image = useSelector((state) => state.user.users);
   const users = useSelector((state) => state.user.users);
 
   const dispatch = useDispatch();
+
+  const unSign = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    window.location.reload();
+  };
 
   useEffect(() => {
     dispatch(getUser());
@@ -18,7 +25,7 @@ const Profil = (id, user) => {
     localStorage.setItem("avatar", user.avatar);
   };
 
-  return (
+  return (<div className={style.body}>
     <div className={style.main}>
       <div className={style.conainer}>
         <div className={style.avaBlock}>
@@ -62,7 +69,13 @@ const Profil = (id, user) => {
       <div className={style.title}>IlmaSkill</div>
       <hr className={style.horiz2}></hr>
       <div className={style.profile}>мой профиль</div>
+      <button className={style.exit} onClick={unSign}>
+          <Link className={style.textBot} to="/">
+            Выйти ←]
+          </Link>
+        </button>
       </div>
+    </div>
     </div>
   );
 };

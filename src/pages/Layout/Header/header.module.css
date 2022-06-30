@@ -1,0 +1,27 @@
+.main{
+    width: 1350px;
+    height: 50px;
+    padding-top: 20px;
+    margin-left: 90px;
+}
+.populite {
+    display: flex;
+    justify-content: space-around;
+}
+.slova {
+    text-decoration: none;
+    color: white;
+}
+.denomination {
+    font-size: 22px;
+    color: white;
+    font-style: normal;
+    font-family:'Itim';
+}
+.slova2 {
+    color: rgb(189, 226, 231);
+}
+.header {
+    width: 100%;
+    background: rgba(23, 24, 54, 1);
+}

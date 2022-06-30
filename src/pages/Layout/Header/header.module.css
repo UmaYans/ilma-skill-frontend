@@ -1,8 +1,7 @@
 .main{
-    width: 1350px;
+    width: 1550px;
     height: 50px;
-    padding-top: 20px;
-    margin-left: 90px;
+    margin-top: 20px;
 }
 .populite {
     display: flex;
@@ -11,6 +10,7 @@
 .slova {
     text-decoration: none;
     color: white;
+    margin-top: 5px;
 }
 .denomination {
     font-size: 22px;
@@ -20,8 +20,19 @@
 }
 .slova2 {
     color: rgb(189, 226, 231);
+    margin-top: 5px;
+    text-decoration: none;
 }
 .header {
     width: 100%;
-    background: rgba(23, 24, 54, 1);
+    height: 70px;
+    background: linear-gradient(26.04deg,  rgb(19, 21, 89), rgba(23, 24, 54, 1));
+    position: fixed;
+}
+.img {
+    width: 40px;
+    border-radius: 22px;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: -8px;
 }

@@ -1,26 +1,25 @@
 .main{
     display: flex;
-    background: #171836;
     height: 348px;
+    background: linear-gradient(26.04deg,  rgb(27, 30, 104), rgb(25, 27, 63));
 }
 .cont {
     justify-content: space-around;
     margin-top: 20px;
     display: flex;
-    width: 1200px;
-    margin-left: 175px;
-    background: greenyellow;
+    width: 1300px;
+    margin-left: 110px;
 }
-.block1 {
-    background-color: aqua;
-    width: 200px;
-    margin-top: 30px;
+.block3 {
+    width: 255px;
+    margin-top: 20px;
+    padding: 10px;
 }
 .block2 {
     background-color: blueviolet;
     margin-top: 30px;
 }
-.block3 {
+.block1 {
     background-color: bisque;
     margin-top: 30px;
 }
@@ -30,4 +29,32 @@
 }
 .glavnay {
     color: rgba(255, 255, 255, 0.7);
+}
+.face {
+    width: 30px;
+}
+.vk {
+    width: 34px;
+}
+.title2 {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 25px;
+}
+.text1 {
+    color: rgb(147, 144, 144);
+    margin-bottom: 35px;
+    font-size: 17px;
+}
+.inst {
+    width: 33px;
+}
+.git {
+    width: 30px;
+}
+.iconsBlock {
+    display: flex;
+    justify-content: space-between;
 }

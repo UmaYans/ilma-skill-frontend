@@ -48,10 +48,9 @@
 }
 .card_main {
   align-items: center;
-  text-align: center;
+  font-size: 22px;
 }
 .catService {
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -60,6 +59,18 @@
 .categ {
   display: flex;
   justify-content: space-between;
+}
+
+.allCat {
+  padding: 5px;
+  min-width: 100px;
+  background-color: #eeeeee;
+  text-align: center;
+  /* align-items: center; */
+  margin: 0 15px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
 }
 .catName {
   font-size: 16px;
@@ -79,12 +90,21 @@
 .ccc {
   text-align: center;
   align-items: center;
-  width: 95%;
-  margin: auto;
   display: flex;
   margin-bottom: 50px;
 }
-.categories_name{
+.categories_name {
   font-size: 30px;
   text-align: start;
+}
+.img {
+  width: 100%;
+}
+
+.icons_arrow {
+  font-size: 90px;
+}
+.card {
+  display: flex;
+  align-items: center;
 }

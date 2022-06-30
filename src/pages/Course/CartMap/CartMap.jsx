@@ -73,14 +73,24 @@ function CartMap() {
         </div>
       </div>
       <div className={style.ccc}>
-        <NavLink to={"/course"}>
-          <div>Все </div>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${style.link} ${style.active}` : `${style.link} `
+          }
+          to={"/course"}
+        >
+          <div className={style.allCat}>Все </div>
         </NavLink>
         {categories.map((cat, index) => {
           return (
-            <>
-              <NavLink to={`../course/category/${cat._id}`}>
-                <div className={style.cat_first} key={cat._id}>
+            <div key={cat._id}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${style.link} ${style.active}` : `${style.link} `
+                }
+                to={`../course/category/${cat._id}`}
+              >
+                <div className={style.cat_first}>
                   <div
                     className={style.catName}
                     onClick={() => handleCategory(cat._id)}
@@ -89,7 +99,7 @@ function CartMap() {
                   </div>
                 </div>
               </NavLink>
-            </>
+            </div>
           );
         })}
       </div>

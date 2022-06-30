@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 .banner {
@@ -69,13 +69,25 @@
   font-size: 16px;
   text-align: center;
 }
+
+.link {
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+
+.active {
+  font-weight: 500;
+  transform: scale(1.2);
+  color: blue;
+}
+
 .cat_first {
   padding: 5px;
   min-width: 100px;
   background-color: #eeeeee;
   text-align: center;
   align-items: center;
-  margin: 0 5px;
+  margin: 0 15px;
   display: flex;
   justify-content: space-evenly;
   border-radius: 10px;
@@ -89,11 +101,22 @@
   margin-bottom: 50px;
 }
 .categories_name {
-  font-size: 30px;
+  font-size: 40px;
 }
 .text_one {
   text-align: center;
 }
-.div_one{
-padding: 7px;
+.div_one {
+  padding: 7px;
+}
+.allCat {
+  padding: 5px;
+  min-width: 60px;
+  background-color: #eeeeee;
+  text-align: center;
+  align-items: center;
+  margin: 0 15px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
 }

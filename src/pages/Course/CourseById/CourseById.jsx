@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 import { getUser } from "../../../redux-toolkit/features/usersSlice";
 import Commnts from "./Commnts";
+import InfoCoutse from "./InfoCoutse";
 
 import VideoChat from "./VideoChat";
 
@@ -22,7 +23,7 @@ const CourseById = () => {
 
   return (
     <div>
-      <div>{servic.name}</div>
+      <div><InfoCoutse user={user} token={token} id={id} servic={servic}/></div>
       <div>
         <VideoChat user={user} token={token} />
       </div>

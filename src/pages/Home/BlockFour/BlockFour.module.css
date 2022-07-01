@@ -1,0 +1,42 @@
+.rodBlock{
+    display: flex;
+   
+}
+.rodBlock1{
+    background-color:  #EDE9F2;
+    width: 70%;
+    margin: auto;
+}
+.images{
+width: 100%;
+padding: 3%;
+
+}
+.images img{
+margin-left: 6%;
+width: 100%;
+background-color:  #EDE9F2;
+
+
+}
+.texts{
+   
+width: 80%;
+padding: 5%;
+}
+
+.buttons{
+    width: 180px;
+    border: none;
+    height: 50px;
+    background: #9C4DF4;
+    border-radius: 10px;
+    color: white;
+    margin: 10% 0 0 15%;
+   
+
+}
+
+/* .blocks{
+    margin-bottom: 60%;
+} */

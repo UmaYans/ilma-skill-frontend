@@ -1,0 +1,55 @@
+.rodBlock{
+    margin-top: 20%;
+    
+}
+
+.title{
+    margin: auto;
+    width: 67%;
+    text-align: center;
+}
+.title h1{
+    font-size: 50px;
+}
+.title button{
+    width: 143px;
+    height: 50px;
+    background: #9C4DF4;
+    border-radius: 10px;
+    color: white;
+}
+.images{
+    margin-left: 5.5%;
+}
+.buutons{
+    justify-content: space-between;
+    margin: -7% auto auto 15%;;
+    width: 80%;
+
+}
+.texts{
+    font-size: 20px;
+    position: absolute; 
+     margin: 3% auto; 
+     
+}
+.bro{
+    margin-right: 70%;
+}
+
+.icon{
+    font-size: 20px;
+    width: 50%;
+    margin-right: 50%;
+
+   
+    
+}
+.buutons button{
+    
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+width: 25%;
+height: 50px;
+border-radius: 10px;
+
+}

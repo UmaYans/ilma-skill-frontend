@@ -1,0 +1,9 @@
+.rodBlock{
+    display: flex;
+    width: 80%;
+    margin: 10% auto auto auto;
+}
+
+.texts{
+    padding: 8%;
+}

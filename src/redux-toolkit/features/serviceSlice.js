@@ -29,10 +29,9 @@ export const getServiceById = createAsyncThunk(
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
-
     }
   }
-)
+);
 
 export const serviceSlice = createSlice({
   name: "service",

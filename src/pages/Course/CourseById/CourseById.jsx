@@ -20,14 +20,23 @@ const CourseById = () => {
     dispatch(getServiceById(id));
     dispatch(getUser());
   }, [dispatch, id]);
-console.log(servic);
+
+  if (!user.saveCourses) {
+    return "....";
+  }
+
   return (
     <div>
-      <div><InfoCoutse  token={token} id={id} servic={servic}/></div>
+      <div>
+        <InfoCoutse user={user} token={token} id={id} servic={servic} />
+      </div>
       <div>
         <VideoChat user={user} token={token} />
       </div>
-      <div> <Commnts user={user} token={token} id={id}/> </div>
+      <div>
+        {" "}
+        <Commnts user={user} token={token} id={id} />{" "}
+      </div>
     </div>
   );
 };

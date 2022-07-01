@@ -25,13 +25,13 @@ const Header = () => {
             to="/"
           >
             <div className={style.main_icon}>
-            <div className={style.icons}>
-              <img
-                src="https://www.pinclipart.com/picdir/big/247-2470176_square-academic-cap-vector-png-download-clipart.png"
-                alt=""
-              />
-            </div>
-            <div className={style.denomination}>I'lma-skill</div>
+              <div className={style.icons}>
+                <img
+                  src="https://www.pinclipart.com/picdir/big/247-2470176_square-academic-cap-vector-png-download-clipart.png"
+                  alt=""
+                />
+              </div>
+              <div className={style.denomination}>I'lma-skill</div>
             </div>
           </NavLink>
           <NavLink

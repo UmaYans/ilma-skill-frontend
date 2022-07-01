@@ -12,24 +12,24 @@ import {
   getUser,
   saveCorse,
 } from "../../../redux-toolkit/features/usersSlice";
+import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 
-const InfoCoutse = ({ token, id, servic }) => {
+const InfoCoutse = ({ token, user, id, servic }) => {
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user.users);
-  const [save, setSave] = useState(!user.saveCourses?.includes(servic._id));
+  // const [save, setSave] = useState(!user.saveCourses?.includes(servic._id));
 
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
+  const isCourseSaved = user.saveCourses.find((course) => {
+    return course._id === servic._id;
+  });
+
+  console.log(isCourseSaved);
 
   const handleSave = (id) => {
-    setSave(!save);
     dispatch(saveCorse(id));
   };
 
   const handleDelSave = (id) => {
-    setSave(!save);
     dispatch(deleteCorse(id));
   };
   return (
@@ -69,7 +69,7 @@ const InfoCoutse = ({ token, id, servic }) => {
               </div>
               <div>
                 <Stack direction="row" spacing={1}>
-                  {!save ? (
+                  {!isCourseSaved ? (
                     <div onClick={() => handleSave(servic._id)}>
                       <IconButton color="secondary" aria-label="add an alarm">
                         <AlarmIcon />

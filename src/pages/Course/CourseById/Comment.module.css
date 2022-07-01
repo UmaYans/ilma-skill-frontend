@@ -1,0 +1,16 @@
+.rating {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-right: 20px;
+  font-size: 22px;
+  color: white;
+}
+.comment_text{
+  color: white;
+  font-size: 22px;
+}

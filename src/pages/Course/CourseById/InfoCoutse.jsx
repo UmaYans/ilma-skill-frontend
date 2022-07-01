@@ -3,35 +3,35 @@ import style from "./Cart.module.css";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import AlarmIcon from "@mui/icons-material/Alarm";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCorse, getUser, saveCorse } from "../../../redux-toolkit/features/usersSlice";
+import {
+  deleteCorse,
+  getUser,
+  saveCorse,
+} from "../../../redux-toolkit/features/usersSlice";
 
-
-
-const InfoCoutse = ({  token, id, servic }) => {
+const InfoCoutse = ({ token, id, servic }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user.users);
-  const [save , setSave] = useState(!user.saveCourses?.includes(servic._id))
-
+  const [save, setSave] = useState(!user.saveCourses?.includes(servic._id));
 
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
 
   const handleSave = (id) => {
-    setSave(!save)
+    setSave(!save);
     dispatch(saveCorse(id));
   };
 
   const handleDelSave = (id) => {
-    setSave(!save)
-    dispatch(deleteCorse(id))
-  }
-
+    setSave(!save);
+    dispatch(deleteCorse(id));
+  };
   return (
     <div className={style.main_info}>
       <div className={style.info}>
@@ -58,7 +58,7 @@ const InfoCoutse = ({  token, id, servic }) => {
               <div className={style.formats_map}>
                 {servic.format?.map((form, index) => (
                   <div
-                  key={index}
+                    key={index}
                     className={`${style.fromats} ${
                       index % 2 !== 0 ? style.fromats_on : ""
                     }`}

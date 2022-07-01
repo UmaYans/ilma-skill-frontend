@@ -65,7 +65,7 @@ export const getCommentByServiceId = createAsyncThunk(
 
 export const addComment = createAsyncThunk(
   "add/comment",
-  async ({ text, id }, thunkAPI) => {
+  async ({ text, grade, id }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const res = await fetch(`/comment/${id}`, {
@@ -74,7 +74,7 @@ export const addComment = createAsyncThunk(
           "Content-Type": "application/json",
           Authorization: `Bearer ${state.user.token}`,
         },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text, grade }),
       });
 
       const data = await res.json();
@@ -123,8 +123,7 @@ export const commentsSlcie = createSlice({
       .addCase(getCommentByServiceId.rejected, (state, action) => {
         state.error = action.payload.error;
       });
-    builder
-    .addCase(addComment.fulfilled, (state, action) => {
+    builder.addCase(addComment.fulfilled, (state, action) => {
       console.log(action);
 
       state.comments.push(action.payload);

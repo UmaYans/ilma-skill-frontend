@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Rating from "@mui/material/Rating";
+import style from "./Comment.module.css";
 import {
   addComment,
   getCommentByServiceId,
@@ -10,6 +12,7 @@ const Commnts = ({ user, token, id }) => {
 
   const comments = useSelector((state) => state.com.comments);
   const [text, setText] = useState("");
+  const [grade, setGrade] = useState("");
 
   useEffect(() => {
     dispatch(getCommentByServiceId(id));
@@ -17,7 +20,7 @@ const Commnts = ({ user, token, id }) => {
 
   const addCom = () => {
     setText("");
-    dispatch(addComment({ text, id }));
+    dispatch(addComment({ text, grade, id }));
   };
 
   return (
@@ -35,10 +38,29 @@ const Commnts = ({ user, token, id }) => {
           disabled={!text}
           onClick={() => addCom()}
         />
+        <Rating
+          name="simple-controlled"
+          value={grade}
+          onChange={(e) => setGrade(e.target.value)}
+          size="large"
+        />
       </form>
       <div>
         {comments.map((comment) => {
-          return <div key={comment._id}>{comment.text}</div>;
+          return (
+            <div key={comment._id}>
+              <div className={style.comment_text}>{comment.text}</div>;
+              <div className={style.rating}>
+                <span className={style.title}>Рейтинг:</span>
+                <Rating
+                  name="read-only"
+                  value={comment.grade}
+                  size="large"
+                  readOnly
+                />
+              </div>
+            </div>
+          );
         })}
       </div>
     </div>

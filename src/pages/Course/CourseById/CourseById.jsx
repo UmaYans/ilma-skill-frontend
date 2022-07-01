@@ -20,7 +20,7 @@ const CourseById = () => {
     dispatch(getServiceById(id));
     dispatch(getUser());
   }, [dispatch, id]);
-
+console.log(servic);
   return (
     <div>
       <div><InfoCoutse  token={token} id={id} servic={servic}/></div>

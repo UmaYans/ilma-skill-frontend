@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .main{
     display: flex;
     height: 348px;
@@ -11,30 +12,20 @@
     margin-left: 110px;
 }
 .block3 {
-    width: 255px;
-    margin-top: 20px;
-    padding: 10px;
+    width: 340px;
+    margin-top: 25px;
+    padding: 4px;
 }
 .block2 {
-    background-color: blueviolet;
-    margin-top: 30px;
-}
-.block1 {
-    background-color: bisque;
-    margin-top: 30px;
-}
-.menu {
-    color: white;
-    font-size: 20px;
+    margin-top: 35px;
+    width: 300px;
+    text-align: center;
+    margin-left: 30px;
 }
 .glavnay {
-    color: rgba(255, 255, 255, 0.7);
-}
-.face {
-    width: 30px;
-}
-.vk {
-    width: 34px;
+    color: rgb(147, 144, 144);
+    text-decoration: none;
+    margin-bottom: 30px;
 }
 .title2 {
     font-size: 22px;
@@ -42,19 +33,161 @@
     text-align: center;
     margin-top: 7px;
     margin-bottom: 25px;
+    margin-left: 25px;
 }
 .text1 {
     color: rgb(147, 144, 144);
     margin-bottom: 35px;
     font-size: 17px;
-}
-.inst {
-    width: 33px;
-}
-.git {
-    width: 30px;
+    text-align: center;
+    margin-left: 25px;
 }
 .iconsBlock {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.wrapper {
     display: flex;
     justify-content: space-between;
+}
+.wrapper .icon {
+    position: relative;
+    background: rgb(83, 85, 153);
+    border-radius: 50%;
+    padding: 15px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #ffffff;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+    background: #1877F2;
+    color: #ffffff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+    background: #1DA1F2;
+    color: #ffffff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #E4405F;
+    color: #ffffff;
+  }
+  
+  .wrapper .github:hover,
+  .wrapper .github:hover .tooltip,
+  .wrapper .github:hover .tooltip::before {
+    background: #575757;
+    color: #ffffff;
+  }
+  
+  .wrapper .youtube:hover,
+  .wrapper .youtube:hover .tooltip,
+  .wrapper .youtube:hover .tooltip::before {
+    background: #CD201F;
+    color: #ffffff;
+  }
+  .face{
+    position: absolute;
+    width: 25px;
+    margin-top: 3px;
+  }
+  .you {
+    width: 25px;
+  }
+  .git {
+    width: 30px;
+  }
+  .inst {
+    width: 30px;
+  }
+  .menu2 {
+    font-size: 20px;
+    color: white;
+    margin-top: 5px;
+  }
+  .block1 {
+    margin-top: 30px;
+    width: 100px;
+    text-align: center;
+}
+.menu {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.curs {
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: rgb(147, 144, 144);
+}
+.glavnaym{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.prav {
+    margin-top: 30px;
+    color: rgb(147, 144, 144);
+}
+.polit {
+    margin-top: 30px;
+    color: rgb(147, 144, 144);
 }

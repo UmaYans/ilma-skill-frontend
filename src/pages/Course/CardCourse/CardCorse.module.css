@@ -29,3 +29,12 @@
 
 }
 
+.online{
+  padding: 5px;
+  /* border: 1px solid red; */
+  color: yellow;
+}
+.offline{
+  padding: 5px;
+  color: green;
+}

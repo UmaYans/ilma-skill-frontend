@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import style from "./CartMap.module.css";
 import img from "./1.svg";

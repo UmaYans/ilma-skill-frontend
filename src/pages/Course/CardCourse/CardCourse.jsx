@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import style from "./CardCorse.module.css";
 
 const CardCourse = ({ servic }) => {
-
   const [check, setCheck] = useState(false);
 
   const readMore = () => {
@@ -14,7 +13,6 @@ const CardCourse = ({ servic }) => {
     }
   };
 
- 
   return (
     <div className={style.card}>
       <div className={style.card_img}>
@@ -23,7 +21,6 @@ const CardCourse = ({ servic }) => {
       <div className={style.course_info}>
         <div>
           <NavLink to={`/course/${servic._id}`} className={style.nav_servName}>
-            {" "}
             {servic.name}
           </NavLink>
         </div>
@@ -32,6 +29,10 @@ const CardCourse = ({ servic }) => {
           <p>{servic.description.substring(0, 100) + "..."}</p>
           <button onClick={readMore}>Подробнее</button>
         </div>
+        <p>
+          <span className={style.online}>Online</span>{" "}
+          <span className={style.offline}>Offline</span>
+        </p>
         <p>
           {servic.price} ₽ <s> {servic.oldPrice} </s>
         </p>

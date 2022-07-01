@@ -67,6 +67,7 @@
   justify-content: space-between;
 }
 .catName {
+  cursor: pointer;
   font-size: 16px;
   text-align: center;
 }

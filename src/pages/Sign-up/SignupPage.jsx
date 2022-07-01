@@ -102,7 +102,6 @@ const SignupPage = () => {
     setCheck(!check);
     if (!check) {
       setRole("Teacher");
-      console.log(setRole);
     }
     if (check) {
       setRole("User");

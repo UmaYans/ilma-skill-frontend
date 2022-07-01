@@ -17,7 +17,7 @@ function CartMap() {
   };
 
   return (
-    <div>
+    <div className={style.main_cart_map}>
       <div className={style.banner}>
         <div className={style.banner_text}>
           Развивайте свои навыки, чтобы продвинуться по карьерной лестнице.

@@ -2,11 +2,15 @@
   align-items: center;
   width: 30%;
   height: 100%;
+  color: white;
 }
 
 .card_img {
   width: 100%;
   height: 300px;
+}
+.nav_servName{
+  color: white;
 }
 .img {
   display: block;

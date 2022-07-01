@@ -53,7 +53,6 @@ const Course = () => {
                   {/* {index === 3 && <div>Тут может быть ваша реклама</div>} */}
                   <div className={style.categories_name}>{cat.name}</div>
                   <div className={style.catService}>
-                    {" "}
                     {catService(cat._id)}
                     <div className={style.card}>
                       <div className={style.card_img}>

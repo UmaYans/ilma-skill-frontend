@@ -23,7 +23,7 @@ const CourseById = () => {
 
   return (
     <div>
-      <div><InfoCoutse user={user} token={token} id={id} servic={servic}/></div>
+      <div><InfoCoutse  token={token} id={id} servic={servic}/></div>
       <div>
         <VideoChat user={user} token={token} />
       </div>

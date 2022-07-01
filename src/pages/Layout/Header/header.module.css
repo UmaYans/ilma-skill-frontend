@@ -1,38 +1,53 @@
 .main{
-    width: 1550px;
+    width: 100%;
     height: 50px;
     margin-top: 20px;
 }
 .populite {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .slova {
     text-decoration: none;
     color: white;
-    margin-top: 5px;
+    font-weight: 500;
 }
 .denomination {
+    margin-left: 10px;
     font-size: 22px;
-    color: white;
     font-style: normal;
     font-family:'Itim';
 }
 .slova2 {
-    color: rgb(189, 226, 231);
-    margin-top: 5px;
+    font-weight: 600;
+    font-size: 17px;
+    color: rgb(0, 249, 237);
     text-decoration: none;
 }
 .header {
     width: 100%;
     height: 70px;
-    background: linear-gradient(26.04deg,  rgb(19, 21, 89), rgba(23, 24, 54, 1));
+    background: #0A033C;
     position: fixed;
 }
 .img {
     width: 40px;
+    height: 40px;
     border-radius: 22px;
     position: absolute;
-    margin-left: 5px;
+    margin-left: 10px;
     margin-top: -8px;
+}
+.main_icon {
+    display: flex;
+    align-items: center;
+}
+.icons{
+    height: 40px;
+    width: 40px;
+}
+.icons img{
+    width: 100%;
+    height: 100%;
 }

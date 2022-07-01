@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import style from "./CardCorse.module.css";
 
 const CardCourse = ({ servic }) => {
+
   const [check, setCheck] = useState(false);
 
   const readMore = () => {
@@ -13,7 +14,7 @@ const CardCourse = ({ servic }) => {
     }
   };
 
-  console.log(servic);
+ 
   return (
     <div className={style.card}>
       <div className={style.card_img}>

@@ -1,30 +1,117 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import style from "./Cart.module.css";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
+import AlarmIcon from "@mui/icons-material/Alarm";
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const InfoCoutse = ({ user, token, id, servic }) => {
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCorse, getUser, saveCorse } from "../../../redux-toolkit/features/usersSlice";
+
+
+
+const InfoCoutse = ({  token, id, servic }) => {
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.users);
+  const [save , setSave] = useState(!user.saveCourses?.includes(servic._id))
+
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
+  const handleSave = (id) => {
+    setSave(!save)
+    dispatch(saveCorse(id));
+  };
+
+  const handleDelSave = (id) => {
+    setSave(!save)
+    dispatch(deleteCorse(id))
+  }
+
   return (
-    <div>
-      <div>
-        <div>
-          <span>Профориентационный курс для новичков</span>
-          <h2>Надежный старт в {servic.catId?.name}</h2>
-          <span>
-            Определите подходящую вам профессию {servic.catId?.name}, освойте её
-            с нуля и увеличьте свой доход
-          </span>
-          <ul>
-            <li>Заработок 200 000 ₽/мес на уровне middle</li>
-            <li>Стабильный заработок в комфортной валюте</li>
-            <li>Удалённая работа из любой точки мира</li>
-            <li>Льготная ипотека и отсрочка от армии</li>
-          </ul>
+    <div className={style.main_info}>
+      <div className={style.info}>
+        <div className={style.text_block}>
           <div>
-            {servic.format?.map((form) => <div >{form}</div> )}
+            <span className={style.text_one}>
+              Профориентационный курс для новичков
+            </span>
+            <h2>Надежный старт в {servic.catId?.name}</h2>
+            <h3>Курс {servic.name}</h3>
+
+            <span className={style.text_one}>
+              Определите подходящую вам профессию {servic.catId?.name}, освойте
+              её с нуля и увеличьте свой доход
+            </span>
+            <ul className={style.list}>
+              <li>Заработок 200 000 ₽/мес на уровне middle</li>
+              <li>Стабильный заработок в комфортной валюте</li>
+              <li>Удалённая работа из любой точки мира</li>
+              <li>Льготная ипотека и отсрочка от армии</li>
+            </ul>
+            <div>
+              <span>Доступные форматы обучения</span>
+              <div className={style.formats_map}>
+                {servic.format?.map((form, index) => (
+                  <div
+                  key={index}
+                    className={`${style.fromats} ${
+                      index % 2 !== 0 ? style.fromats_on : ""
+                    }`}
+                  >
+                    {form}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <Stack direction="row" spacing={1}>
+                  {!save ? (
+                    <div onClick={() => handleSave(servic._id)}>
+                      <IconButton color="secondary" aria-label="add an alarm">
+                        <AlarmIcon />
+                      </IconButton>
+                    </div>
+                  ) : (
+                    <div onClick={() => handleDelSave(servic._id)}>
+                      <IconButton color="secondary" aria-label="delete">
+                        <DeleteIcon />
+                      </IconButton>
+                    </div>
+                  )}
+
+                  <IconButton color="primary" aria-label="add to shopping cart">
+                    <AddShoppingCartIcon />
+                  </IconButton>
+                </Stack>
+              </div>
+            </div>
           </div>
         </div>
-        <div>{servic.name}</div>
+        <div className={style.img_block}>
+          <img src={servic.photo} alt={servic.name} />
+        </div>
       </div>
-      <div>
-        <img src={servic.photo} alt={servic.name} />
+      <div className={style.banner}>
+        <div>
+          <div>Уровень</div>
+          <div>Для новичков</div>
+        </div>
+        <div>
+          <div>Трудоустройство</div>
+          <div>Через 6 месяцев</div>
+        </div>
+        <div>
+          <div>Длительность</div>
+          <div>Через 6 месяцев</div>
+        </div>
+        <div>
+          <div>Старт курса</div>
+          <div>Через 6 месяцев</div>
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ const Commnts = ({ user, token, id }) => {
   const comments = useSelector((state) => state.com.comments);
   const [text, setText] = useState("");
 
-  console.log(comments);
   useEffect(() => {
     dispatch(getCommentByServiceId(id));
   }, [dispatch]);

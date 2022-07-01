@@ -22,7 +22,7 @@
 .slova2 {
     font-weight: 600;
     font-size: 17px;
-    color: rgb(0, 249, 237);
+    color: rgb(213, 244, 244);
     text-decoration: none;
 }
 .header {
@@ -46,6 +46,8 @@
 .icons{
     height: 40px;
     width: 40px;
+    background-color: white;
+    border-radius: 30px;
 }
 .icons img{
     width: 100%;

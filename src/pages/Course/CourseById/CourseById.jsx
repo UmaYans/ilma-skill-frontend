@@ -23,16 +23,25 @@ const CourseById = () => {
     dispatch(getCommentByServiceId(id));
   }, [dispatch, id]);
 
+
   return (
     <div>
       <div>
         <InfoCoutse token={token} id={id} servic={servic} comments={comments} />
+
+  if (!user.saveCourses) {
+    return "....";
+  }
+
+
       </div>
       <div>
         <VideoChat user={user} token={token} />
       </div>
       <div>
+
         <Commnts user={user} token={token} id={id} comments={comments} />{" "}
+
       </div>
     </div>
   );

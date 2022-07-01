@@ -9,7 +9,7 @@
   width: 100%;
   height: 300px;
 }
-.nav_servName{
+.nav_servName {
   color: white;
 }
 .img {
@@ -26,15 +26,14 @@
   flex-direction: column;
   /* justify-content: space-between; */
   margin: auto;
-
 }
 
-.online{
+.online {
   padding: 5px;
   /* border: 1px solid red; */
   color: yellow;
 }
-.offline{
+.offline {
   padding: 5px;
   color: green;
 }

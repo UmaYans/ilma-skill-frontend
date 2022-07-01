@@ -112,3 +112,6 @@
 .icon_color{
   color: white;
 }
+.icon_color:hover{
+  transform: scale(1.3);
+}

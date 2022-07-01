@@ -11,8 +11,15 @@
 }
 .img_block {
   width: 40%;
-  padding: 80px  ;
 
+}
+.image_block{
+  padding: 80px 80px 0 80px  ;
+}
+.rating_all{
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
 .img_block img {
   width: 100%;

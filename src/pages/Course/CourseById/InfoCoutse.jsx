@@ -4,6 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Rating } from "@mui/material";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,12 +14,19 @@ import {
   saveCorse,
 } from "../../../redux-toolkit/features/usersSlice";
 
-const InfoCoutse = ({ token, id, servic }) => {
+const InfoCoutse = ({ token, id, servic, comments }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user.users);
   const [save, setSave] = useState(!user.saveCourses?.includes(servic._id));
 
+  const commentsFind = comments.filter((item) => item._id === item._id);
+  console.log(commentsFind);
+  const rat = Math.floor(
+    commentsFind.reduce((sum, item) => {
+      return sum + item.grade;
+    }, 0) / commentsFind.length
+  );
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
@@ -32,6 +40,7 @@ const InfoCoutse = ({ token, id, servic }) => {
     setSave(!save);
     dispatch(deleteCorse(id));
   };
+
   return (
     <div className={style.main_info}>
       <div className={style.info}>
@@ -92,7 +101,14 @@ const InfoCoutse = ({ token, id, servic }) => {
           </div>
         </div>
         <div className={style.img_block}>
-          <img src={servic.photo} alt={servic.name} />
+          <div className={style.image_block}>
+            <img src={servic.photo} alt={servic.name} />
+          </div>
+
+          <div className={style.rating_all}>
+            Рейтинг курса:
+            <Rating size="large" name="read-only" value={rat} readOnly />
+          </div>
         </div>
       </div>
       <div className={style.banner}>

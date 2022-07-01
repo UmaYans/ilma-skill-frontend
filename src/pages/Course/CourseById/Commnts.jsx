@@ -4,19 +4,14 @@ import Rating from "@mui/material/Rating";
 import style from "./Comment.module.css";
 import {
   addComment,
-  getCommentByServiceId,
 } from "../../../redux-toolkit/features/commentsSlice";
 
-const Commnts = ({ user, token, id }) => {
+const Commnts = ({ user, token, id, comments}) => {
   const dispatch = useDispatch();
-
-  const comments = useSelector((state) => state.com.comments);
   const [text, setText] = useState("");
   const [grade, setGrade] = useState("");
 
-  useEffect(() => {
-    dispatch(getCommentByServiceId(id));
-  }, [dispatch]);
+
 
   const addCom = () => {
     setText("");

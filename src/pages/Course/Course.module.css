@@ -49,6 +49,7 @@
 .card_main {
   align-items: center;
   font-size: 22px;
+  color: white;
 }
 .catService {
   display: flex;

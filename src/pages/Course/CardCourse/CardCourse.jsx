@@ -21,7 +21,10 @@ const CardCourse = ({ servic }) => {
       </div>
       <div className={style.course_info}>
         <div>
-          <NavLink to={`/course/${servic._id}`}> {servic.name}</NavLink>
+          <NavLink to={`/course/${servic._id}`} className={style.nav_servName}>
+            {" "}
+            {servic.name}
+          </NavLink>
         </div>
 
         <div className={style.text_block}>

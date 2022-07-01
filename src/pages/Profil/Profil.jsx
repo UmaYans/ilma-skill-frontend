@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { pathAvatar, getUser } from "../../redux-toolkit/features/usersSlice";
 import style from "./profile.module.css";
 import { Link } from "react-router-dom";
+import {FaRegEdit} from "react-icons/fa";
 
 const Profil = (id, user) => {
   const image = useSelector((state) => state.user.users);
@@ -30,6 +31,8 @@ const Profil = (id, user) => {
       <div className={style.conainer}>
         <div className={style.avaBlock}>
         <label className={style.pathPhot} htmlFor="upload">
+        <FaRegEdit className={style.iconPath} />
+        </label>
         <img
             className={style.img}
             src={
@@ -39,7 +42,6 @@ const Profil = (id, user) => {
             }
             alt=""
           />
-      </label>
         </div>
         <div className={style.ava}>
           <input

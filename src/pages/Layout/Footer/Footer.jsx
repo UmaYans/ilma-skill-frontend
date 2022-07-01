@@ -8,25 +8,53 @@ const Footer = () => {
       <div className={style.cont}>
         <div className={style.block1}>
           <div className={style.menu}>Menu</div>
+          <div className={style.glavnaym}>
           <NavLink className={style.glavnay} to="/">
             Главная
           </NavLink>
-          <div>Правила и условия</div>
-          <div>Политика конфиденциальности</div>
+          </div>
+          <div>
+          <NavLink className={style.curs} to="/course">
+            Курсы
+          </NavLink>
+          </div>
         </div>
         <div className={style.block2}>
+          <div className={style.menu2}>
           Дополнительная информация
+          </div>
+          <div className={style.prav}>Правила и условия</div>
+          <div className={style.polit}>Политика конфиденциальности</div>
         </div>
+        
         <div className={style.block3}>
-          <div className={style.title2}>IlmaSkill</div>
+          <div className={style.title2}>I'lma-skill</div>
           <div className={style.text1}>
-            any feedback or questions?Contact us on our social media
+          Есть какие-либо отзывы или вопросы? Свяжитесь с нами в социальных сетях!
           </div>
           <div className={style.iconsBlock}>
-            <img src="https://www.svgrepo.com/show/325307/instagram.svg" className={style.inst} alt="phot" />
-            <img src="https://www.svgrepo.com/show/154916/facebook.svg" className={style.face} alt="phot"/>
-            <img src="https://www.svgrepo.com/show/361183/github-alt.svg" className={style.git} alt="phot" />
-            <img src="https://www.svgrepo.com/show/204341/vk-vk.svg" className={style.vk} alt="phot" />
+            <div className={style.wrapper}>
+  <div class={`${style.icon} ${style.twitter}`}>
+    <img src="https://www.svgrepo.com/show/318179/twitter.svg" alt="phot" />
+    <span class={style.tooltip}>Twitter</span>
+  </div>
+  <div class={`${style.icon} ${style.instagram}`}>
+    <img className={style.inst} src="https://www.svgrepo.com/show/325307/instagram.svg" alt="phot" />
+    <span class={style.tooltip}>Instagram</span>
+  </div>
+  <div class={`${style.icon} ${style.github}`}>
+  <img className={style.git} src="https://www.svgrepo.com/show/376071/github.svg" alt="phot" />
+    <span class={style.tooltip}>Github</span>
+  </div>
+  <div class={`${style.icon} ${style.youtube}`}>
+    <img className={style.you} src="https://www.svgrepo.com/show/52968/youtube.svg" alt="phot" />
+    <span class={style.tooltip}>Youtube</span>
+  </div>
+  <div className={`${style.icon} ${style.facebook}`}>
+            <img className={style.face} src="https://www.svgrepo.com/show/21065/facebook.svg" alt="phot" />
+    <span className={style.tooltip}>Facebook</span>
+  </div>
+            </div>
           </div>
         </div>
       </div>

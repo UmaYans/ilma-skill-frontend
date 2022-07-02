@@ -30,7 +30,7 @@ const CardCourse = ({ servic }) => {
           <button onClick={readMore}>Подробнее</button>
         </div>
         <p>
-          <span className={style.online}>Online</span>{" "}
+          <span className={style.online}>Online</span>
           <span className={style.offline}>Offline</span>
         </p>
         <p>

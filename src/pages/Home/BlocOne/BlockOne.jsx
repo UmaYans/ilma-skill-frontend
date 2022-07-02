@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./BlockOne.module.css";
 import man from "./BlackBoy1.png";
+import { getService } from "../../../redux-toolkit/features/serviceSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 function BlockOne() {
+  const service = useSelector((state) => state.serv.services);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getService());
+  }, [dispatch]);
+
   return (
     <div className={styles.rodBlock}>
       <div className={styles.leftBlock}>
         <div className={styles.childLeftBlock}>
-          <button className={styles.upbutton}>Ознакомиться с курсами</button>
+          <Link to={"/course"}>
+            <button className={styles.upbutton}>Ознакомиться с курсами</button>
+          </Link>
           <h1>Развивайте свои навыки с помощью онлайн-курсов</h1>
           <p>
             Это глобальный поставщик учебных услуг, базирующийся по всей России
@@ -15,13 +26,13 @@ function BlockOne() {
           </p>
           <span className={styles.inputStyle}>
             <select className={styles.sele}>
-              <option value="0">Выбрать направление</option>
-              <option value="1">ЕГЭ и ОГЭ</option>
-              <option value="2">Иностранные языки</option>
-              <option value="3">IT</option>
-              <option value="4">Веб Дизайн</option>
-              <option value="5">Маркетинг</option>
-              <option value="6">Дизайн и UX</option>
+              <option disabled={!true} value="1">
+                Выберите категорию
+              </option>
+              {/* {console.log(service)} */}
+              {service.map((services, num) => {
+                return <option value={num + 1}>{services.name}</option>;
+              })}
             </select>
             <input
               className={styles.inp}

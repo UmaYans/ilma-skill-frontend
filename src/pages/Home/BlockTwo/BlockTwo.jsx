@@ -4,6 +4,7 @@ import calling from "./Uroks.png";
 import sound from "./sound.png";
 import live from "./live.png";
 import play from "./play.png";
+import { Link } from "react-router-dom";
 
 function BlockTwo(props) {
   return (
@@ -18,7 +19,9 @@ function BlockTwo(props) {
           видеоизображение, содержащее значительно более 480 строк вертикальной
           развертки или 576 вертикальных линий, считается высоким разрешением.
         </p>
-        <button>Посетить курсы</button>
+        <Link to={`/course`}>
+          <button>Посетить курсы</button>
+        </Link>
       </div>
 
       {/* Картинка */}

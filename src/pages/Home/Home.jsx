@@ -5,9 +5,12 @@ import BlockThere from "./BlockThere/BlockThere";
 import BlockTwo from "./BlockTwo/BlockTwo";
 import BlockOne from "./BlocOne/BlockOne";
 
+
+
 const Home = () => {
   return (
     <div>
+
       <BlockOne />
       <BlockTwo />
       <BlockThere />

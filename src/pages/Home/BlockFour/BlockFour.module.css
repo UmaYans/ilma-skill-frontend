@@ -25,6 +25,13 @@ width: 80%;
 padding: 5%;
 }
 
+.texts h1{
+    color: black;
+}
+.texts p{
+    color: black;
+}
+
 .buttons{
     width: 180px;
     border: none;

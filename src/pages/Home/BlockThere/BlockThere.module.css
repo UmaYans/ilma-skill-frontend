@@ -1,13 +1,23 @@
 .titleBlock{
 margin-top: 7%;
 }
+
+.title h1{
+color: white;
+}
+
+.title p{
+    color: white;
+    }
 .rodBlock{
     display: flex;
     flex-wrap: wrap;
     margin-left: 3%;
+    color: #232323;
   
  
 }
+
 .discription{
     padding: 5px 10px;
 }

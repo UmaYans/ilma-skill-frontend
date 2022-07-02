@@ -15,16 +15,11 @@ import {
 } from "../../../redux-toolkit/features/usersSlice";
 import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 
-
-const InfoCoutse = ({ token, id, servic, comments }) => {
-
+const InfoCoutse = ({ user, token, id, servic, comments }) => {
   const dispatch = useDispatch();
 
-  // const [save, setSave] = useState(!user.saveCourses?.includes(servic._id));
-
-
   const commentsFind = comments.filter((item) => item._id === item._id);
-  console.log(commentsFind);
+
   const rat = Math.floor(
     commentsFind.reduce((sum, item) => {
       return sum + item.grade;
@@ -37,9 +32,6 @@ const InfoCoutse = ({ token, id, servic, comments }) => {
   const isCourseSaved = user.saveCourses.find((course) => {
     return course._id === servic._id;
   });
-
-  console.log(isCourseSaved);
-
 
   const handleSave = (id) => {
     dispatch(saveCorse(id));

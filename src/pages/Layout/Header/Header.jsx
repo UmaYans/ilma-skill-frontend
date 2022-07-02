@@ -52,9 +52,9 @@ const Header = () => {
             <img
               className={style.img}
               src={
-                image.avatar
+                image?.avatar
                   ? `http://localhost:4100/${image.avatar}`
-                  : users.avatar
+                  : users?.avatar
               }
               alt="name"
             />

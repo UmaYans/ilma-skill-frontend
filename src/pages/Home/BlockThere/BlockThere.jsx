@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { getService } from "../../../redux-toolkit/features/serviceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./BlockThere.module.css";
+import { Link } from "react-router-dom";
 
 function BlockThere() {
   const service = useSelector((state) => state.serv.services);
@@ -51,15 +52,17 @@ function BlockThere() {
                     {services.description}
                   </div>
                 </div>
-                <button className={styles.click}>Перейти к курсу</button>
+                <Link to={`/course/${services._id}`}>
+                  <button className={styles.click}>Перейти к курсу</button>
+                </Link>
               </div>
             </div>
           );
         })}
       </div>
-      <button className={styles.buttons}>
-          Посмотреть все курсы
-      </button>
+      <Link to={`/course`}>
+      <button className={styles.buttons}>Посмотреть все курсы</button>
+      </Link>
     </div>
   );
 }

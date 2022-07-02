@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./BlockFour.module.css";
 import blackMan from "./Image.png";
 
@@ -17,10 +18,13 @@ function BlockFour(props) {
             стандартизированного значения для видео высокой четкости, как
             правило, для любого видео.
           </p>
-          <div className={styles.blocks}>
-            <button className={styles.buttons}>Зарегистрироваться</button>
-          </div>
+          <Link to={"/sign-in"}>
+            <div className={styles.blocks}>
+              <button className={styles.buttons}>Зарегистрироваться</button>
+            </div>
+          </Link>
         </div>
+
         <div className={styles.images}>
           <img src={blackMan} />
         </div>

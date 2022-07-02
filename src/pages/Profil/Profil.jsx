@@ -72,7 +72,7 @@ const Profil = (id, user) => {
       <hr className={style.horiz2}></hr>
       <div className={style.profile}>мой профиль</div>
       <button className={style.exit} onClick={unSign}>
-          <Link className={style.textBot} to="/">
+          <Link className={style.textBot} to="/sign-in">
             Выйти ←]
           </Link>
         </button>

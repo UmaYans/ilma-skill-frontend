@@ -35,7 +35,7 @@ const Commnts = ({ user, token, id, comments}) => {
         />
         <Rating
           name="simple-controlled"
-          value={grade}
+          value={+grade}
           onChange={(e) => setGrade(e.target.value)}
           size="large"
         />

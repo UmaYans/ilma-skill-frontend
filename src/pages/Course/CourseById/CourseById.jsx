@@ -17,31 +17,33 @@ const CourseById = () => {
   const user = useSelector((state) => state.user.users);
   const token = useSelector((state) => state.user.token);
   const comments = useSelector((state) => state.com.comments);
+
   useEffect(() => {
     dispatch(getServiceById(id));
     dispatch(getUser());
     dispatch(getCommentByServiceId(id));
   }, [dispatch, id]);
-
+  
+  if (!user?.saveCourses) {
+    return "....";
+  }
 
   return (
     <div>
       <div>
-        <InfoCoutse token={token} id={id} servic={servic} comments={comments} />
-
-  if (!user.saveCourses) {
-    return "....";
-  }
-
-
+        <InfoCoutse
+          user={user}
+          token={token}
+          id={id}
+          servic={servic}
+          comments={comments}
+        />
       </div>
       <div>
         <VideoChat user={user} token={token} />
       </div>
       <div>
-
-        <Commnts user={user} token={token} id={id} comments={comments} />{" "}
-
+        <Commnts user={user} token={token} id={id} comments={comments} />
       </div>
     </div>
   );

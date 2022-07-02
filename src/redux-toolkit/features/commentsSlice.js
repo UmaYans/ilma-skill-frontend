@@ -32,23 +32,23 @@ const initialState = {
 //   }
 // );
 
-// export const deleteComment = createAsyncThunk(
-//   "delete/comment",
-//   async (id, thunkAPI) => {
-//     try {
-//       const state = thunkAPI.getState();
-//       await fetch(`/comment/${id}`, {
-//         method: "DELETE",
-//         headers: {
-//           Authorization: `Bearer ${state.user.token}`,
-//         },
-//       });
-//       return id;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error);
-//     }
-//   }
-// );
+export const deleteComment = createAsyncThunk(
+  "delete/comment",
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      await fetch(`/comment/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const getCommentByServiceId = createAsyncThunk(
   "get/commentById",
@@ -102,20 +102,20 @@ export const commentsSlcie = createSlice({
     //     state.loading = false;
     //     state.error = action.payload.error;
     //   });
-    // builder
-    //   .addCase(deleteComment.fulfilled, (state, action) => {
-    //     state.loading = false;
-    //     state.comments = state.comments.filter(
-    //       (comment) => comment._id !== action.payload
-    //     );
-    //     state.userComments = state.userComments.filter(
-    //       (comment) => comment._id !== action.payload
-    //     );
-    //   })
-    //   .addCase(deleteComment.rejected, (state, action) => {
-    //     state.loading = false;
-    //     state.error = action.payload.error;
-    //   });
+    builder
+      .addCase(deleteComment.fulfilled, (state, action) => {
+        state.loading = false;
+        state.comments = state.comments.filter(
+          (comment) => comment._id !== action.payload
+        );
+        state.userComments = state.userComments.filter(
+          (comment) => comment._id !== action.payload
+        );
+      })
+      .addCase(deleteComment.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      });
     builder
       .addCase(getCommentByServiceId.fulfilled, (state, action) => {
         state.comments = action.payload;

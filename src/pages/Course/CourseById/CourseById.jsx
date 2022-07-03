@@ -18,7 +18,6 @@ const CourseById = () => {
   const token = useSelector((state) => state.user.token);
   const comments = useSelector((state) => state.com.comments);
   const loading = useSelector((state) => state.serv.loading);
-  console.log(loading);
   useEffect(() => {
     dispatch(getServiceById(id));
     dispatch(getUser());

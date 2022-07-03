@@ -5,13 +5,7 @@ import style from "./CardCorse.module.css";
 const CardCourse = ({ servic }) => {
   const [check, setCheck] = useState(false);
 
-
   const readMore = () => {
-    // if (!check) {
-    //   return servic.description;
-    // } else {
-    //   return servic.description.substring(0, 100) + "...";
-    // }
     setCheck(!check);
   };
 
@@ -21,21 +15,15 @@ const CardCourse = ({ servic }) => {
         <img src={servic.photo} alt={servic.name} className={style.img} />
       </div> */}
       <div className={style.hover_text_one}>
-        <figure className={style.effect__text_three}>
-          <img src={servic.photo} alt={servic.name} />
-          <figcaption>
-            <h3> {servic.name}</h3>
-            <p>
-              {" "}
-              <NavLink
-                to={`../course/${servic._id}`}
-                className={style.nav_servName}
-              >
-                Перейти
-              </NavLink>
-            </p>
-          </figcaption>
-        </figure>
+        <NavLink to={`../course/${servic._id}`} className={style.nav_servName}>
+          <figure className={style.effect__text_three}>
+            <img src={servic.photo} alt={servic.name} />
+            <figcaption>
+              <h3> {servic.name}</h3>
+              <p> </p>
+            </figcaption>
+          </figure>
+        </NavLink>
       </div>
 
       <div className={style.course_info}>

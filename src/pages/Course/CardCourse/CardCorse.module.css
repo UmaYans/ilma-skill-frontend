@@ -1,8 +1,14 @@
 .card {
   align-items: center;
-  width: 30%;
+  width: 27%;
+  margin-bottom: 30px;
   height: 100%;
   color: white;
+}
+.card:hover {
+  box-shadow: -5px -5px 5px -5px rgba(240, 223, 214, 0.6) inset;
+  /* transform: scale(1.05); */
+  transform: rotate(0deg) scale(1.1) skew(-1deg) translate(0px);
 }
 
 .card_img {
@@ -21,6 +27,9 @@
 .course_info s {
   color: red;
 }
+.format_card {
+  display: flex;
+}
 .course_info {
   display: flex;
   flex-direction: column;
@@ -36,4 +45,9 @@
 .offline {
   padding: 5px;
   color: green;
+}
+.button_second {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 30px;
 }

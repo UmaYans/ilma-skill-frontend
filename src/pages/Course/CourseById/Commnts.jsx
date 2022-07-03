@@ -4,6 +4,7 @@ import Rating from "@mui/material/Rating";
 import style from "./Comment.module.css";
 import {
   addComment,
+  deleteComment
 } from "../../../redux-toolkit/features/commentsSlice";
 
 const Commnts = ({ user, token, id, comments}) => {
@@ -11,7 +12,9 @@ const Commnts = ({ user, token, id, comments}) => {
   const [text, setText] = useState("");
   const [grade, setGrade] = useState("");
 
-
+  const handleDelete = (id) => {
+    dispatch(deleteComment(id));
+  }
 
   const addCom = () => {
     setText("");
@@ -44,7 +47,12 @@ const Commnts = ({ user, token, id, comments}) => {
         {comments.map((comment) => {
           return (
             <div key={comment._id}>
-              <div className={style.comment_text}>{comment.text}</div>;
+              <div className={style.comment_text}>{comment.text}</div>
+              <div>
+                <button onClick={() => handleDelete(comment._id)}>
+                  x
+                </button>
+              </div>
               <div className={style.rating}>
                 <span className={style.title}>Рейтинг:</span>
                 <Rating

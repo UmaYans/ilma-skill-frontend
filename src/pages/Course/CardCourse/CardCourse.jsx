@@ -26,7 +26,6 @@ const CardCourse = ({ servic }) => {
           <figcaption>
             <h3> {servic.name}</h3>
             <p>
-              {" "}
               <NavLink
                 to={`../course/${servic._id}`}
                 className={style.nav_servName}
@@ -68,7 +67,7 @@ const CardCourse = ({ servic }) => {
             {!check ? "Подробнее>>" : "Скрыть >>"}
           </button> */}
         </div>
-        <p>
+        <div>
           {/* <span className={style.online}>Online</span>
           <span className={style.offline}>Offline</span> */}
           <div className={style.format_card}>
@@ -81,7 +80,7 @@ const CardCourse = ({ servic }) => {
               </div>
             ))}
           </div>
-        </p>
+        </div>
         <p>
           {servic.price} ₽ <s> {servic.oldPrice} </s>
         </p>

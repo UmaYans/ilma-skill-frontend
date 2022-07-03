@@ -6,6 +6,7 @@ import { getUser } from "../../../redux-toolkit/features/usersSlice";
 
 const Header = () => {
   const users = useSelector((state) => state.user.users);
+  const token = useSelector((state) => state.user.token);
   const image = useSelector((state) => state.user.users);
 
   const dispatch = useDispatch();
@@ -42,23 +43,34 @@ const Header = () => {
           >
             Курсы
           </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? style.slova2 : style.slova
-            }
-            to="/profile"
-          >
-            Профиль
-            <img
-              className={style.img}
-              src={
-                image?.avatar
-                  ? `http://localhost:4100/${image.avatar}`
-                  : users?.avatar
+          {token ? (
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? style.slova2 : style.slova
               }
-              alt="name"
-            />
-          </NavLink>
+              to="/profile"
+            >
+              Профиль
+              <img
+                className={style.img}
+                src={
+                  image?.avatar
+                    ? `http://localhost:4100/${image.avatar}`
+                    : users?.avatar
+                }
+                alt="name"
+              />
+            </NavLink>
+          ) : (
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? style.slova2 : style.slova
+              }
+              to="/sign-in"
+            >
+              Войти
+            </NavLink>
+          )}
         </div>
       </div>
     </header>

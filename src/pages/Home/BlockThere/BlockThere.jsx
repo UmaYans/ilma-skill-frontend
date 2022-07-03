@@ -24,7 +24,7 @@ function BlockThere() {
       <div className={styles.rodBlock}>
         {service.slice(12).map((services, num) => {
           return (
-            <div>
+            <div key={services._id}>
               <div className={styles.cardBlcok}>
                 {/* <>{services.name}</> */}
                 <div>

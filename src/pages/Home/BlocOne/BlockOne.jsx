@@ -31,7 +31,7 @@ function BlockOne() {
               </option>
               {/* {console.log(service)} */}
               {service.map((services, num) => {
-                return <option value={num + 1}>{services.name}</option>;
+                return <option key={num} value={num + 1}>{services.name}</option>;
               })}
             </select>
             <input

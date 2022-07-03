@@ -6,7 +6,7 @@ import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 import { getUser } from "../../../redux-toolkit/features/usersSlice";
 import Commnts from "./Commnts";
 import InfoCoutse from "./InfoCoutse";
-
+import style from "./CourseById.module.css";
 import VideoChat from "./VideoChat";
 
 const CourseById = () => {
@@ -17,34 +17,41 @@ const CourseById = () => {
   const user = useSelector((state) => state.user.users);
   const token = useSelector((state) => state.user.token);
   const comments = useSelector((state) => state.com.comments);
-
+  const loading = useSelector((state) => state.serv.loading);
+  console.log(loading);
   useEffect(() => {
     dispatch(getServiceById(id));
     dispatch(getUser());
     dispatch(getCommentByServiceId(id));
   }, [dispatch, id]);
-  
+
   if (!user?.saveCourses) {
     return "....";
   }
 
   return (
     <div>
-      <div>
-        <InfoCoutse
-          user={user}
-          token={token}
-          id={id}
-          servic={servic}
-          comments={comments}
-        />
-      </div>
-      <div>
-        <VideoChat user={user} token={token} />
-      </div>
-      <div>
-        <Commnts user={user} token={token} id={id} comments={comments} />
-      </div>
+      {loading ? (
+        <div className={style.loader}>Loading...</div>
+      ) : (
+        <div>
+          <div>
+            <InfoCoutse
+              user={user}
+              token={token}
+              id={id}
+              servic={servic}
+              comments={comments}
+            />
+          </div>
+          <div>
+            <VideoChat user={user} token={token} />
+          </div>
+          <div>
+            <Commnts user={user} token={token} id={id} comments={comments} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

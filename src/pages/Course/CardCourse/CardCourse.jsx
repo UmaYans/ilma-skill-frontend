@@ -5,7 +5,6 @@ import style from "./CardCorse.module.css";
 const CardCourse = ({ servic }) => {
   const [check, setCheck] = useState(false);
 
-  console.log(servic);
 
   const readMore = () => {
     // if (!check) {
@@ -18,17 +17,35 @@ const CardCourse = ({ servic }) => {
 
   return (
     <div className={style.card}>
-      <div className={style.card_img}>
+      {/* <div className={style.card_img}>
         <img src={servic.photo} alt={servic.name} className={style.img} />
+      </div> */}
+      <div className={style.hover_text_one}>
+        <figure className={style.effect__text_three}>
+          <img src={servic.photo} alt={servic.name} />
+          <figcaption>
+            <h3> {servic.name}</h3>
+            <p>
+              {" "}
+              <NavLink
+                to={`../course/${servic._id}`}
+                className={style.nav_servName}
+              >
+                Перейти
+              </NavLink>
+            </p>
+          </figcaption>
+        </figure>
       </div>
+
       <div className={style.course_info}>
-        <div>
-          <NavLink
+        <div className={style.nav_servName_div}>
+          {/* <NavLink
             to={`../course/${servic._id}`}
             className={style.nav_servName}
           >
             {servic.name}
-          </NavLink>
+          </NavLink> */}
         </div>
 
         <div className={style.text_block}>

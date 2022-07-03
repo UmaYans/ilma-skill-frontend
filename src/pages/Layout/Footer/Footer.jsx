@@ -33,36 +33,36 @@ const Footer = () => {
           </div>
           <div className={style.iconsBlock}>
             <div className={style.wrapper}>
-              <div class={`${style.icon} ${style.twitter}`}>
+              <div className={`${style.icon} ${style.twitter}`}>
                 <img
                   src="https://www.svgrepo.com/show/318179/twitter.svg"
                   alt="phot"
                 />
-                <span class={style.tooltip}>Twitter</span>
+                <span className={style.tooltip}>Twitter</span>
               </div>
-              <div class={`${style.icon} ${style.instagram}`}>
+              <div className={`${style.icon} ${style.instagram}`}>
                 <img
                   className={style.inst}
                   src="https://www.svgrepo.com/show/325307/instagram.svg"
                   alt="phot"
                 />
-                <span class={style.tooltip}>Instagram</span>
+                <span className={style.tooltip}>Instagram</span>
               </div>
-              <div class={`${style.icon} ${style.github}`}>
+              <div className={`${style.icon} ${style.github}`}>
                 <img
                   className={style.git}
                   src="https://www.svgrepo.com/show/376071/github.svg"
                   alt="phot"
                 />
-                <span class={style.tooltip}>Github</span>
+                <span className={style.tooltip}>Github</span>
               </div>
-              <div class={`${style.icon} ${style.youtube}`}>
+              <div className={`${style.icon} ${style.youtube}`}>
                 <img
                   className={style.you}
                   src="https://www.svgrepo.com/show/52968/youtube.svg"
                   alt="phot"
                 />
-                <span class={style.tooltip}>Youtube</span>
+                <span className={style.tooltip}>Youtube</span>
               </div>
               <div className={`${style.icon} ${style.facebook}`}>
                 <img

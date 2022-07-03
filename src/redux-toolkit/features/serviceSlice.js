@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
   services: [],
   servic: {},
+  teacherService: null,
   error: null,
   loading: false,
 };
@@ -25,6 +26,25 @@ export const getServiceById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const res = await fetch(`/service/one/${id}`);
+      const data = await res.json();
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const getServiceTeacher = createAsyncThunk(
+  "get/serviceTeacher",
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const res = await fetch(`/teacherService`, {
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
@@ -66,7 +86,20 @@ export const serviceSlice = createSlice({
       .addCase(getServiceById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.error;
-        console.log(action);
+      });
+    builder
+      .addCase(getServiceTeacher.fulfilled, (state, action) => {
+        state.teacherService = action.payload;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(getServiceTeacher.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getServiceTeacher.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
       });
   },
 });

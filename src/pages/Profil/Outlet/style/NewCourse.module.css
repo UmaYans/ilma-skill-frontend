@@ -1,0 +1,15 @@
+.newCourse{
+  display: flex;
+  width: 100%;
+}
+.newCourse_wrap{
+  width: 40%;
+}
+.newCourse_img{
+  width: 270px;
+  height: 270px;
+}
+.newCourse_img img{
+  width: 100%;
+  height: 100%;
+}

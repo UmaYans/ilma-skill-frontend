@@ -24,6 +24,7 @@ const CardCourse = ({ servic }) => {
             </figcaption>
           </figure>
         </NavLink>
+
       </div>
 
       <div className={style.course_info}>
@@ -56,7 +57,7 @@ const CardCourse = ({ servic }) => {
             {!check ? "Подробнее>>" : "Скрыть >>"}
           </button> */}
         </div>
-        <p>
+        <div>
           {/* <span className={style.online}>Online</span>
           <span className={style.offline}>Offline</span> */}
           <div className={style.format_card}>
@@ -69,7 +70,7 @@ const CardCourse = ({ servic }) => {
               </div>
             ))}
           </div>
-        </p>
+        </div>
         <p>
           {servic.price} ₽ <s> {servic.oldPrice} </s>
         </p>

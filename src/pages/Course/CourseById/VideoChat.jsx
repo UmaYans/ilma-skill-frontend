@@ -29,9 +29,9 @@ const VideoChat = ({ user, token }) => {
 
     switch (user?.role) {
       case "User":
-        return <h2>Писоедениться к вебинару</h2>;
+        return <h2>Присоединиться к вебинару</h2>;
       case "Teacher":
-        return <h2>Начатните вебинар</h2>;
+        return <h2>Начните вебинар</h2>;
 
       default:
         return <h2>Нет начатых вебинаров</h2>;

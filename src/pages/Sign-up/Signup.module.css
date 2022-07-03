@@ -25,7 +25,6 @@
   height: 100%;
 }
 .content {
-  /* text-align: center; */
   align-items: center;
   width: 65%;
 }
@@ -67,9 +66,7 @@
   width: 40px;
   height: 40px;
   position: absolute;
-  /* margin-left: 15px; */
   padding: 10px;
-  /* margin-top: 10px; */
 }
 .passwordImg {
   width: 40px;
@@ -85,13 +82,7 @@
   margin-left: 5px;
   margin-top: 5px;
 }
-/* .imgEye {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    margin-left: 5px;
-    margin-top: 15px; 
-  } */
+
 .div_wrapper {
   min-width: 300px;
 }
@@ -102,8 +93,16 @@
   width: 30px;
   height: 30px;
   border: none;
-  /* margin-left: 18%; */
   position: absolute;
   margin-left: 5px;
   margin-top: 5px;
+}
+
+.link {
+  text-decoration: none;
+}
+.disabledlink {
+  color: white;
+  pointer-events: none;
+  opacity: 0.2;
 }

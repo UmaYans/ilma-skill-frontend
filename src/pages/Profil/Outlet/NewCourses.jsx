@@ -65,7 +65,7 @@ const NewCourses = () => {
 
   return (
     <div>
-      <p>Разместите курс</p>
+      <p className={style.titleCourse}>Разместите курс</p>
       <div className={style.newCourse}>
         <div className={style.newCourse_wrap}>
           <span>Выберие фотографию для курса </span>
@@ -94,6 +94,7 @@ const NewCourses = () => {
                 rows="10"
                 cols="33"
                 placeholder="Введите описание..."
+                className={style.textAr}
               >
                 It was a dark and stormy nароight...
               </textarea>

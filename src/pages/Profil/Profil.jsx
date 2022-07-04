@@ -76,24 +76,24 @@ const Profil = (id, user) => {
         </div>
         <div className={style.cont3}>
           <div className={style.sidebar}>
-            <div className={style.title}>IlmaSkill</div>
+            <div className={style.title}>I'lma-skill</div>
             <hr className={style.horiz2}></hr>
-            <div>
-              <NavLink to="/profile">Мои комментарии</NavLink>{" "}
+            <div className={style.obsh1}>
+              <NavLink className={style.obsh} to="/profile">Мои комментарии</NavLink>{" "}
             </div>
-            <div>
-              <NavLink to="/profile/buyCourses">Купленные курсы</NavLink>{" "}
+            <div className={style.obsh1}>
+              <NavLink className={style.obsh} to="/profile/buyCourses">Купленные курсы</NavLink>{" "}
             </div>
-            <div>
-              <NavLink to="/profile/saveCurses">Сохраненные курсы</NavLink>{" "}
+            <div className={style.obsh1}>
+              <NavLink className={style.obsh} to="/profile/saveCurses">Сохраненные курсы</NavLink>{" "}
             </div>
             {users?.role === "Teacher" && (
               <>
-                <div>
-                  <NavLink to="/profile/myCurses">Мои курсы</NavLink>
+                <div className={style.obsh1}>
+                  <NavLink className={style.obsh} to="/profile/myCurses">Мои курсы</NavLink>
                 </div>
-                <div>
-                  <NavLink to="/profile/newCurses">Разместить курс</NavLink>
+                <div className={style.obsh1}>
+                  <NavLink className={style.obs} to="/profile/newCurses">Разместить курс</NavLink>
                 </div>
               </>
             )}

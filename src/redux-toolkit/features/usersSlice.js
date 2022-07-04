@@ -7,6 +7,7 @@ const initialState = {
   users: null,
   token: localStorage.getItem("token"),
   loading: false,
+  
 };
 
 export const registerUser = createAsyncThunk(
@@ -160,6 +161,39 @@ export const deleteCorse = createAsyncThunk(
   }
 );
 
+
+
+export const addMoney = createAsyncThunk(
+  "auth/addMoney",
+  async ({ price }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const res = await fetch(`http://localhost:3042/users/addMoney`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${state.auth.token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ money: price }),
+      });
+
+      const data = await res.json();
+
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
+      } else {
+        return thunkAPI.fulfillWithValue(data);
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+
+
+
 const usersSlice = createSlice({
   name: "users",
   initialState,
@@ -209,7 +243,23 @@ const usersSlice = createSlice({
       console.log(action);
       state.users = action.payload;
     });
+
+    builder 
+    .addCase(addMoney.pending, (state, action) => {
+      state.loading = true;
+    })
+    .addCase(addMoney.fulfilled, (state, action) => {
+      state.loading = false;
+      state.authUser = action.payload;
+    })
+    .addCase(addMoney.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    })
+    
   },
+  
+
 });
 
 export default usersSlice.reducer;

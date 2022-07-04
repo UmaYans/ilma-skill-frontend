@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { pathAvatar, getUser } from "../../redux-toolkit/features/usersSlice";
 import style from "./profile.module.css";
@@ -8,8 +8,8 @@ import { FaRegEdit } from "react-icons/fa";
 const Profil = (id, user) => {
   const image = useSelector((state) => state.user.users);
   const users = useSelector((state) => state.user.users);
-
   const dispatch = useDispatch();
+  const [click, setClick] = useState(false);
 
   const unSign = () => {
     localStorage.removeItem("token");
@@ -29,6 +29,11 @@ const Profil = (id, user) => {
     return  <div>...</div>;
   }
 
+  const handleClick = () => {
+    setClick(true);
+  };
+
+
   return (
     <div className={style.body}>
       <div className={style.main}>
@@ -44,7 +49,7 @@ const Profil = (id, user) => {
                 image?.avatar
                   ? `http://localhost:4100/${image.avatar}`
                   : users?.avatar
-              }
+                 }
               alt=""
             />
           </div>
@@ -61,11 +66,15 @@ const Profil = (id, user) => {
           </div>
           <div>
             <div className={style.info}>
+
               <div className={style.userName}>Имя: {users?.firstName}</div>
               <div className={style.userLastname}>
                 Фамилия: {users?.lastName}
               </div>
               <div className={style.age}>Возраст: {users?.age}</div>
+               <div>Баланс:{users.money}</div>
+              {/* <button onClick={() => handleClick()}>Пополнить</button>
+              {setClick ? <div>123</div> : null} */}
             </div>
           </div>
         </div>

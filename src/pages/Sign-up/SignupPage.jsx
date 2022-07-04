@@ -169,7 +169,7 @@ const SignupPage = () => {
       </div>
       <div className={style.content}>
         {" "}
-        {error}
+        <divc className={style.error}>{error}</divc>
         <h1>Регистрация</h1>
         <form action="" onSubmit={handlePrev}>
           <div className={style.div}>

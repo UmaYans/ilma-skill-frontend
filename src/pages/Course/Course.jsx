@@ -18,7 +18,6 @@ const Course = () => {
   const services = useSelector((state) => state.serv.services);
   const categories = useSelector((state) => state.cat.categories);
   const loading = useSelector((state) => state.serv.loading);
-  console.log(loading);
 
   useEffect(() => {
     dispatch(getService());

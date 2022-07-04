@@ -44,6 +44,7 @@
 .error {
   text-align: center;
   color: red;
+  font-size: 22px;
   margin-bottom: 5px;
 }
 .role {

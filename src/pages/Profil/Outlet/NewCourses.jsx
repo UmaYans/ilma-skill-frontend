@@ -10,10 +10,18 @@ const NewCourses = () => {
 
   const categories = useSelector((state) => state.cat.categories);
 
+  const [image, setImage] = useState(null)
+
   useEffect(() => {
     dispatch(getCategories());
     dispatch(postServiceByTeacher());
   }, [dispatch]);
+
+
+  const uploadHandler = (e) => {
+    e.preventDefault();
+    setImage(e.target.files[0]);
+  };
 
   const [name, setName] = useState("");
   const [time, setTime] = useState("");
@@ -36,7 +44,7 @@ const NewCourses = () => {
         price,
         description,
         format,
-        photo,
+        image,
       })
     );
   };
@@ -69,8 +77,18 @@ const NewCourses = () => {
       <div className={style.newCourse}>
         <div className={style.newCourse_wrap}>
           <span>Выберие фотографию для курса </span>
+          <img
+                className={style.img}
+                src={def}
+                alt="name"
+              />
           <div className={style.newCourse_img}>
-            <img src={def} alt="Course" />
+        <input
+          type="file"
+          id="upload"
+          accept="image/*"
+          onChange={uploadHandler}
+        />
           </div>
         </div>
         <div className={style.newCourse_inp}>

@@ -53,7 +53,7 @@ const Commnts = ({ user, token, id, comments }) => {
                 {" "}
                 <img
                   src={`http://localhost:4100/${comment.userId.avatar}`}
-                  alt={`image`}
+                  alt="imag"
                 />{" "}
               </div>
               <div>

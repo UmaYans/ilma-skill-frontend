@@ -23,10 +23,10 @@ const Profil = (id, user) => {
 
   const pathAva = (file) => {
     dispatch(pathAvatar({ file }));
-    localStorage.setItem("avatar", user.avatar);
+    localStorage.setItem("avatar", user?.avatar);
   };
   if (!users) {
-    <div>...</div>;
+    return  <div>...</div>;
   }
 
   return (

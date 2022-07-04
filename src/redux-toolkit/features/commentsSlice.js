@@ -110,9 +110,9 @@ export const commentsSlcie = createSlice({
         state.comments = state.comments.filter(
           (comment) => comment._id !== action.payload
         );
-        state.userComments = state.userComments.filter(
-          (comment) => comment._id !== action.payload
-        );
+        // state.userComments = state.userComments.filter(
+        //   (comment) => comment._id !== action.payload
+        // );
       })
       .addCase(deleteComment.rejected, (state, action) => {
         state.loading = false;

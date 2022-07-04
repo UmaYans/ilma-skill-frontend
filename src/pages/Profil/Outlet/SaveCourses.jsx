@@ -86,6 +86,7 @@ const SaveCourses = () => {
                   image={course.photo}
                   alt="Paella dish"
                 />
+                
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
                     This impressive paella is a perfect party dish and a fun

@@ -5,7 +5,9 @@ import style from "./Comment.module.css";
 import {
   addComment,
   deleteComment,
+  getCommentByServiceId,
 } from "../../../redux-toolkit/features/commentsSlice";
+import { getUser } from "../../../redux-toolkit/features/usersSlice";
 
 const Commnts = ({ user, token, id, comments }) => {
   const dispatch = useDispatch();

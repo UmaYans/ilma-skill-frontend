@@ -126,8 +126,7 @@ export const commentsSlcie = createSlice({
         state.error = action.payload.error;
       });
     builder.addCase(addComment.fulfilled, (state, action) => {
-      console.log(action);
-
+      state.loading = false;
       state.comments.push(action.payload);
     });
   },

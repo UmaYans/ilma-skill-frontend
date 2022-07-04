@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux-toolkit/features/categoriesSlice";
+import { postServiceByTeacher } from "../../../redux-toolkit/features/serviceSlice";
 import def from "./img/defoltPhoto.png";
 import style from "./style/NewCourse.module.css";
 
@@ -11,7 +12,56 @@ const NewCourses = () => {
 
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(postServiceByTeacher());
   }, [dispatch]);
+
+  const [name, setName] = useState("");
+  const [time, setTime] = useState("");
+  const [catId, setCatId] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [format, setFormat] = useState("");
+  console.log(time);
+  useEffect(() => {
+    dispatch(postServiceByTeacher());
+  });
+
+  const hadnleAddCourse = () => {
+    dispatch(
+      postServiceByTeacher({
+        name,
+        time,
+        catId,
+        price,
+        description,
+        format,
+        photo,
+      })
+    );
+  };
+  const handleChangeFormat = (e) => {
+    setFormat(e.target.value);
+  };
+
+  const handleChagneDesc = (e) => {
+    setDescription(e.target.value);
+  };
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleChangeCatId = (e) => {
+    setCatId(e.target.value);
+  };
+
+  const handleChangePrice = (e) => {
+    setPrice(e.target.value);
+  };
+
+  const handleChangeTime = (e) => {
+    setTime(e.target.value);
+  };
 
   return (
     <div>
@@ -27,11 +77,18 @@ const NewCourses = () => {
           <form action="" onSubmit={(e) => e.preventDefault()}>
             <div>
               <p>Название курса</p>
-              <input type="text" placeholder="Введите название курса..." />
+              <input
+                value={name}
+                type="text"
+                placeholder="Введите название курса..."
+                onChange={handleChangeName}
+              />
             </div>
             <div>
               <p>Описание курса</p>
               <textarea
+                value={description}
+                onChange={handleChagneDesc}
                 id="description"
                 name="description"
                 rows="10"
@@ -43,13 +100,18 @@ const NewCourses = () => {
             </div>
             <div>
               <p>Стоимость курса</p>
-              <input type="number" placeholder="Введите cтоимость курса..." />
+              <input
+                value={price}
+                type="number"
+                placeholder="Введите cтоимость курса..."
+                onChange={handleChangePrice}
+              />
             </div>
             <div>
               <p>Категория курса</p>
-              <select name="categories">
+              <select name="categories" onChange={handleChangeCatId}>
                 {categories.map((category) => {
-                  <option value="value1" selected disabled>
+                  <option value={catId} selected disabled>
                     Выберите категорию{" "}
                   </option>;
                   return <option value={category._id}>{category.name}</option>;
@@ -58,14 +120,23 @@ const NewCourses = () => {
             </div>
             <div>
               <p>Формат обучения</p>
-              <input type="radio" id="Online" value="Online"  />
+              <input
+                // value={format}
+                type="radio"
+                id="Online"
+                value="Online"
+                onChange={handleChangeFormat}
+              />
               <label for="Online">Online</label>
-              <input type="radio" id="Offline" value="Offline"  />
+              <input type="radio" id="Offline" value="Offline" />
               <label for="Offline">Offline</label>
             </div>
             <div>
               <p>Время обучения</p>
-              <input type="date" />
+              <input type="date" value={time} onChange={handleChangeTime} />
+            </div>
+            <div>
+              <button onClick={hadnleAddCourse}>Добавить</button>
             </div>
           </form>
         </div>

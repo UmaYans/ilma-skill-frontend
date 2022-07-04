@@ -77,7 +77,7 @@ const Course = () => {
                   if (cat._id === catId) {
                     return (
                       <div key={cat._id}>
-                        <div>{cat.name}</div>
+                        <div className={style.cartMap_catName}>{cat.name}</div>
                         <div className={style.catService}>
                           {catService(cat._id)}
                         </div>

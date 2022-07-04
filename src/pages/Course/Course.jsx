@@ -17,6 +17,7 @@ const Course = () => {
 
   const services = useSelector((state) => state.serv.services);
   const categories = useSelector((state) => state.cat.categories);
+  const loading = useSelector((state) => state.serv.loading);
 
   useEffect(() => {
     dispatch(getService());
@@ -39,48 +40,54 @@ const Course = () => {
 
   return (
     <div>
-      <CartMap />
-      <div className={style.card_main}>
-        {!catId
-          ? categories.map((cat, index) => {
-              return (
-                <div key={cat._id}>
-                  <div className={style.categories_name}>{cat.name}</div>
-                  <div className={style.catService}>
-                    {catService(cat._id)}
-                    <div className={style.card}>
-                      <div className={style.card_img}></div>
-                      <div className={style.nav_categ}>
-                        <div className={style.icons_arrow}>
-                          <NavLink
-                            to={`../course/category/${cat._id}`}
-                            className={style.nav_categ}
-                          >
-                            <div className={style.icon_color}>
-                              {" "}
-                              <BsArrowRight />
+      {loading ? (
+        <div className={style.loader}>Loading...</div>
+      ) : (
+        <div>
+          <CartMap />
+          <div className={style.card_main}>
+            {!catId
+              ? categories.map((cat, index) => {
+                  return (
+                    <div key={cat._id}>
+                      <div className={style.categories_name}>{cat.name}</div>
+                      <div className={style.catService}>
+                        {catService(cat._id)}
+                        <div className={style.card}>
+                          <div className={style.card_img}></div>
+                          <div className={style.nav_categ}>
+                            <div className={style.icons_arrow}>
+                              <NavLink
+                                to={`../course/category/${cat._id}`}
+                                className={style.nav_categ}
+                              >
+                                <div className={style.icon_color}>
+                                  {" "}
+                                  <BsArrowRight />
+                                </div>
+                              </NavLink>
                             </div>
-                          </NavLink>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })
-          : categories.map((cat) => {
-              if (cat._id === catId) {
-                return (
-                  <div key={cat._id}>
-                    <div>{cat.name}</div>
-                    <div className={style.catService}>
-                      {catService(cat._id)}
-                    </div>
-                  </div>
-                );
-              }
-            })}
-      </div>
+                  );
+                })
+              : categories.map((cat) => {
+                  if (cat._id === catId) {
+                    return (
+                      <div key={cat._id}>
+                        <div>{cat.name}</div>
+                        <div className={style.catService}>
+                          {catService(cat._id)}
+                        </div>
+                      </div>
+                    );
+                  }
+                })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.main_info{
+.main_info {
   color: rgb(252, 252, 252);
   background: #221a2db1;
   padding: 10px;
@@ -6,17 +6,14 @@
 .info {
   display: flex;
   justify-content: space-between;
-
-
 }
 .img_block {
   width: 40%;
-
 }
-.image_block{
-  padding: 80px 80px 0 80px  ;
+.image_block {
+  padding: 80px 80px 0 80px;
 }
-.rating_all{
+.rating_all {
   padding: 20px;
   font-size: 30px;
   text-align: center;
@@ -29,40 +26,41 @@
   width: 60%;
   padding: 15px;
 }
-.text_one{
+.text_one {
   font-family: cursive;
-  color: #3BF5BD;
+  color: #3bf5bd;
 }
-.formats_map{
+.formats_map {
   margin-top: 15px;
   display: flex;
 }
-.fromats{
-  background: #0CF3AD;
+.fromats {
+  background: #0cf3ad;
   margin-left: 15px;
   padding: 8px;
   border-radius: 15px;
-  color: #F5453D;
+  color: #f5453d;
   font-weight: 600;
   font-size: 18px;
-  font-family: 'Inter';
-
+  font-family: "Inter";
 }
-.fromats_on{
-  background: #3BA7F5;
-
+.fromats_on {
+  background: #3ba7f5;
 }
-.list{
-  list-style:disc;
-
+.list {
+  list-style: disc;
 }
-.banner{
+.banner {
   width: 85%;
   margin: auto;
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.192) 0%, rgba(255, 255, 255, 0.088) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.192) 0%,
+    rgba(255, 255, 255, 0.088) 100%
+  );
   margin-bottom: 15px;
   border-radius: 15px;
 }

@@ -1,36 +1,38 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  userComments: [],
+  userComments: null,
   comments: [],
   loading: false,
   error: null,
 };
 
-// export const getCommentsByUser = createAsyncThunk(
-//   "get/commentUser",
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
+export const getCommentsByUser = createAsyncThunk(
+  "get/commentUser",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
 
-//     try {
-//       const res = await fetch("/userCom", {
-//         headers: {
-//           Authorization: `Bearer ${state.user.token}`,
-//         },
-//       });
-//       const user = await res.json();
-//       if (user.error) {
-//         return thunkAPI.rejectWithValue({ error: user.error });
-//       } else {
-//         return thunkAPI.fulfillWithValue(user);
-//       }
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue({
-//         error,
-//       });
-//     }
-//   }
-// );
+    try {
+      const res = await fetch("/userCom", {
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
+      const user = await res.json();
+      console.log(user, "23");
+
+      if (user.error) {
+        return thunkAPI.rejectWithValue({ error: user.error });
+      } else {
+        return thunkAPI.fulfillWithValue(user);
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue({
+        error,
+      });
+    }
+  }
+);
 
 export const deleteComment = createAsyncThunk(
   "delete/comment",
@@ -90,27 +92,27 @@ export const commentsSlcie = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // builder
-    //   .addCase(getCommentsByUser.fulfilled, (state, action) => {
-    //     state.loading = false;
-    //     state.userComments = action.payload;
-    //   })
-    //   .addCase(getCommentsByUser.pending, (state, action) => {
-    //     state.loading = true;
-    //   })
-    //   .addCase(getCommentsByUser.rejected, (state, action) => {
-    //     state.loading = false;
-    //     state.error = action.payload.error;
-    //   });
+    builder
+      .addCase(getCommentsByUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.userComments = action.payload;
+      })
+      .addCase(getCommentsByUser.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(getCommentsByUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      });
     builder
       .addCase(deleteComment.fulfilled, (state, action) => {
         state.loading = false;
         state.comments = state.comments.filter(
           (comment) => comment._id !== action.payload
         );
-        state.userComments = state.userComments.filter(
-          (comment) => comment._id !== action.payload
-        );
+        // state.userComments = state.userComments.filter(
+        //   (comment) => comment._id !== action.payload
+        // );
       })
       .addCase(deleteComment.rejected, (state, action) => {
         state.loading = false;
@@ -124,8 +126,7 @@ export const commentsSlcie = createSlice({
         state.error = action.payload.error;
       });
     builder.addCase(addComment.fulfilled, (state, action) => {
-      console.log(action);
-
+      state.loading = false;
       state.comments.push(action.payload);
     });
   },

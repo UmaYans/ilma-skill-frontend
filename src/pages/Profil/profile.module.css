@@ -27,7 +27,6 @@
 }
 .userLastname {
     font-size: 19px;
-    color: aqua;
     margin-bottom: 12px;
 }
 .horiz{
@@ -47,8 +46,8 @@
  margin-left: 15px;
 }
 .info{ 
-    margin-top: 38px;
-    margin-left: 50px;
+    margin-top: 45px;
+    margin-left: 30px;
     flex-wrap: wrap;
 }
 .userName {
@@ -58,16 +57,15 @@
 .age {
     font-size: 19px;
 }
-.sidebar {
-    margin-left: 197px;
-}
+
 .title {
-    margin-left: 30px;
+    margin-left: 40px;
     font-size: 22px;
+    color: #dadada;
 }
 .horiz2 {
     border: solid 0.1px;
-    width: 140px;
+    width: 170px;
     margin-right: 1500px;
 }
 .iconPath {
@@ -89,23 +87,27 @@
     height: 40px;
     color: #fff;
     border-radius: 5px;
-    padding: 10px 25px;
     font-family: "Lato", sans-serif;
     font-weight: 500;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    display: inline-block;
+    margin-top: 150px;
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
       7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     outline: none;
   }
   .exit {
-    background: rgb(204, 135, 135);
+    background: rgb(79, 83, 157);
+
     border: none;
     z-index: 1;
-    margin-top: 200px;
+  }
+  .exit a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
   }
   .exit:after {
     position: absolute;
@@ -117,7 +119,7 @@
     z-index: -1;
     border-radius: 5px;
     background-color: #656f0d;
-    background-image: linear-gradient(315deg, #f81818 0%, #f63d3d 74%);
+    background-image: linear-gradient(315deg, #18f875 0%, #2ea2af 74%);
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
   }
@@ -132,3 +134,37 @@
   .exit:active {
     top: 2px;
   }
+  .profile{
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 18%;
+  }
+  .cont3{
+    display: flex;
+    width: 73.5%;
+    margin: auto;
+  }
+  .sidebar {
+    width: 20%;
+}
+.cont3_wrap{
+    width: 80%;
+}
+.obsh {
+  margin-left: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  color: #c3c3c3;
+}
+.obsh1 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.obs {
+  margin-left: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  color: #c3c3c3;
+}

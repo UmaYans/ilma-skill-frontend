@@ -5,30 +5,35 @@ import style from "./CardCorse.module.css";
 const CardCourse = ({ servic }) => {
   const [check, setCheck] = useState(false);
 
-  console.log(servic);
-
   const readMore = () => {
-    // if (!check) {
-    //   return servic.description;
-    // } else {
-    //   return servic.description.substring(0, 100) + "...";
-    // }
     setCheck(!check);
   };
 
   return (
     <div className={style.card}>
-      <div className={style.card_img}>
+      {/* <div className={style.card_img}>
         <img src={servic.photo} alt={servic.name} className={style.img} />
+      </div> */}
+      <div className={style.hover_text_one}>
+        <NavLink to={`../course/${servic._id}`} className={style.nav_servName}>
+          <figure className={style.effect__text_three}>
+            <img src={servic.photo} alt={servic.name} />
+            <figcaption>
+              <h3> {servic.name}</h3>
+              <p> </p>
+            </figcaption>
+          </figure>
+        </NavLink>
       </div>
+
       <div className={style.course_info}>
-        <div>
-          <NavLink
+        <div className={style.nav_servName_div}>
+          {/* <NavLink
             to={`../course/${servic._id}`}
             className={style.nav_servName}
           >
             {servic.name}
-          </NavLink>
+          </NavLink> */}
         </div>
 
         <div className={style.text_block}>
@@ -51,7 +56,7 @@ const CardCourse = ({ servic }) => {
             {!check ? "Подробнее>>" : "Скрыть >>"}
           </button> */}
         </div>
-        <p>
+        <div>
           {/* <span className={style.online}>Online</span>
           <span className={style.offline}>Offline</span> */}
           <div className={style.format_card}>
@@ -64,7 +69,7 @@ const CardCourse = ({ servic }) => {
               </div>
             ))}
           </div>
-        </p>
+        </div>
         <p>
           {servic.price} ₽ <s> {servic.oldPrice} </s>
         </p>

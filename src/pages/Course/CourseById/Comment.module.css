@@ -10,7 +10,15 @@
   font-size: 22px;
   color: white;
 }
-.comment_text{
+.comment_text {
   color: white;
   font-size: 22px;
+}
+.user_profile_img {
+  width: 80px;
+  height: 60px;
+}
+.user_profile_img img {
+  border-radius: 50%;
+  width: 100%;
 }

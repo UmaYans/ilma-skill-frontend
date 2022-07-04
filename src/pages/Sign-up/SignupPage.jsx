@@ -26,6 +26,9 @@ const SignupPage = () => {
 
   const [state, setState] = useState(false);
 
+  const disabled =
+    firstName && lastName && login && password && phone && role && age;
+
   //Валидация форм
   //Валидация форм
 
@@ -72,8 +75,7 @@ const SignupPage = () => {
 
   const handleChangeLogin = (e) => {
     setLogin(e.target.value);
-    const re =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Некорректный email");
       if (!e.target.value) {
@@ -167,7 +169,7 @@ const SignupPage = () => {
       </div>
       <div className={style.content}>
         {" "}
-        {error}
+        <divc className={style.error}>{error}</divc>
         <h1>Регистрация</h1>
         <form action="" onSubmit={handlePrev}>
           <div className={style.div}>
@@ -233,13 +235,7 @@ const SignupPage = () => {
                 alt="phot"
                 className={style.nameImg}
               />
-              {/* <input
-                className={style.input}
-                type="text"
-                value={phone}
-                placeholder="Введите номер телефона"
-                onChange={handleChangePhone}
-              /> */}
+
               <InputMask
                 mask="+7(999)-999-99-99"
                 className={style.input}
@@ -274,11 +270,7 @@ const SignupPage = () => {
               <div className={style.error}>
                 {passwordDirty && passwordError && <div>{passwordError}</div>}
               </div>
-              {/* <img
-                src="https://www.svgrepo.com/show/84319/password.svg"
-                alt="phot"
-                className={style.passwordImg}
-              /> */}
+
               <button onClick={toggleBtn} className={style.imgEye}>
                 {state ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
               </button>
@@ -299,8 +291,16 @@ const SignupPage = () => {
           </div>
         </form>
         <div className={style.reg}>
-          <button disabled={signinUp} onClick={handleSubmit}>
-            Зарегистрироваться
+          <button disabled={signinUp || !disabled} onClick={handleSubmit}>
+            <Link
+              to="../sign-in"
+              className={`${style.link} ${
+                signinUp || !disabled ? style.disabledlink : ""
+              }`}
+            >
+              {" "}
+              Зарегистрироваться
+            </Link>
           </button>
           <p>
             Уже есть аккаунт? <Link to="../sign-in">Войти</Link>

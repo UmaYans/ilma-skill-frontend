@@ -14,6 +14,8 @@ const SigninPage = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
+  const dis = login && password;
+
   const [state, setState] = useState(false);
 
   //Валидация форм
@@ -28,8 +30,7 @@ const SigninPage = () => {
 
   const handleChangeLogin = (e) => {
     setLogin(e.target.value);
-    const re =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Некорректный email");
       if (!e.target.value) {
@@ -96,7 +97,7 @@ const SigninPage = () => {
     <div className={style.main}>
       <div className={style.img}>
         <div>
-          <h1>Добро пожаловать на платформу онлайн-обучения SIDIK</h1>
+          <h1>Добро пожаловать на платформу онлайн-обучения I'lma-skill</h1>
         </div>
         <div>
           <img src={img} alt="#" />
@@ -110,7 +111,7 @@ const SigninPage = () => {
                 {" "}
                 <div className={style.title}>Авторизация</div>
               </div>
-              <div>{error}</div>
+              <div className={style.error}>{error}</div>
               <div className={style.userLog}>Логин</div>
               <div>
                 <div className={style.error}>
@@ -151,7 +152,11 @@ const SigninPage = () => {
                 />
               </div>
               <div>
-                <button className={style.button} onClick={handleAuth}>
+                <button
+                  className={`${style.link} ${!dis ? style.disabledlink : ""}`}
+                  onClick={handleAuth}
+                  disabled={!dis}
+                >
                   Войти
                 </button>
               </div>

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .main{
     display: flex;
-    height: 348px;
+    height: 290px;
     background: linear-gradient(26.04deg,  rgb(27, 30, 104), rgb(25, 27, 63));
 }
 .cont {

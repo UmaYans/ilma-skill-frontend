@@ -17,7 +17,7 @@ const CardCourse = ({ servic }) => {
       <div className={style.hover_text_one}>
         <NavLink to={`../course/${servic._id}`} className={style.nav_servName}>
           <figure className={style.effect__text_three}>
-            <img src={servic.photo} alt={servic.name} />
+            <img src={`/public/${servic.image}`} alt={servic.name} />
             <figcaption>
               <h3> {servic.name}</h3>
               <p> </p>

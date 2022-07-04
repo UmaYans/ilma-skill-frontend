@@ -24,7 +24,6 @@ const CardCourse = ({ servic }) => {
             </figcaption>
           </figure>
         </NavLink>
-
       </div>
 
       <div className={style.course_info}>

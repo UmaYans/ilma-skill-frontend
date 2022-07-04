@@ -5,7 +5,6 @@ import style from "./Comment.module.css";
 import {
   addComment,
   deleteComment,
-  getCommentByServiceId,
 } from "../../../redux-toolkit/features/commentsSlice";
 import { getUser } from "../../../redux-toolkit/features/usersSlice";
 
@@ -19,8 +18,8 @@ const Commnts = ({ user, token, id, comments }) => {
   };
 
   const addCom = () => {
-    setText("");
     dispatch(addComment({ text, grade, id }));
+    setText("");
   };
 
   return (
@@ -50,14 +49,15 @@ const Commnts = ({ user, token, id, comments }) => {
           console.log(comment);
           return (
             <div key={comment._id}>
-              <div className={style.comment_text}>{comment.text}</div>
+              <div className={style.comment_text}>{comment?.text}</div>
               <div className={style.user_profile_img}>
                 {" "}
                 <img
-                  src={`http://localhost:4100/${comment.userId.avatar}`}
+                  src={`http://localhost:4100/${comment.userId?.avatar}`}
                   alt="imag"
                 />{" "}
               </div>
+              <div>{comment.userId?.firstName}</div>
               <div>
                 <button onClick={() => handleDelete(comment._id)}>x</button>
               </div>

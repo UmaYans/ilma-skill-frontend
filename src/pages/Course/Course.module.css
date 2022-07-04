@@ -102,6 +102,10 @@
 .img {
   width: 100%;
 }
+.cartMap_catName{
+  margin-left: 10%;
+  font-size: 30px;
+}
 
 .icons_arrow {
   font-size: 90px;

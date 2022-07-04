@@ -32,7 +32,7 @@ function CartMap() {
             <div className={style.first_child}>
               <img src={img1} alt="" />
             </div>
-            <div>
+            <div className={style.text_image}>
               <p>Найди новых друзей</p>
             </div>
           </div>
@@ -48,7 +48,7 @@ function CartMap() {
             <div className={style.first_child}>
               <img src={img2} alt="" />
             </div>
-            <div>
+            <div className={style.text_image}>
               <p>Эксперт и веселый наставник</p>
             </div>
           </div>

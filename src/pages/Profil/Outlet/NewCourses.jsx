@@ -15,7 +15,7 @@ const NewCourses = () => {
 
   return (
     <div>
-      <p>Разместите курс</p>
+      <p className={style.titleCourse}>Разместите курс</p>
       <div className={style.newCourse}>
         <div className={style.newCourse_wrap}>
           <span>Выберие фотографию для курса </span>
@@ -27,7 +27,7 @@ const NewCourses = () => {
           <form action="" onSubmit={(e) => e.preventDefault()}>
             <div>
               <p>Название курса</p>
-              <input type="text" placeholder="Введите название курса..." />
+              <input className={style.inp1} type="text" placeholder="Введите название курса..." />
             </div>
             <div>
               <p>Описание курса</p>
@@ -37,17 +37,18 @@ const NewCourses = () => {
                 rows="10"
                 cols="33"
                 placeholder="Введите описание..."
+                className={style.textAr}
               >
                 It was a dark and stormy nароight...
               </textarea>
             </div>
             <div>
               <p>Стоимость курса</p>
-              <input type="number" placeholder="Введите cтоимость курса..." />
+              <input className={style.inp2} type="number" placeholder="Введите cтоимость курса..." />
             </div>
             <div>
               <p>Категория курса</p>
-              <select name="categories">
+              <select className={style.select} name="categories">
                 {categories.map((category) => {
                   <option value="value1" selected disabled>
                     Выберите категорию{" "}

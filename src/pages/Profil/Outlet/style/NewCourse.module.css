@@ -1,6 +1,7 @@
 .newCourse{
   display: flex;
   width: 100%;
+  margin-left: 150px;
 }
 .newCourse_wrap{
   width: 40%;
@@ -12,4 +13,43 @@
 .newCourse_img img{
   width: 100%;
   height: 100%;
+}
+.titleCourse {
+  font-size: 22px;
+  margin-left: 150px;
+}
+.inp1 {
+  width: 300px;
+	font-size: 13px;
+	padding: 6px 0 4px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 6px;
+}
+.inp2 {
+  width: 200px;
+	font-size: 13px;
+	padding: 6px 0 4px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 6px;
+}
+.textAr {
+  width:100%;
+  resize: vertical;
+  padding:15px;
+  border-radius:15px;
+  border:6px;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  height:150px;
+}
+.select {
+  border-radius: 6px;
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-size: 18px;
+  color: #60666d;
 }

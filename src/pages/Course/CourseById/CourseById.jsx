@@ -25,8 +25,9 @@ const CourseById = () => {
   }, [dispatch, id]);
 
   if (!user?.saveCourses) {
-    return "....";
+    return <div>....</div> ;
   }
+  console.log(servic, "34");
 
   return (
     <div>

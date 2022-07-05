@@ -24,6 +24,10 @@ const Course = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
+  if (!services || !categories || loading) {
+    return <div>Загрузка...</div>;
+  }
+
   function catService(id) {
     if (!catId) {
       const filter = services.filter((servic) => servic.catId?._id === id);
@@ -62,7 +66,6 @@ const Course = () => {
                                 className={style.nav_categ}
                               >
                                 <div className={style.icon_color}>
-                                  {" "}
                                   <BsArrowRight />
                                 </div>
                               </NavLink>

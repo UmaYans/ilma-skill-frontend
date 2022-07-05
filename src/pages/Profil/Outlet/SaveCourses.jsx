@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getUser } from "../../../redux-toolkit/features/usersSlice";
+import style from "./style/SaveCourses.module.css";
+import {
+  getAllUsers,
+  getUser,
+} from "../../../redux-toolkit/features/usersSlice";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -35,26 +39,40 @@ const SaveCourses = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const user = useSelector((state) => state.user.users);
+  const users = useSelector((state) => state.user.allUsers);
   const loading = useSelector((state) => state.user.loading);
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(getAllUsers());
   }, [dispatch]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const nameTeach = (id) => {
+    const usera = users.find((user) => user._id === id);
+    console.log(usera, "2323");
+    if (usera) {
+      return usera;
+    }
+    return "...";
+  };
+
+  // const teacher = user.saveCourses.find(item => item.teacher === )
+
+  console.log(users, "32");
   console.log(user, "32");
 
-  if (!user || loading) {
+  if (!user || loading || !users) {
     return <div>...</div>;
   }
 
   return (
     <div>
       <p>Сохраненные курсы </p>
-      <div>
+      <div className={style.wrapper}>
         {user.saveCourses.length === 0 ? (
           <div>
             Нет сохраненных курсов.Найти <Link to="/course">курс?</Link>
@@ -62,14 +80,17 @@ const SaveCourses = () => {
         ) : (
           user.saveCourses.map((course) => {
             return (
-              // <div >
-              //   <span>{course.name}</span>
-              // </div>
               <Card sx={{ maxWidth: 345 }} key={course._id}>
                 <CardHeader
                   avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      <img src={course.teacher.name} alt="" />
+                    <Avatar aria-label="recipe">
+                      <img
+                        src={`http://localhost:4100/${
+                          nameTeach(course.teacher)?.avatar
+                        }`}
+                        alt={nameTeach(course.teacher)?.firstName}
+                        className={style.card_avater}
+                      />
                     </Avatar>
                   }
                   action={
@@ -77,21 +98,21 @@ const SaveCourses = () => {
                       <MoreVertIcon />
                     </IconButton>
                   }
-                  title="Shrimp and Chorizo Paella"
+                  title={`${nameTeach(course.teacher).firstName} ${
+                    nameTeach(course.teacher).lastName
+                  }`}
                   subheader="September 14, 2016"
                 />
                 <CardMedia
                   component="img"
                   height="194"
-                  image={course.photo}
+                  image={`/public/${course.image}`}
                   alt="Paella dish"
                 />
-                
+
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun
-                    meal to cook together with your guests. Add 1 cup of frozen
-                    peas along with the mussels, if you like.
+                    {course.description}
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>

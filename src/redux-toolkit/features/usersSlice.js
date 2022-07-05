@@ -5,9 +5,9 @@ const initialState = {
   signinIn: false,
   error: null,
   users: null,
+  allUsers: null,
   token: localStorage.getItem("token"),
   loading: false,
-  
 };
 
 export const registerUser = createAsyncThunk(
@@ -90,6 +90,21 @@ export const getUser = createAsyncThunk("get/user", async (_, thunkAPI) => {
   }
 });
 
+export const getAllUsers = createAsyncThunk(
+  "et/allUsers",
+  async (_, thunkAPI) => {
+    try {
+      const res = await fetch("/allUsers");
+      const users = await res.json();
+      return thunkAPI.fulfillWithValue(users);
+    } catch (error) {
+      return thunkAPI.rejectWithValue({
+        error,
+      });
+    }
+  }
+);
+
 export const pathAvatar = createAsyncThunk(
   "path/pathAvatar",
   async ({ file }, thunkAPI) => {
@@ -161,8 +176,6 @@ export const deleteCorse = createAsyncThunk(
   }
 );
 
-
-
 export const addMoney = createAsyncThunk(
   "auth/addMoney",
   async ({ price }, thunkAPI) => {
@@ -190,9 +203,6 @@ export const addMoney = createAsyncThunk(
     }
   }
 );
-
-
-
 
 const usersSlice = createSlice({
   name: "users",
@@ -233,6 +243,7 @@ const usersSlice = createSlice({
       })
       .addCase(getUser.rejected, (state, action) => {
         state.loading = false;
+        state.error = action.payload.error;
       });
     builder.addCase(saveCorse.fulfilled, (state, action) => {
       console.log(action);
@@ -244,22 +255,31 @@ const usersSlice = createSlice({
       state.users = action.payload;
     });
 
-    builder 
-    .addCase(addMoney.pending, (state, action) => {
-      state.loading = true;
-    })
-    .addCase(addMoney.fulfilled, (state, action) => {
-      state.loading = false;
-      state.authUser = action.payload;
-    })
-    .addCase(addMoney.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    })
-    
+    builder
+      .addCase(addMoney.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(addMoney.fulfilled, (state, action) => {
+        state.loading = false;
+        state.authUser = action.payload;
+      })
+      .addCase(addMoney.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      });
+    builder
+      .addCase(getAllUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.allUsers = action.payload;
+      })
+      .addCase(getAllUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      })
+      .addCase(getAllUsers.pending, (state, action) => {
+        state.loading = true;
+      });
   },
-  
-
 });
 
 export default usersSlice.reducer;

@@ -11,8 +11,6 @@ import style from "./Course.module.css";
 const Course = () => {
   const { catId } = useParams();
 
-  const [filtered, setFiltered] = useState([]);
-
   const dispatch = useDispatch();
 
   const services = useSelector((state) => state.serv.services);
@@ -23,6 +21,10 @@ const Course = () => {
     dispatch(getService());
     dispatch(getCategories());
   }, [dispatch]);
+
+  if (!services || !categories || loading) {
+    return <div>Загрузка...</div>;
+  }
 
   function catService(id) {
     if (!catId) {
@@ -62,7 +64,6 @@ const Course = () => {
                                 className={style.nav_categ}
                               >
                                 <div className={style.icon_color}>
-                                  {" "}
                                   <BsArrowRight />
                                 </div>
                               </NavLink>
@@ -77,7 +78,7 @@ const Course = () => {
                   if (cat._id === catId) {
                     return (
                       <div key={cat._id}>
-                        <div>{cat.name}</div>
+                        <div className={style.cartMap_catName}>{cat.name}</div>
                         <div className={style.catService}>
                           {catService(cat._id)}
                         </div>

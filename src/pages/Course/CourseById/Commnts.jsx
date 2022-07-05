@@ -6,7 +6,6 @@ import {
   addComment,
   deleteComment,
 } from "../../../redux-toolkit/features/commentsSlice";
-import { getUser } from "../../../redux-toolkit/features/usersSlice";
 
 const Commnts = ({ user, token, id, comments }) => {
   const dispatch = useDispatch();
@@ -57,7 +56,7 @@ const Commnts = ({ user, token, id, comments }) => {
                   alt="imag"
                 />{" "}
               </div>
-              <div>{comment.userId?.firstName}</div>
+              <div>{comment.userId?.firstName} {comment.userId?.lastName}</div>
               <div>
                 <button onClick={() => handleDelete(comment._id)}>x</button>
               </div>

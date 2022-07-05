@@ -43,7 +43,7 @@ const Commnts = ({ user, token, id, comments }) => {
             disabled={!text}
             onClick={() => addCom()}
           />
-          <div>
+                    <div className={style.zvezda}>
             <Rating
               name="simple-controlled"
               value={+grade}
@@ -65,10 +65,16 @@ const Commnts = ({ user, token, id, comments }) => {
                     alt="imag"
                     className={style.imgUser}
                   />{" "}
-                </div>
-                <div className={style.user_Name}>
+                          <div className={style.user_Name}>
                   {comment.userId?.firstName} {comment.userId?.lastName[0]}.
                 </div>{" "}
+                </div>
+                <div className={style.text_button}>
+                  <div>
+                <div className={style.comment_text}>{comment?.text}
+                </div>
+                <hr></hr>
+                </div>
                 <div className={style.rating}>
                   <span className={style.title}>Рейтинг:</span>
                   <Rating
@@ -79,38 +85,15 @@ const Commnts = ({ user, token, id, comments }) => {
                   />
                 </div>
               </div>
-              <div className={style.text_button}>
-                <div className={style.comment_text}>{comment?.text}</div>
                 <div>
                   <button
                     onClick={() => handleDelete(comment._id)}
                     className={style.btn_del}
                   >
-                    x
+                    удалить
                   </button>
                 </div>
               </div>
-              {/* <div className={style.comment_text}>{comment?.text}</div>
-              <div className={style.user_profile_img}>
-                {" "}
-                <img
-                  src={`http://localhost:4100/${comment.userId?.avatar}`}
-                  alt="imag"
-                />{" "}
-              </div>
-              <div>{comment.userId?.firstName} {comment.userId?.lastName}</div>
-              <div>
-                <button onClick={() => handleDelete(comment._id)}>x</button>
-              </div>
-              <div className={style.rating}>
-                <span className={style.title}>Рейтинг:</span>
-                <Rating
-                  name="read-only"
-                  value={comment.grade}
-                  size="large"
-                  readOnly
-                />
-              </div> */}
             </div>
           );
         })}

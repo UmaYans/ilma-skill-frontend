@@ -11,8 +11,6 @@ import style from "./Course.module.css";
 const Course = () => {
   const { catId } = useParams();
 
-  const [filtered, setFiltered] = useState([]);
-
   const dispatch = useDispatch();
 
   const services = useSelector((state) => state.serv.services);

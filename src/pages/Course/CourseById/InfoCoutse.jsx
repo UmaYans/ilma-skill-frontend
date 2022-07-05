@@ -102,7 +102,7 @@ const InfoCoutse = ({ user, token, id, servic, comments }) => {
         </div>
         <div className={style.img_block}>
           <div className={style.image_block}>
-            <img src={servic.photo} alt={servic.name} />
+            <img src={`/public/${servic.image}`} alt={servic.name} />
           </div>
 
           <div className={style.rating_all}>

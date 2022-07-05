@@ -90,8 +90,8 @@ const Profil = (id, user) => {
                 Фамилия: {users?.lastName}
               </div>
               <div className={style.age}>Возраст: {users?.age}</div>
-              <div>Баланс:{users.money}</div>
-              <button onClick={handleClick}>Пополнить</button>
+              <div className={style.wallet}><h3>Баланс: {users.money}₽</h3></div>
+              <button className={style.buttonss} onClick={handleClick}>Пополнить</button>
               {/* {click ? (
                 <div>
                   <div>
@@ -105,7 +105,7 @@ const Profil = (id, user) => {
                   <button onClick={handleMoney}>Пополнить</button>
                 </div>
               ) : null} */}
-              <div className={`${style.dropdown} ${click ? style.drop : ''}`}>
+              <div className={`${style.dropdown} ${click ? style.drop : ""}`}>
                 <form>
                   <div
                     style={{
@@ -115,7 +115,11 @@ const Profil = (id, user) => {
                     }}
                   >
                     <span style={{ marginLeft: "50px" }}>Номер карты</span>
-                    <input placeholder="16 цифр  на карте" maxlength="16"  style={{ height: "30px" }} />
+                    <input
+                      placeholder="16 цифр  на карте"
+                      maxlength="16"
+                      style={{ height: "30px" }}
+                    />
                   </div>
                   <div
                     style={{
@@ -137,21 +141,18 @@ const Profil = (id, user) => {
                       maxlength="4"
                       minLength="3"
                       style={{ height: "30px" }}
-                      
                     />
-                   
                   </div>
                   <div
                     style={{
                       color: "black",
                       display: "flex",
                       flexDirection: "column",
-                      
                     }}
                   >
                     <span style={{ marginLeft: "50px" }}>CVC код</span>
                     <input
-                     style={{ height: "30px" }}
+                      style={{ height: "30px" }}
                       type="text"
                       maxlength="3"
                       placeholder="3 цифры на оборте карты"
@@ -160,7 +161,7 @@ const Profil = (id, user) => {
 
                   <div
                     style={{
-                      
+                      marginRight: "200px",
                       color: "black",
                       display: "flex",
                       flexDirection: "column",
@@ -168,7 +169,7 @@ const Profil = (id, user) => {
                   >
                     Введите сумму
                     <input
-                     style={{ height: "30px" }}
+                      style={{ height: "30px" }}
                       value={moneyAdd}
                       placeholder="Введите сумму"
                       type="number"

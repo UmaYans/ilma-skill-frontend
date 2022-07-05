@@ -208,3 +208,25 @@
   padding: 5px 10px;
   max-width: 200px;
 }
+
+.buttonss{
+    position: absolute;
+    right: 200px;
+    bottom:420px;
+    
+    width: 143px;
+    height: 50px;
+    background: rgb(79, 83, 157);
+    border-radius: 10px;
+    color: white;
+    border: solid 0.1px;
+
+    
+}
+
+.wallet{
+  position: absolute;
+  right: 200px;
+  bottom:560px;
+  border-bottom: 1px solid white
+}

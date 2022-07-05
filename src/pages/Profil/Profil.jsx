@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { pathAvatar, getUser } from "../../redux-toolkit/features/usersSlice";
+import {
+  pathAvatar,
+  getUser,
+  addMoney,
+} from "../../redux-toolkit/features/usersSlice";
 import style from "./profile.module.css";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
@@ -10,6 +14,7 @@ const Profil = (id, user) => {
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
   const [click, setClick] = useState(false);
+  const [moneyAdd, setMoneyAdd] = useState("");
 
   const unSign = () => {
     localStorage.removeItem("token");
@@ -17,6 +22,19 @@ const Profil = (id, user) => {
     window.location.reload();
   };
 
+  console.log(moneyAdd);
+
+  const handleAddMoney = (e) => {
+    setMoneyAdd(e.target.value);
+  };
+
+  const handleMoney = (e) => {
+    dispatch(addMoney({ moneyAdd }));
+    dispatch(getUser());
+    setClick(!click);
+    setMoneyAdd("");
+    e.preventDefault();
+  };
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
@@ -26,13 +44,14 @@ const Profil = (id, user) => {
     localStorage.setItem("avatar", user?.avatar);
   };
   if (!users) {
-    return  <div>...</div>;
+    return <div>...</div>;
   }
 
-  const handleClick = () => {
-    setClick(true);
+  const handleClick = (e) => {
+    setClick(!click);
+    console.log(click);
+    e.preventDefault();
   };
-
 
   return (
     <div className={style.body}>
@@ -49,7 +68,7 @@ const Profil = (id, user) => {
                 image?.avatar
                   ? `http://localhost:4100/${image.avatar}`
                   : users?.avatar
-                 }
+              }
               alt=""
             />
           </div>
@@ -66,15 +85,102 @@ const Profil = (id, user) => {
           </div>
           <div>
             <div className={style.info}>
-
               <div className={style.userName}>Имя: {users?.firstName}</div>
               <div className={style.userLastname}>
                 Фамилия: {users?.lastName}
               </div>
               <div className={style.age}>Возраст: {users?.age}</div>
-               <div>Баланс:{users.money}</div>
-              {/* <button onClick={() => handleClick()}>Пополнить</button>
-              {setClick ? <div>123</div> : null} */}
+              <div>Баланс:{users.money}</div>
+              <button onClick={handleClick}>Пополнить</button>
+              {/* {click ? (
+                <div>
+                  <div>
+                    <input
+                      value={moneyAdd}
+                      placeholder="Введите сумму"
+                      type="number"
+                      onChange={handleAddMoney}
+                    />
+                  </div>
+                  <button onClick={handleMoney}>Пополнить</button>
+                </div>
+              ) : null} */}
+              <div className={`${style.dropdown} ${click ? style.drop : ""}`}>
+                <form>
+                  <div
+                    style={{
+                      color: "black",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <span style={{ marginLeft: "50px" }}>Номер карты</span>
+                    <input placeholder="16 цифр  на карте" maxlength="16"  style={{ height: "30px" }} />
+                  </div>
+                  <div
+                    style={{
+                      color: "black",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <span
+                      style={{
+                        marginLeft: "50px",
+                        width: "300px",
+                      }}
+                    >
+                      Дата
+                    </span>
+                    <input
+                      placeholder="MM/YY "
+                      maxlength="4"
+                      minLength="3"
+                      style={{ height: "30px" }}
+                      
+                    />
+                   
+                  </div>
+                  <div
+                    style={{
+                      color: "black",
+                      display: "flex",
+                      flexDirection: "column",
+                      
+                    }}
+                  >
+                    <span style={{ marginLeft: "50px" }}>CVC код</span>
+                    <input
+                     style={{ height: "30px" }}
+                      type="text"
+                      maxlength="3"
+                      placeholder="3 цифры на оборте карты"
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      
+                      color: "black",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    Введите сумму
+                    <input
+                     style={{ height: "30px" }}
+                      value={moneyAdd}
+                      placeholder="Введите сумму"
+                      type="number"
+                      onChange={handleAddMoney}
+                    />
+                    <div className={style.buttons}>
+                      <button onClick={handleMoney}>Пополнить</button>
+                      <button onClick={handleClick}>Отмена</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -88,21 +194,31 @@ const Profil = (id, user) => {
             <div className={style.title}>I'lma-skill</div>
             <hr className={style.horiz2}></hr>
             <div className={style.obsh1}>
-              <NavLink className={style.obsh} to="/profile">Мои комментарии</NavLink>{" "}
+              <NavLink className={style.obsh} to="/profile">
+                Мои комментарии
+              </NavLink>{" "}
             </div>
             <div className={style.obsh1}>
-              <NavLink className={style.obsh} to="/profile/buyCourses">Купленные курсы</NavLink>{" "}
+              <NavLink className={style.obsh} to="/profile/buyCourses">
+                Купленные курсы
+              </NavLink>{" "}
             </div>
             <div className={style.obsh1}>
-              <NavLink className={style.obsh} to="/profile/saveCurses">Сохраненные курсы</NavLink>{" "}
+              <NavLink className={style.obsh} to="/profile/saveCurses">
+                Сохраненные курсы
+              </NavLink>{" "}
             </div>
             {users?.role === "Teacher" && (
               <>
                 <div className={style.obsh1}>
-                  <NavLink className={style.obsh} to="/profile/myCurses">Мои курсы</NavLink>
+                  <NavLink className={style.obsh} to="/profile/myCurses">
+                    Мои курсы
+                  </NavLink>
                 </div>
                 <div className={style.obsh1}>
-                  <NavLink className={style.obs} to="/profile/newCurses">Разместить курс</NavLink>
+                  <NavLink className={style.obs} to="/profile/newCurses">
+                    Разместить курс
+                  </NavLink>
                 </div>
               </>
             )}

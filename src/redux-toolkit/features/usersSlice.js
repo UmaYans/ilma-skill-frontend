@@ -165,17 +165,17 @@ export const deleteCorse = createAsyncThunk(
 
 export const addMoney = createAsyncThunk(
   "auth/addMoney",
-  async ({ price }, thunkAPI) => {
+  async ({ moneyAdd }, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
 
-      const res = await fetch(`http://localhost:3042/users/addMoney`, {
+      const res = await fetch(`/addMoney`, {
         method: "PATCH",
         headers: {
-          Authorization: `Bearer ${state.auth.token}`,
+          Authorization: `Bearer ${state.user.token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ money: price }),
+        body: JSON.stringify({ money: +moneyAdd }),
       });
 
       const data = await res.json();
@@ -190,6 +190,7 @@ export const addMoney = createAsyncThunk(
     }
   }
 );
+
 
 
 
@@ -250,6 +251,7 @@ const usersSlice = createSlice({
     })
     .addCase(addMoney.fulfilled, (state, action) => {
       state.loading = false;
+      console.log(action);
       state.authUser = action.payload;
     })
     .addCase(addMoney.rejected, (state, action) => {

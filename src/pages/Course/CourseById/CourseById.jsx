@@ -24,10 +24,18 @@ const CourseById = () => {
     dispatch(getCommentByServiceId(id));
   }, [dispatch, id]);
 
-  if (!user?.saveCourses) {
-    return <div>....</div> ;
+  const isCourseSaved = user?.saveCourses.find((course) => {
+    return course._id === servic._id;
+  });
+
+  const isCourseBuy = user?.myCourses.find((course) => {
+    return course._id === servic._id;
+  });
+
+  if (!user || !servic || !comments || loading) {
+    return <div>....</div>;
   }
-  console.log(servic, "34");
+  console.log(user, "34");
 
   return (
     <div>
@@ -42,11 +50,15 @@ const CourseById = () => {
               id={id}
               servic={servic}
               comments={comments}
+              isCourseSaved={isCourseSaved}
+              isCourseBuy={isCourseBuy}
             />
           </div>
-          <div>
-            <VideoChat user={user} token={token} />
-          </div>
+          {(isCourseBuy || user.role === "Teacher") && (
+            <div>
+              <VideoChat user={user} token={token} />
+            </div>
+          )}
           <div>
             <Commnts user={user} token={token} id={id} comments={comments} />
           </div>

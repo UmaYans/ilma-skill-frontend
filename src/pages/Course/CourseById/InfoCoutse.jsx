@@ -15,7 +15,7 @@ import {
 } from "../../../redux-toolkit/features/usersSlice";
 import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 
-const InfoCoutse = ({ user, token, id, servic, comments }) => {
+const InfoCoutse = ({ user, token, id, servic, comments, isCourseSaved }) => {
   const dispatch = useDispatch();
 
   const commentsFind = comments.filter((item) => item._id === item._id);
@@ -25,13 +25,14 @@ const InfoCoutse = ({ user, token, id, servic, comments }) => {
       return sum + item.grade;
     }, 0) / commentsFind.length
   );
+
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
 
-  const isCourseSaved = user.saveCourses.find((course) => {
-    return course._id === servic._id;
-  });
+  // const isCourseSaved = user.saveCourses.find((course) => {
+  //   return course._id === servic._id;
+  // });
 
   const handleSave = (id) => {
     dispatch(saveCorse(id));
@@ -40,6 +41,47 @@ const InfoCoutse = ({ user, token, id, servic, comments }) => {
   const handleDelSave = (id) => {
     dispatch(deleteCorse(id));
   };
+
+  function timeConverter(UNIX_timestamp) {
+    let a = new Date(UNIX_timestamp * 1000);
+    let months = [
+      "Января",
+      "Февраля",
+      "Марта",
+      "Апреля",
+      "Мая",
+      "Июня",
+      "Июля",
+      "Августа",
+      "Сентября",
+      "Октября",
+      "Ноября",
+      "Декабря",
+    ];
+    let year = a.getFullYear();
+    let month = months[a.getMonth()];
+    let date = a.getDate();
+
+    let time = date + " " + month + " " + year;
+    return time;
+  }
+
+  function timeDiff() {
+    var diff = Math.floor((servic.time.end - servic.time.start) / 1000),
+      units = [
+        { d: 24, l: "дней" },
+        { d: 7, l: "недель" },
+      ];
+
+    var s = "";
+    for (var i = 0; i < units.length; ++i) {
+      s = (diff % units[i].d) + " " + units[i].l + " " + s;
+      diff = Math.floor(diff / units[i].d);
+    }
+    return s;
+  }
+
+  console.log(servic, "es");
 
   return (
     <div className={style.main_info}>
@@ -78,19 +120,27 @@ const InfoCoutse = ({ user, token, id, servic, comments }) => {
               </div>
               <div>
                 <Stack direction="row" spacing={1}>
-                  {!isCourseSaved ? (
-                    <div onClick={() => handleSave(servic._id)}>
-                      <IconButton color="secondary" aria-label="add an alarm">
+                  {/* {!isCourseSaved ? ( */}
+                  <div onClick={() => handleSave(servic._id)}>
+                    <button disabled={isCourseSaved}>
+                      {!isCourseSaved ? "Сохранить" : "Сохранено"}
+                    </button>
+                    {isCourseSaved && (
+                      <div onClick={() => handleDelSave(servic._id)}>
+                        Удалить{" "}
+                      </div>
+                    )}
+                    {/* <IconButton color="secondary" aria-label="add an alarm">
                         <AlarmIcon />
-                      </IconButton>
-                    </div>
-                  ) : (
-                    <div onClick={() => handleDelSave(servic._id)}>
-                      <IconButton color="secondary" aria-label="delete">
+                      </IconButton> */}
+                  </div>
+                  {/* ) : ( */}
+                  <div onClick={() => handleDelSave(servic._id)}>
+                    {/* <IconButton color="secondary" aria-label="delete">
                         <DeleteIcon />
-                      </IconButton>
-                    </div>
-                  )}
+                      </IconButton> */}
+                  </div>
+                  {/* )} */}
 
                   <IconButton color="primary" aria-label="add to shopping cart">
                     <AddShoppingCartIcon />
@@ -122,11 +172,11 @@ const InfoCoutse = ({ user, token, id, servic, comments }) => {
         </div>
         <div>
           <div>Длительность</div>
-          <div>Через 6 месяцев</div>
+          <div>{timeDiff(servic)}</div>
         </div>
         <div>
           <div>Старт курса</div>
-          <div>Через 6 месяцев</div>
+          <div>{timeConverter(servic.time.start)}</div>
         </div>
       </div>
     </div>

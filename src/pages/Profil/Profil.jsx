@@ -105,7 +105,7 @@ const Profil = (id, user) => {
                   <button onClick={handleMoney}>Пополнить</button>
                 </div>
               ) : null} */}
-              <div className={`${style.dropdown} ${click ? style.drop : ""}`}>
+              <div className={`${style.dropdown} ${click ? style.drop : ''}`}>
                 <form>
                   <div
                     style={{

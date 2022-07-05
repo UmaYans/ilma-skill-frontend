@@ -9,7 +9,7 @@ import style from "./profile.module.css";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 
-const Profil = (id, user) => {
+const   Profil = (id, user) => {
   const image = useSelector((state) => state.user.users);
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();

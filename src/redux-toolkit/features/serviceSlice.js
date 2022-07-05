@@ -24,26 +24,27 @@ export const getService = createAsyncThunk(
 export const postServiceByTeacher = createAsyncThunk(
   "post/serv",
   async (
-    { name, description, photo, price, format, time, catId },
+    { name, image, description, price, format, time, catId },
     thunkAPI
   ) => {
     const state = thunkAPI.getState();
     try {
+      const formData = new FormData();
+
+      formData.append("image", image);
+      formData.append("name", name);
+      formData.append("description", description)
+      formData.append("time", time)
+      formData.append("catId", catId)
+      formData.append("format", format)
+      formData.append("price", price)
+
       const res = await fetch("/service", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${state.user.token}`,
         },
-        body: JSON.stringify({
-          name,
-          description,
-          photo,
-          price,
-          format,
-          time,
-          catId,
-        }),
+        body: formData,
       });
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);

@@ -36,7 +36,7 @@ const Comments = () => {
 
   return (
     <div>
-      <p>Мои комментарии</p>
+      <p className={style.pp}>Мои комментарии</p>
       <div>
         {comments.length === 0  ? (
           <div>Нет оставленных комментарий</div>

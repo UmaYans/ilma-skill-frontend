@@ -22,7 +22,7 @@ function BlockThere() {
         </p>
       </div>
       <div className={styles.rodBlock}>
-        {service.slice(12).map((services, num) => {
+        {service.slice(12, 20).map((services, num) => {
           return (
             <div key={services._id}>
               <div className={styles.cardBlcok}>
@@ -61,7 +61,7 @@ function BlockThere() {
         })}
       </div>
       <Link to={`/course`}>
-      <button className={styles.buttons}>Посмотреть все курсы</button>
+        <button className={styles.buttons}>Посмотреть все курсы</button>
       </Link>
     </div>
   );

@@ -21,7 +21,7 @@ const Comments = () => {
   }, [dispatch]);
 
   const deleteCom = (id) => {
-    dispatch(deleteComment(id));
+    dispatch(deleteComment(id)).then(dispatch(getCommentsByUser()));
   };
 
   console.log(comments);
@@ -38,7 +38,7 @@ const Comments = () => {
     <div>
       <p className={style.pp}>Мои комментарии</p>
       <div>
-        {comments.length === 0  ? (
+        {comments.length === 0 ? (
           <div>Нет оставленных комментарий</div>
         ) : (
           comments?.map((comment) => {

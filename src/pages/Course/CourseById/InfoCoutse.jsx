@@ -10,12 +10,21 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteCorse,
+  entryCourse,
   getUser,
   saveCorse,
 } from "../../../redux-toolkit/features/usersSlice";
 import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 
-const InfoCoutse = ({ user, token, id, servic, comments, isCourseSaved }) => {
+const InfoCoutse = ({
+  user,
+  token,
+  id,
+  servic,
+  comments,
+  isCourseSaved,
+  isCourseBuy,
+}) => {
   const dispatch = useDispatch();
 
   const commentsFind = comments.filter((item) => item._id === item._id);
@@ -41,6 +50,10 @@ const InfoCoutse = ({ user, token, id, servic, comments, isCourseSaved }) => {
   const handleDelSave = (id) => {
     dispatch(deleteCorse(id));
   };
+
+  const handleEntry = (id) => {
+    dispatch(entryCourse(id))
+  }
 
   function timeConverter(UNIX_timestamp) {
     let a = new Date(UNIX_timestamp * 1000);
@@ -120,31 +133,24 @@ const InfoCoutse = ({ user, token, id, servic, comments, isCourseSaved }) => {
               </div>
               <div>
                 <Stack direction="row" spacing={1}>
-                  {/* {!isCourseSaved ? ( */}
-                  <div onClick={() => handleSave(servic._id)}>
-                    <button disabled={isCourseSaved}>
+                  <div >
+                    <div className={style.button_Course}>
+                    <button disabled={isCourseSaved} onClick={() => handleSave(servic._id)}  className={`${style.saveCourse} ${isCourseSaved ?   style.saveCourseDis : ""}`}>
                       {!isCourseSaved ? "Сохранить" : "Сохранено"}
                     </button>
+                    <button disabled={isCourseBuy} onClick={() => handleEntry(servic._id)} className={`${style.buyCourse} ${isCourseBuy ?   style.buyCourseDis : ""}`}>
+                      {isCourseBuy ? "Курс оплачен" : "Оплатить"}
+                    </button>
+
+                    </div>
                     {isCourseSaved && (
-                      <div onClick={() => handleDelSave(servic._id)}>
-                        Удалить{" "}
+                      <div onClick={() => handleDelSave(servic._id)} className={style.delSaveCourse}>
+                        Удалить
                       </div>
                     )}
-                    {/* <IconButton color="secondary" aria-label="add an alarm">
-                        <AlarmIcon />
-                      </IconButton> */}
-                  </div>
-                  {/* ) : ( */}
-                  <div onClick={() => handleDelSave(servic._id)}>
-                    {/* <IconButton color="secondary" aria-label="delete">
-                        <DeleteIcon />
-                      </IconButton> */}
-                  </div>
-                  {/* )} */}
 
-                  <IconButton color="primary" aria-label="add to shopping cart">
-                    <AddShoppingCartIcon />
-                  </IconButton>
+
+                  </div>
                 </Stack>
               </div>
             </div>

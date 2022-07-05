@@ -64,3 +64,36 @@
   margin-bottom: 15px;
   border-radius: 15px;
 }
+.button_Course {
+}
+.saveCourse {
+  width: 200px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9px;
+  margin: 15px;
+  background: slateblue;
+  margin-bottom: none;
+
+}
+.saveCourseDis {
+  opacity: 0.4;
+}
+.buyCourse {
+  width: 200px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9px;
+  margin: 15px;
+  margin-bottom: none;
+  background: slateblue;
+}
+.buyCourseDis {
+  opacity: 0.4;
+}
+.delSaveCourse{
+  color: red;
+  text-decoration:solid;
+}

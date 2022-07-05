@@ -204,6 +204,30 @@ export const addMoney = createAsyncThunk(
   }
 );
 
+export const entryCourse = createAsyncThunk(
+  "entry/course",
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const res = await fetch(`/service/entry/course/${id}/wou`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+          "Content-Type": "application/json",
+        }
+      })
+      const data = await res.json();
+      return thunkAPI.fulfillWithValue(data);
+
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+
+    }
+  }
+
+)
+
 
 const usersSlice = createSlice({
   name: "users",
@@ -256,11 +280,17 @@ const usersSlice = createSlice({
       state.users = action.payload;
     });
     builder
+      .addCase(entryCourse.fulfilled, (state, action) => {
+  
+        state.users = action.payload;
+      })
+    builder
       .addCase(addMoney.pending, (state, action) => {
         state.loading = true;
       })
       .addCase(addMoney.fulfilled, (state, action) => {
         state.loading = false;
+        console.log(action);
         state.authUser = action.payload;
       })
       .addCase(addMoney.rejected, (state, action) => {

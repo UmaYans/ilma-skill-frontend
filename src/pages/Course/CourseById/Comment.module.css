@@ -13,12 +13,69 @@
 .comment_text {
   color: white;
   font-size: 22px;
+  word-break: break-all;
+  text-align: center;
+  width: 80%;
 }
 .user_profile_img {
-  width: 80px;
-  height: 60px;
+  width: 50px;
+  /* height: 60px; */
 }
 .user_profile_img img {
   border-radius: 50%;
   width: 100%;
+}
+.imgUser {
+  width: 100%;
+  height: 100%;
+}
+.cont {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 80%;
+  margin-bottom: 30px;
+
+  margin: 30px auto;
+  text-align: center;
+}
+.fio_rating {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  /* padding: 10px; */
+}
+.user_Name {
+  color: white;
+  font-size: 30px;
+}
+.text_button {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.form {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 50px;
+  align-items: center;
+}
+.review {
+  color: white;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  border-bottom: 1px solid white;
+  margin-bottom: 40px;
+}
+.btn_del {
+  background-color: none;
+}
+.input {
+  width: 50%;
+  height: 30px;
+}
+.btn_inp {
+  width: 20%;
+  height: 30px;
 }

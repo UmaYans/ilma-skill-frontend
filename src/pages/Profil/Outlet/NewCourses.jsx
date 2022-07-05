@@ -10,13 +10,12 @@ const NewCourses = () => {
 
   const categories = useSelector((state) => state.cat.categories);
 
-  const [image, setImage] = useState(null)
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(postServiceByTeacher());
   }, [dispatch]);
-
 
   const uploadHandler = (e) => {
     e.preventDefault();
@@ -77,33 +76,30 @@ const NewCourses = () => {
       <div className={style.newCourse}>
         <div className={style.newCourse_wrap}>
           <span>Выберие фотографию для курса </span>
-          <img
-                className={style.img}
-                src={def}
-                alt="name"
-              />
+          <img className={style.img} src={def} alt="name" />
           <div className={style.newCourse_img}>
-        <input
-          type="file"
-          id="upload"
-          accept="image/*"
-          onChange={uploadHandler}
-        />
+            <input
+              type="file"
+              id="upload"
+              accept="image/*"
+              onChange={uploadHandler}
+            />
           </div>
         </div>
         <div className={style.newCourse_inp}>
           <form action="" onSubmit={(e) => e.preventDefault()}>
             <div>
-              <p>Название курса</p>
+              <p className={style.titleCor}>Название курса</p>
               <input
                 value={name}
                 type="text"
                 placeholder="Введите название курса..."
                 onChange={handleChangeName}
+                className={style.inpi}
               />
             </div>
             <div>
-              <p>Описание курса</p>
+              <p className={style.titleCor}>Описание курса</p>
               <textarea
                 value={description}
                 onChange={handleChagneDesc}
@@ -112,33 +108,34 @@ const NewCourses = () => {
                 rows="10"
                 cols="33"
                 placeholder="Введите описание..."
-                className={style.textAr}
+                className={style.textarea}
               >
                 It was a dark and stormy nароight...
               </textarea>
             </div>
             <div>
-              <p>Стоимость курса</p>
+              <p className={style.titleCor}>Стоимость курса</p>
               <input
                 value={price}
                 type="number"
                 placeholder="Введите cтоимость курса..."
                 onChange={handleChangePrice}
+                className={style.inpi}
               />
             </div>
             <div>
-              <p>Категория курса</p>
-              <select name="categories" onChange={handleChangeCatId}>
+              <p className={style.titleCor}>Категория курса</p>
+              <select className={style.select} name="categories" onChange={handleChangeCatId}>
                 {categories.map((category) => {
-                  <option value={catId} selected disabled>
+                  <option value={catId} selected disabled className={style.select__item}>
                     Выберите категорию{" "}
                   </option>;
-                  return <option value={category._id}>{category.name}</option>;
+                  return  <option className={style.select__item} value={category._id}>{category.name}</option>;
                 })}
               </select>
             </div>
             <div>
-              <p>Формат обучения</p>
+              <p className={style.titleCor}>Формат обучения</p>
               <input
                 // value={format}
                 type="radio"
@@ -151,11 +148,13 @@ const NewCourses = () => {
               <label for="Offline">Offline</label>
             </div>
             <div>
-              <p>Время обучения</p>
-              <input type="date" value={time} onChange={handleChangeTime} />
+              <p className={style.titleCor}>Время обучения</p>
+              <input type="date" value={time} onChange={handleChangeTime} 
+              className={style.inpii}
+              />
             </div>
             <div>
-              <button onClick={hadnleAddCourse}>Добавить</button>
+              <button className={style.boton1} onClick={hadnleAddCourse}>Добавить</button>
             </div>
           </form>
         </div>

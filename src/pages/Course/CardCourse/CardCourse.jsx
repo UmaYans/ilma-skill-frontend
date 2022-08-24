@@ -4,7 +4,6 @@ import style from "./CardCorse.module.css";
 
 const CardCourse = ({ servic }) => {
   const [check, setCheck] = useState(false);
-  console.log(servic);
   const readMore = () => {
     setCheck(!check);
   };

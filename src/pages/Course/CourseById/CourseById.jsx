@@ -33,7 +33,7 @@ const CourseById = () => {
   });
 
   if (!user || !servic || !comments || loading) {
-    return <div>....</div>;
+    return <div className={style.noToken}>Для просмотра курса нужно <Link to={`/sign-in`}>Авторизаться</Link></div>;
   }
   console.log(user, "34");
 

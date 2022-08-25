@@ -9,8 +9,6 @@ import img from "./img.svg";
 const SigninPage = () => {
   const dispatch = useDispatch();
 
-  const error = useSelector((state) => state.user.error);
-
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 

@@ -52,8 +52,8 @@ const InfoCoutse = ({
   };
 
   const handleEntry = (id) => {
-    dispatch(entryCourse(id))
-  }
+    dispatch(entryCourse(id));
+  };
 
   function timeConverter(UNIX_timestamp) {
     let a = new Date(UNIX_timestamp * 1000);
@@ -133,23 +133,35 @@ const InfoCoutse = ({
               </div>
               <div>
                 <Stack direction="row" spacing={1}>
-                  <div >
+                  <div>
                     <div className={style.button_Course}>
-                    <button disabled={isCourseSaved} onClick={() => handleSave(servic._id)}  className={`${style.saveCourse} ${isCourseSaved ?   style.saveCourseDis : ""}`}>
-                      {!isCourseSaved ? "Сохранить" : "Сохранено"}
-                    </button>
-                    <button disabled={isCourseBuy} onClick={() => handleEntry(servic._id)} className={`${style.buyCourse} ${isCourseBuy ?   style.buyCourseDis : ""}`}>
-                      {isCourseBuy ? "Курс оплачен" : "Оплатить"}
-                    </button>
-
+                      <button
+                        disabled={isCourseSaved}
+                        onClick={() => handleSave(servic._id)}
+                        className={`${style.saveCourse} ${
+                          isCourseSaved ? style.saveCourseDis : ""
+                        }`}
+                      >
+                        {!isCourseSaved ? "Сохранить" : "Сохранено"}
+                      </button>
+                      <button
+                        disabled={isCourseBuy}
+                        onClick={() => handleEntry(servic._id)}
+                        className={`${style.buyCourse} ${
+                          isCourseBuy ? style.buyCourseDis : ""
+                        }`}
+                      >
+                        {isCourseBuy ? "Курс оплачен" : "Оплатить"}
+                      </button>
                     </div>
                     {isCourseSaved && (
-                      <div onClick={() => handleDelSave(servic._id)} className={style.delSaveCourse}>
+                      <div
+                        onClick={() => handleDelSave(servic._id)}
+                        className={style.delSaveCourse}
+                      >
                         Удалить
                       </div>
                     )}
-
-
                   </div>
                 </Stack>
               </div>

@@ -36,6 +36,7 @@ const SignupPage = () => {
   const [lastNameDirty, setLastNameDirty] = useState(false);
   const [loginDirty, setLoginDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
+  const [phoneDirty, setPhoneDirty] = useState(false);
   const [emailError, setEmailError] = useState(
     "Поле ввода не может быть пустым"
   );
@@ -46,6 +47,8 @@ const SignupPage = () => {
   const [lastNameError, setLastNameError] = useState(
     "Поле ввода не может быть пустым"
   );
+  const [ageError, setAgeError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
 
   const hadleChangeName = (e) => {
     setFirstName(e.target.value);
@@ -58,6 +61,16 @@ const SignupPage = () => {
       setNameError("Имя не должно быть длинне 10 символов");
     } else {
       setNameError("");
+    }
+  };
+
+  const handlePhoneError = (e) => {
+    setPhone(e.target.value);
+    if (e.target.value.length <= 9) {
+      setPhoneError("номер не должен быть короче 9 цифр");
+      if (!e.target.value.length) {
+        setPhoneError("Заполните поле");
+      }
     }
   };
 
@@ -89,7 +102,7 @@ const SignupPage = () => {
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
     if (e.target.value.length < 3) {
-      setPasswordError("Пароль должен быть длиннее 3 символов");
+      setPasswordError("Пароль не может содержать меньше 3-х символов");
       if (!e.target.value) {
         setPasswordError("Заполните поле");
       }
@@ -142,6 +155,9 @@ const SignupPage = () => {
       case "password":
         setPasswordDirty(true);
         break;
+      case "phone":
+        setPhoneDirty(true);
+        break;
       case "text":
         setNameDirty(true);
         break;
@@ -161,7 +177,7 @@ const SignupPage = () => {
     <div className={style.body}>
       <div className={style.img}>
         <div>
-          <h1>Добро пожаловать на платформу онлайн-обучения SIDIK</h1>
+          <h1>Добро пожаловать на платформу онлайн-обучения I'lma-skill</h1>
         </div>
         <div>
           <img src={img} alt="#" />
@@ -169,7 +185,6 @@ const SignupPage = () => {
       </div>
       <div className={style.content}>
         {" "}
-        <divc className={style.error}>{error}</divc>
         <h1>Регистрация</h1>
         <form action="" onSubmit={handlePrev}>
           <div className={style.div}>
@@ -230,6 +245,9 @@ const SignupPage = () => {
             </div>
             <p> Номер телефона</p>
             <div>
+              <div className={style.error}>
+                {phoneDirty && phoneError && <div>{phoneError}</div>}
+              </div>
               <img
                 src="            https://www.svgrepo.com/show/39091/telephone.svg                "
                 alt="phot"
@@ -237,12 +255,14 @@ const SignupPage = () => {
               />
 
               <InputMask
+                name="phone"
                 mask="+7(999)-999-99-99"
                 className={style.input}
                 type="text"
                 placeholder="+7 (123)-456-78-90"
                 value={phone}
-                onChange={(e) => handleChangePhone(e)}
+                onBlur={handleBlur}
+                onChange={handlePhoneError}
               ></InputMask>
             </div>
             <p> Логин</p>

@@ -111,7 +111,6 @@ const SigninPage = () => {
                 {" "}
                 <div className={style.title}>Авторизация</div>
               </div>
-              <div className={style.error}>{error}</div>
               <div className={style.userLog}>Логин</div>
               <div>
                 <div className={style.error}>

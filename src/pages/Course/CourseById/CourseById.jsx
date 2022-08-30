@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getCommentByServiceId } from "../../../redux-toolkit/features/commentsSlice";
@@ -18,9 +18,16 @@ const CourseById = () => {
   const token = useSelector((state) => state.user.token);
   const comments = useSelector((state) => state.com.comments);
   const loading = useSelector((state) => state.serv.loading);
+
   useEffect(() => {
     dispatch(getServiceById(id));
+  }, [dispatch, id]);
+
+  useEffect(() => {
     dispatch(getUser());
+  }, [dispatch, id]);
+
+  useEffect(() => {
     dispatch(getCommentByServiceId(id));
   }, [dispatch, id]);
 
@@ -33,9 +40,12 @@ const CourseById = () => {
   });
 
   if (!user || !servic || !comments || loading) {
-    return <div className={style.noToken}>Для просмотра курса нужно <Link to={`/sign-in`}>Авторизаться</Link></div>;
+    return (
+      <div className={style.noToken}>
+        Для просмотра курса нужно <Link to={`/sign-in`}>Авторизаться</Link>
+      </div>
+    );
   }
-  console.log(user, "34");
 
   return (
     <div>

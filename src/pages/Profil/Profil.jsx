@@ -9,7 +9,7 @@ import style from "./profile.module.css";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 
-const   Profil = (id, user) => {
+const Profil = (id, user) => {
   const image = useSelector((state) => state.user.users);
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const   Profil = (id, user) => {
 
   const pathAva = (file) => {
     dispatch(pathAvatar({ file }));
-    localStorage.setItem("avatar" , user?.avatar);
+    localStorage.setItem("avatar", user?.avatar);
   };
   if (!users) {
     return <div>...</div>;
@@ -90,21 +90,12 @@ const   Profil = (id, user) => {
                 Фамилия: {users?.lastName}
               </div>
               <div className={style.age}>Возраст: {users?.age}</div>
-              <div className={style.wallet}><h3>Баланс: {users.money}₽</h3></div>
-              <button className={style.buttonss} onClick={handleClick}>Пополнить</button>
-              {/* {click ? (
-                <div>
-                  <div>
-                    <input
-                      value={moneyAdd}
-                      placeholder="Введите сумму"
-                      type="number"
-                      onChange={handleAddMoney}
-                    />
-                  </div>
-                  <button onClick={handleMoney}>Пополнить</button>
-                </div>
-              ) : null} */}
+              <div className={style.wallet}>
+                <h3>Баланс: {users.money}₽</h3>
+              </div>
+              <button className={style.buttonss} onClick={handleClick}>
+                Пополнить
+              </button>
               <div className={`${style.dropdown} ${click ? style.drop : ""}`}>
                 <form>
                   <div

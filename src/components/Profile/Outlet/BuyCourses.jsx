@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./style/SaveCourses.module.css";
@@ -16,7 +16,6 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -33,10 +32,10 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const SaveCourses = () => {
+const BuyCourses = () => {
   const dispatch = useDispatch();
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const user = useSelector((state) => state.user.users);
   const users = useSelector((state) => state.user.allUsers);
@@ -53,14 +52,12 @@ const SaveCourses = () => {
 
   const nameTeach = (id) => {
     const usera = users.find((user) => user._id === id);
-    console.log(usera, "2323");
+    console.log(usera);
     if (usera) {
       return usera;
     }
     return "...";
   };
-
-  // const teacher = user.saveCourses.find(item => item.teacher === )
 
   console.log(users, "32");
   console.log(user, "32");
@@ -71,14 +68,14 @@ const SaveCourses = () => {
 
   return (
     <div>
-      <p>Сохраненные курсы </p>
+      <p>Купленные курсы</p>
       <div className={style.wrapper}>
-        {user.saveCourses.length === 0 ? (
+        {user.myCourses.length === 0 ? (
           <div>
             Нет сохраненных курсов.Найти <Link to="/course">курс?</Link>
           </div>
         ) : (
-          user.saveCourses.map((course) => {
+          user.myCourses.map((course) => {
             return (
               <Card sx={{ maxWidth: 345 }} key={course._id}>
                 <CardHeader
@@ -174,4 +171,4 @@ const SaveCourses = () => {
   );
 };
 
-export default SaveCourses;
+export default BuyCourses;

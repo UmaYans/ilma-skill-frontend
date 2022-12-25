@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "@mui/material/Rating";
 import style from "./Comment.module.css";
@@ -43,7 +43,7 @@ const Commnts = ({ user, token, id, comments }) => {
             disabled={!text}
             onClick={() => addCom()}
           />
-                    <div className={style.zvezda}>
+          <div className={style.zvezda}>
             <Rating
               name="simple-controlled"
               value={+grade}
@@ -65,26 +65,25 @@ const Commnts = ({ user, token, id, comments }) => {
                     alt="imag"
                     className={style.imgUser}
                   />{" "}
-                          <div className={style.user_Name}>
-                  {comment.userId?.firstName} {comment.userId?.lastName[0]}.
-                </div>{" "}
+                  <div className={style.user_Name}>
+                    {comment.userId?.firstName} {comment.userId?.lastName[0]}.
+                  </div>{" "}
                 </div>
                 <div className={style.text_button}>
                   <div>
-                <div className={style.comment_text}>{comment?.text}
+                    <div className={style.comment_text}>{comment?.text}</div>
+                    <hr></hr>
+                  </div>
+                  <div className={style.rating}>
+                    <span className={style.title}>Рейтинг:</span>
+                    <Rating
+                      name="read-only"
+                      value={comment.grade}
+                      size="large"
+                      readOnly
+                    />
+                  </div>
                 </div>
-                <hr></hr>
-                </div>
-                <div className={style.rating}>
-                  <span className={style.title}>Рейтинг:</span>
-                  <Rating
-                    name="read-only"
-                    value={comment.grade}
-                    size="large"
-                    readOnly
-                  />
-                </div>
-              </div>
                 <div>
                   <button
                     onClick={() => handleDelete(comment._id)}

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { getCategories } from "../../redux-toolkit/features/categoriesSlice";
 import { getService } from "../../redux-toolkit/features/serviceSlice";
 import { BsArrowRight } from "react-icons/bs";
-import CardCourse from "./CardCourse/CardCourse";
+import CardCourse from "../../components/Course/CardCourse/CardCourse";
 import CartMap from "./CartMap/CartMap";
 import style from "./Course.module.css";
 

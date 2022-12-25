@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux-toolkit/features/categoriesSlice";
 import { postServiceByTeacher } from "../../../redux-toolkit/features/serviceSlice";
@@ -125,12 +125,25 @@ const NewCourses = () => {
             </div>
             <div>
               <p className={style.titleCor}>Категория курса</p>
-              <select className={style.select} name="categories" onChange={handleChangeCatId}>
+              <select
+                className={style.select}
+                name="categories"
+                onChange={handleChangeCatId}
+              >
                 {categories.map((category) => {
-                  <option value={catId} selected disabled className={style.select__item}>
+                  <option
+                    value={catId}
+                    selected
+                    disabled
+                    className={style.select__item}
+                  >
                     Выберите категорию{" "}
                   </option>;
-                  return  <option className={style.select__item} value={category._id}>{category.name}</option>;
+                  return (
+                    <option className={style.select__item} value={category._id}>
+                      {category.name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -149,12 +162,17 @@ const NewCourses = () => {
             </div>
             <div>
               <p className={style.titleCor}>Время обучения</p>
-              <input type="date" value={time} onChange={handleChangeTime} 
-              className={style.inpii}
+              <input
+                type="date"
+                value={time}
+                onChange={handleChangeTime}
+                className={style.inpii}
               />
             </div>
             <div>
-              <button className={style.boton1} onClick={hadnleAddCourse}>Добавить</button>
+              <button className={style.boton1} onClick={hadnleAddCourse}>
+                Добавить
+              </button>
             </div>
           </form>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Cart.module.css";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";

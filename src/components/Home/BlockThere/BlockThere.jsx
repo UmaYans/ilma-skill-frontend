@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { getService } from "../../../redux-toolkit/features/serviceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./BlockThere.module.css";

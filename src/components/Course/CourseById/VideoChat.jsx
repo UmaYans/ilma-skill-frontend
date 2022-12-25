@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
@@ -18,14 +18,13 @@ const VideoChat = ({ user, token }) => {
       if (rootNode.current) {
         updateRooms(rooms);
       }
-    });  })
+    });
+  });
 
-    
   const renderSwitch = () => {
     if (user.role !== "Teacher" && rooms.length === 0) {
-      return <h2>Нет начатых вебинаров</h2>
+      return <h2>Нет начатых вебинаров</h2>;
     }
-
 
     switch (user?.role) {
       case "User":

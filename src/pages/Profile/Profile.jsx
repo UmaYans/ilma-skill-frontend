@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   pathAvatar,
@@ -9,12 +9,13 @@ import style from "./profile.module.css";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 
-const Profil = (id, user) => {
-  const image = useSelector((state) => state.user.users);
-  const users = useSelector((state) => state.user.users);
+const Profile = (id, user) => {
   const dispatch = useDispatch();
   const [click, setClick] = useState(false);
   const [moneyAdd, setMoneyAdd] = useState("");
+
+  const users = useSelector((state) => state.user.users);
+  const image = useSelector((state) => state.user.users);
 
   const unSign = () => {
     localStorage.removeItem("token");
@@ -231,4 +232,4 @@ const Profil = (id, user) => {
   );
 };
 
-export default Profil;
+export default Profile;

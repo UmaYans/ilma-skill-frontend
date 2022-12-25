@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import React, { useState } from "react";
+import { useState } from "react";
 import InputMask from "react-input-mask";
 
 import { useDispatch, useSelector } from "react-redux";

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getCommentByServiceId } from "../../../redux-toolkit/features/commentsSlice";
 import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
 import { getUser } from "../../../redux-toolkit/features/usersSlice";
-import Commnts from "./Commnts";
+import Commnts from "./Comments";
 import InfoCoutse from "./InfoCoutse";
 import style from "./CourseById.module.css";
 import VideoChat from "./VideoChat";

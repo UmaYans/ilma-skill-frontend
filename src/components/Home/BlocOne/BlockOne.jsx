@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./BlockOne.module.css";
 import man from "./BlackBoy1.png";
 import { getService } from "../../../redux-toolkit/features/serviceSlice";
@@ -31,7 +31,11 @@ function BlockOne() {
               </option>
               {/* {console.log(service)} */}
               {service.map((services, num) => {
-                return <option key={num} value={num + 1}>{services.name}</option>;
+                return (
+                  <option key={num} value={num + 1}>
+                    {services.name}
+                  </option>
+                );
               })}
             </select>
             <input

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React, { useState } from "react";
 import InputMask from "react-input-mask";
 
@@ -13,7 +14,6 @@ const SignupPage = () => {
   const dispatch = useDispatch();
 
   const signinUp = useSelector((state) => state.user.signinUp);
-  const error = useSelector((state) => state.user.error);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -47,7 +47,6 @@ const SignupPage = () => {
   const [lastNameError, setLastNameError] = useState(
     "Поле ввода не может быть пустым"
   );
-  const [ageError, setAgeError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
 
   const hadleChangeName = (e) => {
@@ -88,7 +87,8 @@ const SignupPage = () => {
 
   const handleChangeLogin = (e) => {
     setLogin(e.target.value);
-    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const re =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Некорректный email");
       if (!e.target.value) {
@@ -125,10 +125,6 @@ const SignupPage = () => {
 
   const handleChangeAge = (e) => {
     setAge(e.target.value);
-  };
-
-  const handleChangePhone = (e) => {
-    setPhone(e.target.value);
   };
 
   const handleSubmit = () => {

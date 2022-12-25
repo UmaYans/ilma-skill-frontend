@@ -19,6 +19,7 @@ export default function useWebRTC(roomID) {
         return list;
       }, cb);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [clients, updateClients]
   );
 
@@ -101,7 +102,7 @@ export default function useWebRTC(roomID) {
     return () => {
       socket.off(ACTIONS.ADD_PEER);
     };
-  }, []);
+  }, [addNewClient]);
 
   useEffect(() => {
     async function setRemoteMedia({
@@ -160,7 +161,7 @@ export default function useWebRTC(roomID) {
     return () => {
       socket.off(ACTIONS.REMOVE_PEER);
     };
-  }, []);
+  }, [updateClients]);
 
   useEffect(() => {
     async function startCapture() {
@@ -185,7 +186,7 @@ export default function useWebRTC(roomID) {
     startCapture()
       .then(() => socket.emit(ACTIONS.JOIN, { room: roomID }))
       .catch((e) => console.error("Error getting userMedia:", e));
-  }, [roomID]);
+  }, [addNewClient, roomID]);
 
   const provideMediaRef = useCallback((id, node) => {
     peerMediaElements.current[id] = node;

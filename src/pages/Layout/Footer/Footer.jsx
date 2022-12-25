@@ -35,6 +35,7 @@ const Footer = () => {
             <div className={style.wrapper}>
               <div className={`${style.icon} ${style.twitter}`}>
                 <img
+                  className={style.twit}
                   src="https://www.svgrepo.com/show/318179/twitter.svg"
                   alt="phot"
                 />
@@ -47,14 +48,6 @@ const Footer = () => {
                   alt="phot"
                 />
                 <span className={style.tooltip}>Instagram</span>
-              </div>
-              <div className={`${style.icon} ${style.github}`}>
-                <img
-                  className={style.git}
-                  src="https://www.svgrepo.com/show/376071/github.svg"
-                  alt="phot"
-                />
-                <span className={style.tooltip}>Github</span>
               </div>
               <div className={`${style.icon} ${style.youtube}`}>
                 <img

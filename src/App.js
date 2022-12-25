@@ -1,19 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Course from "./Course/Course";
-import CourseById from "./Course/CourseById/CourseById";
-import Room from "./Course/Room/Room";
-import Home from "./Home/Home";
-import Layout from "./Layout/Layout";
-import BuyCourses from "./Profil/Outlet/BuyCourses";
-import Comments from "./Profil/Outlet/Comments";
-import MyCourses from "./Profil/Outlet/MyCourses";
-import NewCourses from "./Profil/Outlet/NewCourses";
-import SaveCourses from "./Profil/Outlet/SaveCourses";
-import Profil from "./Profil/Profil";
-import SigninPage from "./Sign-in/SigninPage";
-import SignupPage from "./Sign-up/SignupPage";
+import Course from "./pages/Course/Course";
+import CourseById from "./pages/Course/CourseById/CourseById";
+import Room from "./pages/Course/Room/Room";
+import Home from "./pages/Home/Home";
+import Layout from "./pages/Layout/Layout";
+import BuyCourses from "./pages/Profil/Outlet/BuyCourses";
+import Comments from "./pages/Profil/Outlet/Comments";
+import MyCourses from "./pages/Profil/Outlet/MyCourses";
+import NewCourses from "./pages/Profil/Outlet/NewCourses";
+import SaveCourses from "./pages/Profil/Outlet/SaveCourses";
+import Profil from "./pages/Profil/Profil";
+import SigninPage from "./pages/Sign-in/SigninPage";
+import SignupPage from "./pages/Sign-up/SignupPage";
 
 const App = () => {
   const token = useSelector((state) => state.user.token);

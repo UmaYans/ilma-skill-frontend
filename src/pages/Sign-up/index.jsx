@@ -4,11 +4,11 @@ import InputMask from "react-input-mask";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerUser } from "../../redux-toolkit/features/usersSlice";
-import style from "./Signup.module.css";
+import { registerUser } from "redux/features/usersSlice";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 import img from "./img.svg";
+import style from "./Signup.module.css";
 
 const SignupPage = () => {
   const dispatch = useDispatch();

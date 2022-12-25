@@ -26,7 +26,7 @@ function BlockFour(props) {
         </div>
 
         <div className={styles.images}>
-          <img src={blackMan} />
+          <img alt="blackMan" src={blackMan} />
         </div>
       </div>
     </div>

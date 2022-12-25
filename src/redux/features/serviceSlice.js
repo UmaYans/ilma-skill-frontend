@@ -12,7 +12,7 @@ export const getService = createAsyncThunk(
   "get/service",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch("/service");
+      const res = await fetch("http://localhost:4100/service");
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
@@ -33,13 +33,13 @@ export const postServiceByTeacher = createAsyncThunk(
 
       formData.append("image", image);
       formData.append("name", name);
-      formData.append("description", description)
-      formData.append("time", time)
-      formData.append("catId", catId)
-      formData.append("format", format)
-      formData.append("price", price)
+      formData.append("description", description);
+      formData.append("time", time);
+      formData.append("catId", catId);
+      formData.append("format", format);
+      formData.append("price", price);
 
-      const res = await fetch("/service", {
+      const res = await fetch("http://localhost:4100/service", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${state.user.token}`,
@@ -58,7 +58,7 @@ export const getServiceById = createAsyncThunk(
   "get/serviceById",
   async (id, thunkAPI) => {
     try {
-      const res = await fetch(`/service/one/${id}`);
+      const res = await fetch(`http://localhost:4100/service/one/${id}`);
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
@@ -73,7 +73,7 @@ export const getServiceTeacher = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
 
-      const res = await fetch(`/teacherService`, {
+      const res = await fetch(`http://localhost:4100/teacherService`, {
         headers: {
           Authorization: `Bearer ${state.user.token}`,
         },

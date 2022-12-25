@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./style/SaveCourses.module.css";
-import {
-  getAllUsers,
-  getUser,
-} from "../../../redux-toolkit/features/usersSlice";
+import { getAllUsers, getUser } from "redux/features/usersSlice";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";

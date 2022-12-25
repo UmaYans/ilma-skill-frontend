@@ -196,7 +196,7 @@ figure.effect__text_three:hover p {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-.wrapper{
+.wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

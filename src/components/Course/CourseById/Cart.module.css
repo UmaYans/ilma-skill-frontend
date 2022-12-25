@@ -75,7 +75,6 @@
   margin: 15px;
   background: slateblue;
   margin-bottom: none;
-
 }
 .saveCourseDis {
   opacity: 0.4;
@@ -93,7 +92,7 @@
 .buyCourseDis {
   opacity: 0.4;
 }
-.delSaveCourse{
+.delSaveCourse {
   color: red;
-  text-decoration:solid;
+  text-decoration: solid;
 }

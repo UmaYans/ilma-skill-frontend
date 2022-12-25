@@ -1,56 +1,56 @@
 .header {
-    width: 100%;
-    height: 70px;
-    background: #0A033C;
-    position: fixed;
-    z-index: 10;
+  width: 100%;
+  height: 70px;
+  background: #0a033c;
+  position: fixed;
+  z-index: 10;
 }
-.main{
-    width: 100%;
-    height: 50px;
-    margin-top: 20px;
+.main {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
 }
 .populite {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .slova {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
 }
 .denomination {
-    margin-left: 10px;
-    font-size: 22px;
-    font-style: normal;
-    font-family:'Itim';
+  margin-left: 10px;
+  font-size: 22px;
+  font-style: normal;
+  font-family: "Itim";
 }
 .slova2 {
-    font-weight: 600;
-    font-size: 17px;
-    color: rgb(213, 244, 244);
-    text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgb(213, 244, 244);
+  text-decoration: none;
 }
 .img {
-    width: 40px;
-    height: 40px;
-    border-radius: 22px;
-    position: absolute;
-    margin-left: 10px;
-    margin-top: -8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 22px;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: -8px;
 }
 .main_icon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-.icons{
-    height: 40px;
-    width: 40px;
-    background-color: white;
-    border-radius: 30px;
+.icons {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 30px;
 }
-.icons img{
-    width: 100%;
-    height: 100%;
+.icons img {
+  width: 100%;
+  height: 100%;
 }

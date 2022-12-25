@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { getService } from "redux/features/serviceSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+import { Link } from "react-router-dom";
 import styles from "./BlockOne.module.css";
 import man from "./BlackBoy1.png";
-import { getService } from "../../../redux-toolkit/features/serviceSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 function BlockOne() {
-  const service = useSelector((state) => state.serv.services);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getService());
   }, [dispatch]);
@@ -24,30 +26,10 @@ function BlockOne() {
             и специализирующийся на аккредитованных и индивидуальных учебных
             курсах. Мы сокрушаем барьеры, чтобы получить степень.
           </p>
-          <span className={styles.inputStyle}>
-            <select className={styles.sele}>
-              <option disabled={!true} value="1">
-                Выберите категорию
-              </option>
-              {/* {console.log(service)} */}
-              {service.map((services, num) => {
-                return (
-                  <option key={num} value={num + 1}>
-                    {services.name}
-                  </option>
-                );
-              })}
-            </select>
-            <input
-              className={styles.inp}
-              placeholder="найти нужный курс"
-            ></input>
-            <button> &#128269;Поиск</button>
-          </span>
         </div>
       </div>
       <div className={styles.rightBlock}>
-        <img src={man} />
+        <img src={man} alt="man" />
       </div>
     </div>
   );

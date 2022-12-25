@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../../../redux-toolkit/features/categoriesSlice";
-import { postServiceByTeacher } from "../../../redux-toolkit/features/serviceSlice";
+import { getCategories } from "redux/features/categoriesSlice";
+import { postServiceByTeacher } from "redux/features/serviceSlice";
 import def from "./img/defoltPhoto.png";
 import style from "./style/NewCourse.module.css";
 

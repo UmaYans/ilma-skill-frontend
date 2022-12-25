@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import categoriesSlice from "./features/categoriesSlice";
-import  commentsSlcie  from "./features/commentsSlice";
-import  serviceSlice  from "./features/serviceSlice";
+import commentsSlcie from "./features/commentsSlice";
+import serviceSlice from "./features/serviceSlice";
 import usersSlice from "./features/usersSlice";
 
 export const store = configureStore({
@@ -10,5 +10,5 @@ export const store = configureStore({
     serv: serviceSlice,
     cat: categoriesSlice,
     com: commentsSlcie,
-  }
-})
+  },
+});

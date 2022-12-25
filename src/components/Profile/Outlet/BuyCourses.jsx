@@ -2,11 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./style/SaveCourses.module.css";
-import {
-  getAllUsers,
-  getUser,
-} from "../../../redux-toolkit/features/usersSlice";
-import { styled } from "@mui/material/styles";
+import { getAllUsers, getUser } from "redux/features/usersSlice";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -20,6 +17,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { styled } from "@mui/material/styles";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;

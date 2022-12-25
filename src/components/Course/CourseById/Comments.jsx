@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import Rating from "@mui/material/Rating";
 import style from "./Comment.module.css";
-import {
-  addComment,
-  deleteComment,
-} from "../../../redux-toolkit/features/commentsSlice";
+import { addComment, deleteComment } from "redux/features/commentsSlice";
 
 const Commnts = ({ user, token, id, comments }) => {
   const dispatch = useDispatch();

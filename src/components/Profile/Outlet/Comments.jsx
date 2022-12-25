@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteComment,
-  getCommentsByUser,
-} from "../../../redux-toolkit/features/commentsSlice";
+import { deleteComment, getCommentsByUser } from "redux/features/commentsSlice";
 import style from "./style/Comments.module.css";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";

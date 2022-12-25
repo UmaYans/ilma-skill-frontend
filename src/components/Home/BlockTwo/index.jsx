@@ -26,26 +26,26 @@ function BlockTwo(props) {
 
       {/* Картинка */}
       <div className={styles.images}>
-        <img src={calling} />
+        <img alt="#" src={calling} />
         {/* кнопки */}
         <div className={styles.buutons}>
           <button>
             <div className={styles.bro}>
-              <img className={styles.icon} src={sound} />
+              <img alt="#" className={styles.icon} src={sound} />
               <span className={styles.texts}>Аудио занятия</span>
             </div>
           </button>
 
           <button style={{ margin: "auto 3% auto 3%" }}>
             <div className={styles.bro}>
-              <img className={styles.icon} src={live} />
+              <img alt="#" className={styles.icon} src={live} />
               <span className={styles.texts}> Живые уроки</span>
             </div>
           </button>
 
           <button>
             <div className={styles.bro}>
-              <img className={styles.icon} src={play} />
+              <img alt="#" className={styles.icon} src={play} />
               <span className={styles.texts}> Записанные занятия</span>
             </div>
           </button>

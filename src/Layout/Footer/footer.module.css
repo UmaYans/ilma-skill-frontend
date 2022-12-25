@@ -50,8 +50,7 @@
   text-align: center;
   margin-left: 25px;
 }
-dsad
-.iconsBlock {
+dsad .iconsBlock {
   box-sizing: border-box;
   display: flex;
   height: 100%;
@@ -142,8 +141,6 @@ dsad
   color: #ffffff;
 }
 
-
-
 .wrapper .youtube:hover,
 .wrapper .youtube:hover .tooltip,
 .wrapper .youtube:hover .tooltip::before {
@@ -166,7 +163,6 @@ dsad
 .you {
   width: 25px;
 }
-
 
 .inst {
   width: 30px;

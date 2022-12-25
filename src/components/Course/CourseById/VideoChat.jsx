@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import socket from "../../../socket";
-import ACTIONS from "../../../socket/actions";
+import socket from "socket";
+import ACTIONS from "socket/actions";
 import { v4 } from "uuid";
 
 const VideoChat = ({ user, token }) => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const rootNode = useRef();
 

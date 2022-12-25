@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { getServiceTeacher } from "../../../redux-toolkit/features/serviceSlice";
-import {
-  getAllUsers,
-  getUser,
-} from "../../../redux-toolkit/features/usersSlice";
+import { getServiceTeacher } from "redux/features/serviceSlice";
+import { getAllUsers, getUser } from "redux/features/usersSlice";
 import style from "./style/MyCourse.module.css";
-
 
 const MyCourses = () => {
   const dispatch = useDispatch();

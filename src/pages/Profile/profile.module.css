@@ -1,154 +1,154 @@
 .main {
-    color: white;
+  color: white;
 }
 .img {
-    width: 120px;
-    height: 120px;
-    border-radius: 13px;
-    margin: 35px 20px 30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 13px;
+  margin: 35px 20px 30px;
 }
 .img:hover {
-    -webkit-box-shadow: inset 0px 0px 28px 11px rgba(77,77,77,0.58);
-    -moz-box-shadow: inset 0px 0px 28px 11px rgba(77,77,77,0.58);
-    box-shadow: inset 0px 0px 28px 11px rgba(77,77,77,0.58);
+  -webkit-box-shadow: inset 0px 0px 28px 11px rgba(77, 77, 77, 0.58);
+  -moz-box-shadow: inset 0px 0px 28px 11px rgba(77, 77, 77, 0.58);
+  box-shadow: inset 0px 0px 28px 11px rgba(77, 77, 77, 0.58);
 }
 .input {
-    display: none;
-    border-radius: 40px;
-} 
+  display: none;
+  border-radius: 40px;
+}
 .iconKa {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 .conainer {
-    display: flex;
-    width: 1150px;
-    margin: auto;
+  display: flex;
+  width: 1150px;
+  margin: auto;
 }
 .userLastname {
-    font-size: 19px;
-    margin-bottom: 12px;
+  font-size: 19px;
+  margin-bottom: 12px;
 }
-.horiz{
-    text-align: center;
-    border: solid 0.1px;
+.horiz {
+  text-align: center;
+  border: solid 0.1px;
 }
 .cont2 {
-    margin: 0  195px;
+  margin: 0 195px;
 }
 .pathPhot {
-    cursor: pointer;
+  cursor: pointer;
 }
 .email {
-    margin-left: 15px;
+  margin-left: 15px;
 }
-.phone{
- margin-left: 15px;
+.phone {
+  margin-left: 15px;
 }
-.info{ 
-    margin-top: 45px;
-    margin-left: 30px;
-    flex-wrap: wrap;
+.info {
+  margin-top: 45px;
+  margin-left: 30px;
+  flex-wrap: wrap;
 }
 .userName {
-    margin-bottom: 12px;
-    font-size: 19px;
+  margin-bottom: 12px;
+  font-size: 19px;
 }
 .age {
-    font-size: 19px;
+  font-size: 19px;
 }
 
 .title {
-    margin-left: 40px;
-    font-size: 22px;
-    color: #dadada;
+  margin-left: 40px;
+  font-size: 22px;
+  color: #dadada;
 }
 .horiz2 {
-    border: solid 0.1px;
-    width: 170px;
-    margin-right: 1500px;
+  border: solid 0.1px;
+  width: 170px;
+  margin-right: 1500px;
 }
 .iconPath {
-    position: absolute;
-    margin-left: 70px;
-    opacity: 0;
-    margin-top: 85px;
-    width: 30px;
-    height: 30px;
+  position: absolute;
+  margin-left: 70px;
+  opacity: 0;
+  margin-top: 85px;
+  width: 30px;
+  height: 30px;
 }
 .iconPath:hover {
-    opacity: 1;
-    -webkit-box-shadow: inset 0px 0px 28px 11px rgba(77,77,77,0.58);
-    -moz-box-shadow: inset 0px 0px 28px 11px rgba(77,77,77,0.58);
-    box-shadow: inset 0px 0px 28px 11px rgba(77,77,77,0.58);
+  opacity: 1;
+  -webkit-box-shadow: inset 0px 0px 28px 11px rgba(77, 77, 77, 0.58);
+  -moz-box-shadow: inset 0px 0px 28px 11px rgba(77, 77, 77, 0.58);
+  box-shadow: inset 0px 0px 28px 11px rgba(77, 77, 77, 0.58);
 }
 .exit {
-    width: 130px;
-    height: 40px;
-    color: #fff;
-    border-radius: 5px;
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative!important;
-    margin-top: 150px;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-    outline: none;
-  }
-  .exit {
-    background: rgb(79, 83, 157);
-
-    border: none;
-    z-index: 1;
-  }
-  .exit a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .exit:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 0;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    border-radius: 5px;
-    background-color: #656f0d;
-    background-image: linear-gradient(315deg, #18f875 0%, #2ea2af 74%);
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5);
-    transition: all 0.3s ease;
-  }
-  .exit:hover {
-    color: #000;
-  }
-  .exit:hover:after {
-    top: auto;
-    bottom: 0;
-    height: 100%;
-  }
-  .exit:active {
-    top: 2px;
-  }
-  .profile{
-    font-size: 22px;
-    font-weight: 600;
-    margin-left: 18%;
-  }
-  .cont3{
-    display: flex;
-    width: 73.5%;
-    margin: auto;
-  }
-  .sidebar {
-    width: 20%;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative !important;
+  margin-top: 150px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
-.cont3_wrap{
-    width: 80%;
+.exit {
+  background: rgb(79, 83, 157);
+
+  border: none;
+  z-index: 1;
+}
+.exit a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+}
+.exit:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: #656f0d;
+  background-image: linear-gradient(315deg, #18f875 0%, #2ea2af 74%);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+.exit:hover {
+  color: #000;
+}
+.exit:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.exit:active {
+  top: 2px;
+}
+.profile {
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: 18%;
+}
+.cont3 {
+  display: flex;
+  width: 73.5%;
+  margin: auto;
+}
+.sidebar {
+  width: 20%;
+}
+.cont3_wrap {
+  width: 80%;
 }
 .obsh {
   margin-left: 10px;
@@ -169,7 +169,7 @@
   color: #c3c3c3;
 }
 
-.modal{
+.modal {
   font-family: sans-serif;
   text-align: center;
 }
@@ -184,7 +184,7 @@
   width: 400px;
   display: flex;
   justify-content: center;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 5px;
   box-shadow: 0 3px 10px 0 rgba(122, 122, 122, 0.349);
 }
@@ -209,24 +209,22 @@
   max-width: 200px;
 }
 
-.buttonss{
-    position: absolute;
-    right: 200px;
-    bottom:420px;
-    
-    width: 143px;
-    height: 50px;
-    background: rgb(79, 83, 157);
-    border-radius: 10px;
-    color: white;
-    border: solid 0.1px;
-
-    
-}
-
-.wallet{
+.buttonss {
   position: absolute;
   right: 200px;
-  bottom:560px;
-  border-bottom: 1px solid white
+  bottom: 420px;
+
+  width: 143px;
+  height: 50px;
+  background: rgb(79, 83, 157);
+  border-radius: 10px;
+  color: white;
+  border: solid 0.1px;
+}
+
+.wallet {
+  position: absolute;
+  right: 200px;
+  bottom: 560px;
+  border-bottom: 1px solid white;
 }

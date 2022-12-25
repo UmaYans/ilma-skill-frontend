@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./header.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../redux-toolkit/features/usersSlice";
+import { getUser } from "redux/features/usersSlice";
 
 const Header = () => {
   const users = useSelector((state) => state.user.users);

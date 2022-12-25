@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import style from "./Cart.module.css";
-import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import AlarmIcon from "@mui/icons-material/Alarm";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { Rating } from "@mui/material";
 
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   deleteCorse,
   entryCourse,
   getUser,
   saveCorse,
-} from "../../../redux-toolkit/features/usersSlice";
-import { getServiceById } from "../../../redux-toolkit/features/serviceSlice";
+} from "redux/features/usersSlice";
 
 const InfoCoutse = ({
   user,

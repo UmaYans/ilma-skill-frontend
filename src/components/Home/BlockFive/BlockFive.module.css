@@ -1,20 +1,17 @@
-.rodBlock{
-    display: flex;
-    width: 80%;
-    margin: 10% auto auto auto;
+.rodBlock {
+  display: flex;
+  width: 80%;
+  margin: 10% auto auto auto;
 }
 
-.texts{
-    padding: 8%;
+.texts {
+  padding: 8%;
 }
 
-.texts h1{
-    color: white;
-
+.texts h1 {
+  color: white;
 }
 
-
-.texts p{
-    color: white;
-    
+.texts p {
+  color: white;
 }

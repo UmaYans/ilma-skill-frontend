@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  pathAvatar,
-  getUser,
-  addMoney,
-} from "../../redux-toolkit/features/usersSlice";
-import style from "./profile.module.css";
+import { pathAvatar, getUser, addMoney } from "redux/features/usersSlice";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
+import style from "./profile.module.css";
 
 const Profile = (id, user) => {
   const dispatch = useDispatch();

@@ -1,11 +1,9 @@
 import React from "react";
 import { useParams } from "react-router";
 
-import useWebRTC, { LOCAL_VIDEO } from "../../../hooks/useWebRTC";
-
+import useWebRTC, { LOCAL_VIDEO } from "hooks/useWebRTC";
 
 function layout(clientsNumber = 1) {
-  
   const pairs = Array.from({ length: clientsNumber }).reduce(
     (acc, next, index, arr) => {
       if (index % 2 === 0) {

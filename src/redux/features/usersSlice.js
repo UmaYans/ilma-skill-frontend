@@ -17,7 +17,7 @@ export const registerUser = createAsyncThunk(
     thunkAPI
   ) => {
     try {
-      const res = await fetch("/users", {
+      const res = await fetch("http://localhost:4100/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export const auth = createAsyncThunk(
   "login/user",
   async ({ login, password }, thunkAPI) => {
     try {
-      const res = await fetch("/login", {
+      const res = await fetch("http://localhost:4100/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export const getUser = createAsyncThunk("get/user", async (_, thunkAPI) => {
   const state = thunkAPI.getState();
 
   try {
-    const res = await fetch("/user", {
+    const res = await fetch("http://localhost:4100/user", {
       headers: {
         Authorization: `Bearer ${state.user.token}`,
       },
@@ -94,7 +94,7 @@ export const getAllUsers = createAsyncThunk(
   "et/allUsers",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch("/allUsers");
+      const res = await fetch("http://localhost:4100/allUsers");
       const users = await res.json();
       return thunkAPI.fulfillWithValue(users);
     } catch (error) {
@@ -141,7 +141,7 @@ export const saveCorse = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
-      const res = await fetch(`/saveCourses/${id}`, {
+      const res = await fetch(`http://localhost:4100/saveCourses/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -161,7 +161,7 @@ export const deleteCorse = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
-      const res = await fetch(`/deleteCourses/${id}`, {
+      const res = await fetch(`http://localhost:4100/deleteCourses/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -182,7 +182,7 @@ export const addMoney = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
 
-      const res = await fetch(`/addMoney`, {
+      const res = await fetch(`http://localhost:4100/addMoney`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${state.user.token}`,
@@ -210,24 +210,23 @@ export const entryCourse = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
 
-      const res = await fetch(`/service/entry/course/${id}/wou`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${state.user.token}`,
-          "Content-Type": "application/json",
+      const res = await fetch(
+        `http://localhost:4100/service/entry/course/${id}/wou`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${state.user.token}`,
+            "Content-Type": "application/json",
+          },
         }
-      })
+      );
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);
-
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
-
     }
   }
-
-)
-
+);
 
 const usersSlice = createSlice({
   name: "users",
@@ -279,11 +278,9 @@ const usersSlice = createSlice({
       console.log(action);
       state.users = action.payload;
     });
-    builder
-      .addCase(entryCourse.fulfilled, (state, action) => {
-  
-        state.users = action.payload;
-      })
+    builder.addCase(entryCourse.fulfilled, (state, action) => {
+      state.users = action.payload;
+    });
     builder
       .addCase(addMoney.pending, (state, action) => {
         state.loading = true;

@@ -13,7 +13,7 @@ export const getCommentsByUser = createAsyncThunk(
     const state = thunkAPI.getState();
 
     try {
-      const res = await fetch("/userCom", {
+      const res = await fetch("http://localhost:4100/userCom", {
         headers: {
           Authorization: `Bearer ${state.user.token}`,
         },
@@ -39,7 +39,7 @@ export const deleteComment = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
-      await fetch(`/comment/${id}`, {
+      await fetch(`http://localhost:4100/comment/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${state.user.token}`,
@@ -56,7 +56,7 @@ export const getCommentByServiceId = createAsyncThunk(
   "get/commentById",
   async (id, thunkAPI) => {
     try {
-      const res = await fetch(`/servCom/${id}`);
+      const res = await fetch(`http://localhost:4100/servCom/${id}`);
       const data = await res.json();
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
@@ -70,7 +70,7 @@ export const addComment = createAsyncThunk(
   async ({ text, grade, id }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const res = await fetch(`/comment/${id}`, {
+      const res = await fetch(`http://localhost:4100/comment/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import { getCategories } from "../../redux-toolkit/features/categoriesSlice";
-import { getService } from "../../redux-toolkit/features/serviceSlice";
+import { getCategories } from "redux/features/categoriesSlice";
+import { getService } from "redux/features/serviceSlice";
 import { BsArrowRight } from "react-icons/bs";
-import CardCourse from "../../components/Course/CardCourse/CardCourse";
-import CartMap from "./CartMap/CartMap";
+
 import style from "./Course.module.css";
+import { CardCourse, CartMap } from "components/Course";
 
 const Course = () => {
   const { catId } = useParams();
-
   const dispatch = useDispatch();
 
   const services = useSelector((state) => state.serv.services);
@@ -33,7 +32,7 @@ const Course = () => {
         <span>N</span>
         <span>G</span>
 
-        <div class="covers">
+        <div className={style.covers}>
           <span></span>
           <span></span>
           <span></span>
@@ -94,7 +93,8 @@ const Course = () => {
                     </div>
                   );
                 })
-              : categories.map((cat) => {
+              : // eslint-disable-next-line array-callback-return
+                categories.map((cat) => {
                   if (cat._id === catId) {
                     return (
                       <div key={cat._id}>

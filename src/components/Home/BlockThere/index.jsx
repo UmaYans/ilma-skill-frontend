@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { getService } from "../../../redux-toolkit/features/serviceSlice";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./BlockThere.module.css";
+import { getService } from "redux/features/serviceSlice";
+
 import { Link } from "react-router-dom";
+import styles from "./BlockThere.module.css";
 
 function BlockThere() {
   const service = useSelector((state) => state.serv.services);
@@ -11,6 +12,7 @@ function BlockThere() {
   useEffect(() => {
     dispatch(getService());
   });
+
   return (
     <div className={styles.titleBlock}>
       <div className={styles.title}>
@@ -32,13 +34,13 @@ function BlockThere() {
                     <b>
                       <p
                         className={
-                          num % 3 == 0
+                          num % 3 === 0
                             ? styles.radius
-                            : num % 4 == 0
+                            : num % 4 === 0
                             ? styles.radius4
-                            : num % 5 == 0
+                            : num % 5 === 0
                             ? styles.radius2
-                            : num % 6 == 1
+                            : num % 6 === 1
                             ? styles.radius3
                             : styles.radius4
                         }

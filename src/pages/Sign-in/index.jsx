@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { auth } from "../../redux-toolkit/features/usersSlice";
-import style from "./SigninPage.module.css";
+import { auth } from "redux/features/usersSlice";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 import img from "./img.svg";
+import style from "./SigninPage.module.css";
+
 const SigninPage = () => {
   const dispatch = useDispatch();
 

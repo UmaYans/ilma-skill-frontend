@@ -25,11 +25,10 @@ const NewCourses = () => {
   const [name, setName] = useState("");
   const [time, setTime] = useState("");
   const [catId, setCatId] = useState("");
-  const [photo, setPhoto] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [format, setFormat] = useState("");
-  console.log(time);
+
   useEffect(() => {
     dispatch(postServiceByTeacher());
   });

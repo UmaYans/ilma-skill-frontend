@@ -43,7 +43,7 @@ const CourseById = () => {
   if (!user || !service || !comments || loading) {
     return (
       <div className={style.noToken}>
-        Для просмотра курса нужно <Link to={`/sign-in`}>Авторизаться</Link>
+        Для просмотра курса нужно <Link to={`/sign-in`}>Авторизоваться</Link>
       </div>
     );
   }

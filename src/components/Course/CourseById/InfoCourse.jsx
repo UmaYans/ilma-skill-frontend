@@ -11,7 +11,7 @@ import {
   saveCorse,
 } from "redux/features/usersSlice";
 
-const InfoCoutse = ({
+const InfoCourse = ({
   user,
   token,
   id,
@@ -22,21 +22,15 @@ const InfoCoutse = ({
 }) => {
   const dispatch = useDispatch();
 
-  const commentsFind = comments.filter((item) => item._id === item._id);
-
   const rat = Math.floor(
-    commentsFind.reduce((sum, item) => {
+    comments.reduce((sum, item) => {
       return sum + item.grade;
-    }, 0) / commentsFind.length
+    }, 0) / comments.length
   );
 
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-
-  // const isCourseSaved = user.saveCourses.find((course) => {
-  //   return course._id === servic._id;
-  // });
 
   const handleSave = (id) => {
     dispatch(saveCorse(id));
@@ -70,8 +64,7 @@ const InfoCoutse = ({
     let month = months[a.getMonth()];
     let date = a.getDate();
 
-    let time = date + " " + month + " " + year;
-    return time;
+    return `${date} ${month} ${year}`;
   }
 
   function timeDiff() {
@@ -88,8 +81,6 @@ const InfoCoutse = ({
     }
     return s;
   }
-
-  console.log(servic, "es");
 
   return (
     <div className={style.main_info}>
@@ -196,4 +187,4 @@ const InfoCoutse = ({
   );
 };
 
-export default InfoCoutse;
+export default InfoCourse;

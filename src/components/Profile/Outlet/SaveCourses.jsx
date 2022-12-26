@@ -49,17 +49,11 @@ const SaveCourses = () => {
 
   const nameTeach = (id) => {
     const usera = users.find((user) => user._id === id);
-    console.log(usera, "2323");
     if (usera) {
       return usera;
     }
     return "...";
   };
-
-  // const teacher = user.saveCourses.find(item => item.teacher === )
-
-  console.log(users, "32");
-  console.log(user, "32");
 
   if (!user || loading || !users) {
     return <div>...</div>;

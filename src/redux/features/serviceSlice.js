@@ -104,7 +104,6 @@ export const serviceSlice = createSlice({
       .addCase(getService.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.error;
-        console.log(action);
       });
     builder
       .addCase(getServiceById.fulfilled, (state, action) => {

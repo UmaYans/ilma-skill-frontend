@@ -19,8 +19,6 @@ const Profile = (id, user) => {
     window.location.reload();
   };
 
-  console.log(moneyAdd);
-
   const handleAddMoney = (e) => {
     setMoneyAdd(e.target.value);
   };
@@ -46,7 +44,6 @@ const Profile = (id, user) => {
 
   const handleClick = (e) => {
     setClick(!click);
-    console.log(click);
     e.preventDefault();
   };
 

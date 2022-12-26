@@ -28,7 +28,6 @@ function BlockThere() {
           return (
             <div key={services._id}>
               <div className={styles.cardBlcok}>
-                {/* <>{services.name}</> */}
                 <div>
                   <div className={styles.number}>
                     <b>

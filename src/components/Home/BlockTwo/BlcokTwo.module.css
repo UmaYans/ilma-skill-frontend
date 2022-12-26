@@ -36,6 +36,7 @@
 }
 .bro {
   margin-right: 70%;
+  /* cursor: pointer; */
 }
 
 .icon {
@@ -48,4 +49,5 @@
   width: 25%;
   height: 50px;
   border-radius: 10px;
+  cursor: pointer;
 }

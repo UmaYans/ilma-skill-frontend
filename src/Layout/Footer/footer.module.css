@@ -50,13 +50,13 @@
   text-align: center;
   margin-left: 25px;
 }
-dsad .iconsBlock {
+.iconsBlock {
   box-sizing: border-box;
   display: flex;
   height: 100%;
   width: 100%;
   justify-content: space-between;
-  padding-left: 352px;
+  padding-left: 50px;
 }
 
 .wrapper {
@@ -200,10 +200,12 @@ dsad .iconsBlock {
 
 .prav {
   margin-top: 30px;
+  cursor: pointer;
   color: rgb(147, 144, 144);
 }
 
 .polit {
   margin-top: 30px;
+  cursor: pointer;
   color: rgb(147, 144, 144);
 }

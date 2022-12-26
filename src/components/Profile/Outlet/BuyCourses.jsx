@@ -50,15 +50,11 @@ const BuyCourses = () => {
 
   const nameTeach = (id) => {
     const usera = users.find((user) => user._id === id);
-    console.log(usera);
     if (usera) {
       return usera;
     }
     return "...";
   };
-
-  console.log(users, "32");
-  console.log(user, "32");
 
   if (!user || loading || !users) {
     return <div>...</div>;

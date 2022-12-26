@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 function BlockTwo(props) {
   return (
     <div className={styles.rodBlock}>
-      {/* /// Заголовок и текст */}
       <div className={styles.title}>
         <h1>Высококачественное видео, аудио и живые занятия</h1>
         <p>
@@ -20,14 +19,14 @@ function BlockTwo(props) {
           развертки или 576 вертикальных линий, считается высоким разрешением.
         </p>
         <Link to={`/course`}>
-          <button>Посетить курсы</button>
+          <button style={{ cursor: "pointer", marginTop: "55px" }}>
+            Посетить курсы
+          </button>
         </Link>
       </div>
 
-      {/* Картинка */}
       <div className={styles.images}>
         <img alt="#" src={calling} />
-        {/* кнопки */}
         <div className={styles.buutons}>
           <button>
             <div className={styles.bro}>

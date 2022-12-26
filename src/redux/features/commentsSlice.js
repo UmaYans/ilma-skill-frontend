@@ -19,8 +19,6 @@ export const getCommentsByUser = createAsyncThunk(
         },
       });
       const user = await res.json();
-      console.log(user, "23");
-
       if (user.error) {
         return thunkAPI.rejectWithValue({ error: user.error });
       } else {

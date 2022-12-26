@@ -21,8 +21,6 @@ const Comments = () => {
     dispatch(deleteComment(id)).then(dispatch(getCommentsByUser()));
   };
 
-  console.log(comments);
-
   if (error) {
     return <div>{error}</div>;
   }

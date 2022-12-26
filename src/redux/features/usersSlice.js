@@ -270,12 +270,9 @@ const usersSlice = createSlice({
         state.error = action.payload.error;
       });
     builder.addCase(saveCorse.fulfilled, (state, action) => {
-      console.log(action);
-
       state.users = action.payload;
     });
     builder.addCase(deleteCorse.fulfilled, (state, action) => {
-      console.log(action);
       state.users = action.payload;
     });
     builder.addCase(entryCourse.fulfilled, (state, action) => {
@@ -287,7 +284,6 @@ const usersSlice = createSlice({
       })
       .addCase(addMoney.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action);
         state.authUser = action.payload;
       })
       .addCase(addMoney.rejected, (state, action) => {

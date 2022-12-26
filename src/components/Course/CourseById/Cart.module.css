@@ -75,11 +75,13 @@
   margin: 15px;
   background: slateblue;
   margin-bottom: none;
+  cursor: pointer;
 }
 .saveCourseDis {
   opacity: 0.4;
 }
 .buyCourse {
+  cursor: pointer;
   width: 200px;
   color: white;
   font-size: 16px;
@@ -94,5 +96,6 @@
 }
 .delSaveCourse {
   color: red;
+  cursor: pointer;
   text-decoration: solid;
 }

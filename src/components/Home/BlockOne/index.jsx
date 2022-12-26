@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { getService } from "redux/features/serviceSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
 import styles from "./BlockOne.module.css";
@@ -17,9 +17,6 @@ function BlockOne() {
     <div className={styles.rodBlock}>
       <div className={styles.leftBlock}>
         <div className={styles.childLeftBlock}>
-          <Link to={"/course"}>
-            <button className={styles.upbutton}>Ознакомиться с курсами</button>
-          </Link>
           <h1>Развивайте свои навыки с помощью онлайн-курсов</h1>
           <p>
             Это глобальный поставщик учебных услуг, базирующийся по всей России
@@ -27,6 +24,9 @@ function BlockOne() {
             курсах. Мы сокрушаем барьеры, чтобы получить степень.
           </p>
         </div>
+        <Link to={"/course"}>
+          <button className={styles.upbutton}>Ознакомиться с курсами</button>
+        </Link>
       </div>
       <div className={styles.rightBlock}>
         <img src={man} alt="man" />

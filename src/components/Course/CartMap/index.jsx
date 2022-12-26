@@ -8,7 +8,8 @@ import img2 from "./d.svg";
 import { useSelector } from "react-redux";
 
 function CartMap() {
-  const [filtered, setFiltered] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [_, setFiltered] = useState([]);
 
   const categories = useSelector((state) => state.cat.categories);
 
@@ -23,14 +24,14 @@ function CartMap() {
           Развивайте свои навыки, чтобы продвинуться по карьерной лестнице.
         </div>
         <div className={style.banner_img}>
-          <img src={img} alt="" />
+          <img src={img} alt="#" />
         </div>
       </div>
       <div className={style.rec}>
         <div className={style.div_one}>
           <div className={style.icon}>
             <div className={style.first_child}>
-              <img src={img1} alt="" />
+              <img src={img1} alt="#" />
             </div>
             <div className={style.text_image}>
               <p>Найди новых друзей</p>
@@ -46,7 +47,7 @@ function CartMap() {
         <div className={style.div_one}>
           <div className={style.icon}>
             <div className={style.first_child}>
-              <img src={img2} alt="" />
+              <img src={img2} alt="#" />
             </div>
             <div className={style.text_image}>
               <p>Эксперт и веселый наставник</p>
@@ -75,13 +76,13 @@ function CartMap() {
       <div className={style.ccc}>
         <NavLink
           className={({ isActive }) =>
-            isActive ? `${style.link} ${style.active}` : `${style.link} `
+            isActive ? `${style.link} ${style.active}` : `${style.link}`
           }
           to={"/course"}
         >
-          <div className={style.allCat}>Все </div>
+          <div className={style.catName}>Все</div>
         </NavLink>
-        {categories.map((cat, index) => {
+        {categories.map((cat) => {
           return (
             <div key={cat._id}>
               <NavLink

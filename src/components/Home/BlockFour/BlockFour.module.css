@@ -34,9 +34,6 @@
   background: #9c4df4;
   border-radius: 10px;
   color: white;
+  cursor: pointer;
   margin: 10% 0 0 15%;
 }
-
-/* .blocks{
-    margin-bottom: 60%;
-} */

@@ -63,6 +63,11 @@ npm start
 
 # Наша команда:
 <h3>
+  <a href="https://github.com/020AlievIB">
+    <img alt="Islam" src="https://img.shields.io/badge/-Islam-black?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</h3>
+<h3>
   <a href="https://github.com/UmaYans">
     <img alt="UmaYans" src="https://img.shields.io/badge/-Yan-black?style=for-the-badge&logo=github&logoColor=white" />
   </a>

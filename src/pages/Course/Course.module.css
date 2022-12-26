@@ -72,10 +72,7 @@
   justify-content: space-evenly;
   border-radius: 10px;
 }
-.catName {
-  font-size: 16px;
-  text-align: center;
-}
+
 .cat_first {
   padding: 5px;
   min-width: 100px;
@@ -104,6 +101,18 @@
 .cartMap_catName {
   margin-left: 10%;
   font-size: 30px;
+}
+
+.catName {
+  padding: 5px;
+  min-width: 100px;
+  background-color: #eeeeee;
+  text-align: center;
+  align-items: center;
+  margin: 0 15px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
 }
 
 .icons_arrow {

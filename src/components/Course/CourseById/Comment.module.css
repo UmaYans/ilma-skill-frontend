@@ -1,0 +1,107 @@
+.rating {
+  font-weight: bold;
+  display: flex;
+  margin-left: 500px;
+  position: absolute;
+  margin-top: 50px;
+}
+
+.title {
+  margin-right: 20px;
+  font-size: 20px;
+  color: white;
+  margin-left: -90px;
+  position: absolute;
+}
+.comment_text {
+  color: white;
+  font-size: 18px;
+  word-break: break-all;
+  width: 80%;
+}
+.user_profile_img {
+  width: 70px;
+  margin-top: 5px;
+  /* height: 60px; */
+}
+.user_profile_img img {
+  border-radius: 50%;
+}
+.imgUser {
+  width: 80%;
+}
+.cont {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 50%;
+  margin-bottom: 30px;
+  display: flex;
+  margin: 30px auto;
+
+  padding: 10px;
+}
+.fio_rating {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  /* padding: 10px; */
+}
+.user_Name {
+  color: white;
+  font-size: 15px;
+}
+.text_button {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.form {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 50px;
+  align-items: center;
+}
+.review {
+  color: white;
+  width: 80%;
+  margin: auto;
+
+  border-bottom: 1px solid white;
+  margin-bottom: 40px;
+}
+.btn_del {
+  background-color: rgb(90, 89, 89);
+  position: absolute;
+  margin-left: 225px;
+  margin-top: -50px;
+  color: azure;
+  width: 80px;
+  height: 30px;
+  border-radius: none;
+}
+.btn_del:hover {
+  background-color: red;
+  color: azure;
+  border-radius: none;
+}
+.input {
+  width: 52%;
+  height: 30px;
+}
+.btn_inp {
+  width: 10%;
+  height: 30px;
+}
+.comment_text {
+  color: white;
+  font-size: 18px;
+  word-break: break-all;
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+.zvezda {
+  position: absolute;
+  margin-left: 240px;
+}

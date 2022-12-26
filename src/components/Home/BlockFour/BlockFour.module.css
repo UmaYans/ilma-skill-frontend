@@ -1,0 +1,39 @@
+.rodBlock {
+  display: flex;
+}
+.rodBlock1 {
+  background-color: #ede9f2;
+  width: 70%;
+  margin: auto;
+}
+.images {
+  width: 100%;
+  padding: 3%;
+}
+.images img {
+  margin-left: 6%;
+  width: 100%;
+  background-color: #ede9f2;
+}
+.texts {
+  width: 80%;
+  padding: 5%;
+}
+
+.texts h1 {
+  color: black;
+}
+.texts p {
+  color: black;
+}
+
+.buttons {
+  width: 180px;
+  border: none;
+  height: 50px;
+  background: #9c4df4;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  margin: 10% 0 0 15%;
+}

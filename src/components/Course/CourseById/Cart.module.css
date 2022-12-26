@@ -1,0 +1,101 @@
+.main_info {
+  color: rgb(252, 252, 252);
+  background: #221a2db1;
+  padding: 10px;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.img_block {
+  width: 40%;
+}
+.image_block {
+  padding: 80px 80px 0 80px;
+}
+.rating_all {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.img_block img {
+  width: 100%;
+  border-radius: 25px;
+}
+.text_block {
+  width: 60%;
+  padding: 15px;
+}
+.text_one {
+  font-family: cursive;
+  color: #3bf5bd;
+}
+.formats_map {
+  margin-top: 15px;
+  display: flex;
+}
+.fromats {
+  background: #0cf3ad;
+  margin-left: 15px;
+  padding: 8px;
+  border-radius: 15px;
+  color: #f5453d;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Inter";
+}
+.fromats_on {
+  background: #3ba7f5;
+}
+.list {
+  list-style: disc;
+}
+.banner {
+  width: 85%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.192) 0%,
+    rgba(255, 255, 255, 0.088) 100%
+  );
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+.button_Course {
+}
+.saveCourse {
+  width: 200px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9px;
+  margin: 15px;
+  background: slateblue;
+  margin-bottom: none;
+  cursor: pointer;
+}
+.saveCourseDis {
+  opacity: 0.4;
+}
+.buyCourse {
+  cursor: pointer;
+  width: 200px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9px;
+  margin: 15px;
+  margin-bottom: none;
+  background: slateblue;
+}
+.buyCourseDis {
+  opacity: 0.4;
+}
+.delSaveCourse {
+  color: red;
+  cursor: pointer;
+  text-decoration: solid;
+}
